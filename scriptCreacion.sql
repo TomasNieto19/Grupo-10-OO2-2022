@@ -37,6 +37,6 @@ INSERT INTO perfil VALUES( 1, "administrador", true, now(), now() );
 INSERT INTO perfil VALUES( 2, "auditoria", true, now(), now() );
 
 
-INSERT INTO usuario VALUES(1, "Administrador", "Administrador", 00000000, "admin@gmail.com", "admin", "$2a$10$bpYg2eJstxtebQ4liXefb..joNZGBsfz4MsbAq8gr0blbk0AxbOY6", true, now(), now(), 1);
+INSERT INTO usuario VALUES(1, "Administrador", "Administrador", 00000000, "admin@gmail.com", "admin", "$2a$10$glvtPMbUNyNMoaa6SF9hWOYwPt.hDt.cHs/bJagJ9Kaf3Shpt2co6", true, now(), now(), 1);
 
-INSERT INTO usuario VALUES(2, "Auditoria", "Auditoria", 11111111, "Auditoria@gmail.com", "auditor", "$2a$10$EKkMFp/5iK9uTIYx0rIfBeRmh/njVJClEHOEe/Y0hp7FfXoBUq86K", true, now(), now(), 2);
+INSERT INTO usuario VALUES(2, "Auditoria", "Auditoria", 11111111, "Auditoria@gmail.com", "auditor", "$2a$10$t6McDb.aIokbKk6RkdCe2eiHn0xCpbi8w01bYlyQ3VGjIXzfdC7Ru", true, now(), now(), 2);

@@ -10,9 +10,31 @@ public class HomeController {
 
 	@GetMapping("")
 	public String index() {
-		
+
 		return "home/index";
-		// IR a: http://localhost:8080
+
+	}
+
+	// Permite el funcionamiento de los botones (navbar)
+	@GetMapping("/index")
+	public String home() {
+
+		return "home/index";
+
+	}
+
+	@GetMapping("/about")
+	public String about() {
+
+		return "home/about";
+
+	}
+
+	@GetMapping("/contact")
+	public String contact() {
+
+		return "home/contact";
+
 	}
 	
 }

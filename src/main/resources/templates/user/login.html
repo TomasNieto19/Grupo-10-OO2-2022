@@ -14,6 +14,13 @@
 </head>
 
 <body>
+
+	<!-- MENSAJES -->
+	<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
+     	th:text="${mensaje}"
+     	class="alert alert-warning" role="alert">	
+	</div>
+
     <!-- Page Content -->
     <div class="wrapper fadeInDown">
         <div id="formContent">

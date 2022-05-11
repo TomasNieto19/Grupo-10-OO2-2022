@@ -15,14 +15,14 @@
 
 <body>
 
-	<!-- MENSAJES -->
-	<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
-     	th:text="${mensaje}"
-     	class="alert alert-warning" role="alert">	
-	</div>
 
-    <!-- Page Content -->
+    <!-- LOGIN -->
     <div class="wrapper fadeInDown">
+       <!-- MENSAJE DE LOGOUT -->
+		<div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
+     		th:text="${mensaje}"
+     		class="alert alert-warning" role="alert">	
+		</div>
         <div id="formContent">
             <h1 class="display-5 text-center">LOGIN</h1>
             <div class="fadeIn first">
@@ -38,6 +38,9 @@
             </div>
         </div>
     </div>
+    <!-- LOGIN -->
+    
+    
     <!-- Bootstrap core JavaScript -->
     <script src="/vendor/jquery/jquery.min.js"></script>
     <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

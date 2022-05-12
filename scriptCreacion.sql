@@ -32,11 +32,18 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-INSERT INTO perfil VALUES( 1, "administrador", true, now(), now() );
 
-INSERT INTO perfil VALUES( 2, "auditoria", true, now(), now() );
+LOCK TABLES `perfil` WRITE;
+INSERT INTO perfil (id_perfil, tipo_perfil, activo, createdat, updatedat) VALUES( 1, "administrador", true, now(), now() );
+
+INSERT INTO perfil (id_perfil, tipo_perfil, activo, createdat, updatedat) VALUES( 2, "auditoria", true, now(), now() );
+UNLOCK TABLES;
 
 
-INSERT INTO usuario VALUES(1, "Administrador", "Administrador", 00000000, "admin@gmail.com", "admin", "$2a$10$bpYg2eJstxtebQ4liXefb..joNZGBsfz4MsbAq8gr0blbk0AxbOY6", true, now(), now(), 1);
+LOCK TABLES `usuario` WRITE;
+INSERT INTO usuario (id_usuario, nombre, apellido, dni, email, nombre_usuario, clave, activo, createdat, updatedat, id_perfil)
+VALUES(1, "Administrador", "Administrador", 00000000, "admin@gmail.com", "admin", "$2a$10$glvtPMbUNyNMoaa6SF9hWOYwPt.hDt.cHs/bJagJ9Kaf3Shpt2co6", true, now(), now(), 1);
 
-INSERT INTO usuario VALUES(2, "Auditoria", "Auditoria", 11111111, "Auditoria@gmail.com", "auditor", "$2a$10$EKkMFp/5iK9uTIYx0rIfBeRmh/njVJClEHOEe/Y0hp7FfXoBUq86K", true, now(), now(), 2);
+INSERT INTO usuario (id_usuario, nombre, apellido, dni, email, nombre_usuario, clave, activo, createdat, updatedat, id_perfil) 
+VALUES(2, "Auditoria", "Auditoria", 11111111, "Auditoria@gmail.com", "auditor", "$2a$10$t6McDb.aIokbKk6RkdCe2eiHn0xCpbi8w01bYlyQ3VGjIXzfdC7Ru", true, now(), now(), 2);
+UNLOCK TABLES;

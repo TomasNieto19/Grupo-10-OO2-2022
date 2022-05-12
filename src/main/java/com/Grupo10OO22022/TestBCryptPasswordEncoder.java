@@ -8,7 +8,8 @@ public class TestBCryptPasswordEncoder {
 		
 		BCryptPasswordEncoder pe = new BCryptPasswordEncoder();
 		
-		System.out.println(pe.encode("admin"));
-		System.out.println(pe.encode("auditor"));
+		System.out.println("\n admin -->" + pe.encode("admin") + "\n");
+		
+		System.out.println("\n auditor -->" + pe.encode("auditor")  + "\n");
 	}
 }

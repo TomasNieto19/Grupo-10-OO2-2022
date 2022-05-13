@@ -1,13 +1,13 @@
 /* BASIC */
 
-html {
-    background-color: #56baed;
+html{
+	background-color: rgb(86, 101, 115);
 }
 
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh; 	
-    background-color: #566573;
+    background-color: rgb(86, 101, 115);
 
 }
 
@@ -54,6 +54,7 @@ h2 {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
+   
 }
 
 #formFooter {

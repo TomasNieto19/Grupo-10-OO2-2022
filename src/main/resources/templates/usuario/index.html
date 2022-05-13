@@ -24,10 +24,8 @@ layout:decorate="master">
 
 <body class="d-flex flex-column h-100">
 
-    <main class="flex-shrink-0">
 
-
-        <!-- Navigation-->
+        <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-6">
                 <a class="navbar-brand" href="index.html">Start Bootstrap</a>
@@ -39,12 +37,8 @@ layout:decorate="master">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
-                        <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
-
-                        <li class="nav-item"><a class="nav-link" th:href="@{/perfiles/}">Perfiles</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link" th:href="@{/perfiles/}">Perfiles</a></li>           
                         <li class="nav-item"><a class="nav-link" th:href="@{/usuarios/}">Usuarios</a></li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="javascript: document.logoutForm.submit()"
                                 role="menuitem">Logout</a>
@@ -52,23 +46,22 @@ layout:decorate="master">
                                 <input hidden type="submit" value="Sign Out" />
                             </form>
                         </li>
-
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- Navigation-->
+        <!-- NAVBAR -->
 
-	    <!-- Contenido --> 
+
+	    <!-- CONTENIDO -->
 	    <main layout:fragment="contenido">
-	        <div class="col-10" style="float:none;margin:auto; text-align: center;">
+	        <div class="col-10" style="float:none;margin:auto; text-align: center; margin-top: 45px;">
 	
 	            <h2>Usuarios</h2>
 	
 	            <table class="table table-bordered">
 	                <thead>
 	                    <tr>
-	                        <th>ID</th>
 	                        <th>NOMBRE</th>
 	                        <th>APELLIDO</th>
 	                        <th>DNI</th>
@@ -80,7 +73,6 @@ layout:decorate="master">
 	                <tbody>
 	                    <tr th:each="usuario:${usuarios}">
 	
-	                        <td><span th:text="${usuario.idUsuario}"></td>
 	                        <td><span th:text="${usuario.nombre}"></td>
 	                        <td><span th:text="${usuario.apellido}"></td>
 	                        <td><span th:text="${usuario.dni}"></td>
@@ -99,26 +91,23 @@ layout:decorate="master">
 	            </table>
 	        </div>
 	    </main>
-	    <!-- Contenido -->
+    <!-- CONTENIDO -->
 
 
-        <!-- Footer-->
-		<footer class="bg-light text-center text-lg-start bg-dark">
-		  <!-- Copyright -->
-		  <div class="text-center p-3">
-		    © 2022 Copyright:
-		    <a class="text-white">GRUPO-10-OO2-2022</a>
-		  </div>
-		  <!-- Copyright -->
-		</footer>
-		
-    </main>
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-lg-start bg-dark">
+        <div class="text-center p-3">
+            © 2022 Copyright:
+            <a class="text-white">GRUPO-10-OO2-2022</a>
+        </div>
+    </footer>
+    <!-- FOOTER -->
 
 
-    <!-- Bootstrap core JS-->
+    <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <!-- Bootstrap core JS -->
 </body>
 
 </html>

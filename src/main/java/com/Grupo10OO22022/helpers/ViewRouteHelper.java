@@ -9,7 +9,8 @@ public class ViewRouteHelper {
 	//PERFIL
 	public final static String PERFIL_INDEX = "perfil/index";
 
-	
+	//USUARIO
+	public final static String USUARIO_INDEX = "usuario/index";
 	
 	
 	//DEGREE

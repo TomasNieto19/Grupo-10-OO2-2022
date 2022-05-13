@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.Grupo10OO22022.services.implementation.UsuarioService;
+import com.Grupo10OO22022.services.implementation.UserService;
 
 @Configuration
 @EnableWebSecurity
@@ -19,7 +19,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	@Qualifier("usuarioService")
-	private UsuarioService usuarioService;
+	private UserService usuarioService;
 
 	@Autowired
 	private void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

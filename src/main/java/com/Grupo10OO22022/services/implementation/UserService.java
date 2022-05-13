@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.GrantedAuthority;
@@ -14,21 +13,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import com.Grupo10OO22022.entities.Perfil;
 import com.Grupo10OO22022.entities.Usuario;
-import com.Grupo10OO22022.repositories.IUsuarioRepository;
+import com.Grupo10OO22022.repositories.IUserRepository;
+import com.Grupo10OO22022.services.IUsuarioService;
 
 @Service("usuarioService")
-public class UsuarioService implements UserDetailsService {
+public class UserService implements UserDetailsService, IUsuarioService{
 
 	@Autowired
-	@Qualifier("usuarioRepository")
-	private IUsuarioRepository usuarioRepository;
-
+	@Qualifier("userRepository")
+	private IUserRepository userRepository;
+	
+	
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Usuario usuario = usuarioRepository.findByUsernameWithPerfil(username);
+		Usuario usuario = userRepository.findByUsernameWithPerfil(username);
 		return builUser(usuario, buildGrantedAuthorities(usuario.getPerfil()));
 	}
 
@@ -42,4 +43,11 @@ public class UsuarioService implements UserDetailsService {
 		return new ArrayList<GrantedAuthority>(grantedAuthorities);
 	}
 
+	@Override
+	public List<Usuario> getAll() {
+
+		return this.userRepository.findAll();
+	}
+
+	
 }

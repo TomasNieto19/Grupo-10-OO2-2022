@@ -11,7 +11,5 @@ public class PerfilModel {
 	private int idPerfil;
 	
 	private String tipoPerfil;
-	
-	
-	
+		
 }

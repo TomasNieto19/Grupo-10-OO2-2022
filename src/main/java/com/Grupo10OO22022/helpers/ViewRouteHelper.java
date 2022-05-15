@@ -6,6 +6,13 @@ public class ViewRouteHelper {
 	public final static String INDEX = "home/index";
 	public final static String HELLO = "home/hello";
 	
+	//PERFIL
+	public final static String PERFIL_INDEX = "perfil/index";
+
+	//USUARIO
+	public final static String USUARIO_INDEX = "usuario/index";
+	
+	
 	//DEGREE
 	public final static String DEGREE_INDEX = "degree/index";
 	public final static String DEGREE_FORM = "degree/form";

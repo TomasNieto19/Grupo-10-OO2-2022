@@ -1,5 +1,6 @@
 /* BASIC */
 
+
 html{
 	background-color: rgb(86, 101, 115);
 }
@@ -8,7 +9,6 @@ body {
     font-family: "Poppins", sans-serif;
     height: 100vh; 	
     background-color: rgb(86, 101, 115);
-
 }
 
 a {
@@ -54,7 +54,7 @@ h2 {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-   
+
 }
 
 #formFooter {

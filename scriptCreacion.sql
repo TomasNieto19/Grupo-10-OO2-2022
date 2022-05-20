@@ -1,36 +1,17 @@
-drop database if exists `Grupo-10-BDD-OO2-2022`;
+/*
+ --- INSTRUCCIONES PARA CORRER EL PROYECTO ---
+ 
+ --- 1) EJECUTAR SOLAMENTE LA LINEA 10. 
+ --- 2) LEVANTAR EL SERVIDOR EN SPRING.
+ --- 3) EJECUTAR EL SCRIPT COMPLETO.
+*/
+
 create database if not exists `Grupo-10-BDD-OO2-2022`;
+
 use `Grupo-10-BDD-OO2-2022`;
 
 
-CREATE TABLE `perfil`(
-  `id_perfil` int NOT NULL AUTO_INCREMENT,
-  `tipo_perfil` varchar(255) NOT NULL,
-  `activo` bit(1) NOT NULL,
-  `createdat` datetime(6) DEFAULT NULL,
-  `updatedat` datetime(6) DEFAULT NULL,
-  PRIMARY KEY (`id_perfil`),
-  UNIQUE KEY `UK_3b0dloqo94v7r6tjahpid9hc3` (`tipo_perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(60) NOT NULL,
-  `apellido` varchar(60) NOT NULL,
-  `dni` bigint(8) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `nombre_usuario` varchar(45) NOT NULL,
-  `clave` varchar(60) NOT NULL,
-  `activo` bit(1) NOT NULL,
-  `createdat` datetime(6) DEFAULT NULL,
-  `updatedat` datetime(6) DEFAULT NULL,
-  `id_perfil` int NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `UK_puhr3k3l7bj71hb7hk7ktpxn0` (`nombre_usuario`),
-  KEY `FK131gkl0dt1966rsw6dmesnsxw` (`id_perfil`, `dni`),
-  CONSTRAINT `FK131gkl0dt1966rsw6dmesnsxw` FOREIGN KEY (`id_perfil`) REFERENCES `perfil` (`id_perfil`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
+/*-------------------------------------- INSERTS --------------------------------------*/
 
 
 LOCK TABLES `perfil` WRITE;
@@ -46,4 +27,54 @@ VALUES(1, "Administrador", "Administrador", 00000000, "admin@gmail.com", "admin"
 
 INSERT INTO usuario (id_usuario, nombre, apellido, dni, email, nombre_usuario, clave, activo, createdat, updatedat, id_perfil) 
 VALUES(2, "Auditoria", "Auditoria", 11111111, "Auditoria@gmail.com", "auditor", "$2a$10$t6McDb.aIokbKk6RkdCe2eiHn0xCpbi8w01bYlyQ3VGjIXzfdC7Ru", true, now(), now(), 2);
+UNLOCK TABLES;
+
+
+LOCK TABLES `departamento` WRITE;
+insert into departamento values(1, "Departamento de Desarrollo Productivo y Tecnologico");
+UNLOCK TABLES;
+
+
+LOCK TABLES `carrera` WRITE;
+insert into carrera values(1, "Licenciatura en Sistemas", 1);
+UNLOCK TABLES;
+
+
+LOCK TABLES `profesor` WRITE;
+insert into profesor values(1, "Alejandra", "Vranic");
+insert into profesor values(2, "Gustavo", "Siciliano");
+insert into profesor values(3, "Nicolas", "Perez");
+insert into profesor values(4, "Alejandro", "Sasin");
+insert into profesor values(5, "Federico", "Ribeiro");
+UNLOCK TABLES;
+
+
+LOCK TABLES `materia` WRITE;
+insert into materia values(1, "Programacion orientada a objetos 2", 1);
+insert into materia values(2, "Algoritmos y Estrucutras de Datos", 1);
+insert into materia values(3, "Introduccion a las Bases de Datos", 1);
+UNLOCK TABLES;
+
+
+LOCK TABLES `edificio` WRITE;
+insert into edificio values(1, "Jose Hernandez");
+insert into edificio values(2, "Scalabrini Ortiz");
+UNLOCK TABLES;
+
+
+LOCK TABLES `aula` WRITE;
+insert into aula values(1, 11, 1);
+insert into aula values(2, 9, 1);
+insert into aula values(3, 1, 2);
+UNLOCK TABLES;
+
+
+LOCK TABLES `laboratorio` WRITE;
+insert into laboratorio values(80, 100, 1);
+insert into laboratorio values(90, 95, 2);
+UNLOCK TABLES;
+
+
+LOCK TABLES `tradicional` WRITE;
+insert into tradicional values(70, "tiza", false, 3);
 UNLOCK TABLES;

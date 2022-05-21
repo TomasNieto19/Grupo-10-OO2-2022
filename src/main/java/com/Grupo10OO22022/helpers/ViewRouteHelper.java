@@ -4,7 +4,7 @@ public class ViewRouteHelper {
 	/**** Views ****/
 	//HOME
 	public final static String INDEX = "home/index";
-	public final static String HELLO = "home/hello";
+	public final static String ABOUT = "home/about";
 	
 	//PERFIL
 	public final static String PERFIL_INDEX = "perfil/index";
@@ -12,21 +12,15 @@ public class ViewRouteHelper {
 	//USUARIO
 	public final static String USUARIO_INDEX = "usuario/index";
 	
-	
-	//DEGREE
-	public final static String DEGREE_INDEX = "degree/index";
-	public final static String DEGREE_FORM = "degree/form";
-	public final static String DEGREE_NEW = "degree/new";
-	
-	//PERSON
-	public final static String PERSON_INDEX = "person/index";
-	public final static String PERSON_NEW = "person/new";
-	public final static String PERSON_UPDATE = "person/update";
-	public final static String PERSON_PARTIAL_VIEW = "person/partialPersonView";
-	
 	//USER
 	public final static String USER_LOGIN = "user/login";
 	public final static String USER_LOGOUT = "user/logout";
+	
+	//ADMIN
+	public final static String ADMIN_INDEX = "admin/index";
+	
+	//ESPACIO
+		public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";

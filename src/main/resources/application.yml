@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/grupo10-db-oo2-2022
+    url: jdbc:mysql://localhost:3306/grupo-10-bdd-oo2-2022
     username: root
     password: root
   jpa:

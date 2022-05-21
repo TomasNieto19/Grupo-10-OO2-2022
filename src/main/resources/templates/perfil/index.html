@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html 
+lang="es" 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="master">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Unla</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-6">
+                <a class="navbar-brand" href="/index">UnLa</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{/perfiles/}">Perfiles</a></li>           
+                        <li class="nav-item"><a class="nav-link" th:href="@{/usuarios/}">Usuarios</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="javascript: document.logoutForm.submit()"
+                                role="menuitem">Logout</a>
+                            <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                <input hidden type="submit" value="Sign Out" />
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- NAVBAR -->
+
+
+	    <!-- CONTENIDO -->
+	    <main layout:fragment="contenido">
+	        <div class="col-4" style="float:none;margin:auto; text-align: center; margin-top: 45px;">
+	
+	            <h2>Perfiles</h2>
+	
+	            <table class="table table-bordered">
+	                <thead>
+	                    <tr>
+	                        <th>NOMBRE</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    <tr th:each="perfil:${perfiles}">
+	
+	                        <td><span th:text="${perfil.tipoPerfil}"></td>
+
+	                    </tr>
+	                </tbody>
+	            </table>
+	        </div>
+	    </main>
+    <!-- CONTENIDO -->
+
+
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-lg-start bg-dark">
+        <div class="text-center p-3">
+            © 2022 Copyright:
+            <a class="text-white">GRUPO-10-OO2-2022</a>
+        </div>
+    </footer>
+    <!-- FOOTER -->
+
+
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <!-- Bootstrap core JS -->
+</body>
+
+</html>

@@ -4,7 +4,10 @@
  --- 1) EJECUTAR SOLAMENTE LA LINEA 10. 
  --- 2) LEVANTAR EL SERVIDOR EN SPRING.
  --- 3) EJECUTAR EL SCRIPT COMPLETO.
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 */
 
 create database if not exists `Grupo-10-BDD-OO2-2022`;

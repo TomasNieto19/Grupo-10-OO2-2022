@@ -25,20 +25,6 @@ public class HomeController {
 		return new RedirectView("/index");
 		
 	}
-
-	@GetMapping("/about")
-	public String about() {
-
-		return ViewRouteHelper.ABOUT;
-
-	}
-
-	@GetMapping("/contact")
-	public String contact() {
-
-		return "home/contact";
-
-	}
 	
 }
 

@@ -31,7 +31,7 @@ public class FinalController {
 		return "crear_Final_Pedido";
 	}
 	
-	@PostMapping("/finales")
+	@PostMapping("/finales/guardar")
 	public String guardarFinal(@ModelAttribute("finalPedido") Final f) {
 		servicio.guardarFinal(f);
 		return "redirect:/finales";

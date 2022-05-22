@@ -16,10 +16,23 @@
 
 
     <!-- CONTENIDO -->
-    <div class="botones" style="float:none; text-align:center; margin-top:200px;">
+    <div class="boton" style="float:none; text-align:center; margin-top:200px;">
 		<a th:href="@{/espacio/crear_espacios}" class="btn btn-primary btn-lg active" role="button">Crear Espacios</a>
-    	<a th:href="@{#}" class="btn btn-primary btn-lg active" role="button">Notas Pedido</a>
+    	<label class="dropdown">
+		  <div class="dd-button ">
+		    Notas Pedido
+		  </div>
+		  <input type="checkbox" class="dd-input" id="test">
+		  <ul class="dd-menu">
+		    <li>
+		      <a th:href="@{/notaPedido/cursadas}">Cursadas</a>
+		      <a th:href="@{/notaPedido/finales}">Finales</a>
+		    </li>
+		  </ul>
+		</label>
     </div>
+    
+
     <!-- CONTENIDO -->
     
         

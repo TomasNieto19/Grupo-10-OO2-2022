@@ -31,9 +31,9 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 	                    <li class="nav-item"><a class="nav-link" th:href="@{/index}">Home</a></li>
-	                    <li class="nav-item"><a class="nav-link" th:href="@{/perfiles/}">Perfiles</a></li>
-	                    <li class="nav-item"><a class="nav-link" th:href="@{/usuarios/}">Usuarios</a></li>
-	                    <li class="nav-item"><a class="nav-link" th:href="@{/admin/}">Administrador</a></li>
+                        <li class="nav-item"><a class="nav-link" sec:authorize="hasAnyAuthority('administrador', 'auditoria')" th:href="@{/perfiles/}">Perfiles</a></li>
+						<li class="nav-item"><a class="nav-link" sec:authorize="hasAuthority('administrador')" th:href="@{/usuarios/}">Usuarios</a></li>
+	                    <li class="nav-item"><a class="nav-link" sec:authorize="hasAuthority('administrador')" th:href="@{/admin/}">Administrador</a></li>
 	                    <li class="nav-item dropdown">
 	                        <a class="nav-link" href="javascript: document.logoutForm.submit()" role="menuitem">Logout</a>
 	                        <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">

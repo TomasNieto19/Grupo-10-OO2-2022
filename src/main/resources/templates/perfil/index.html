@@ -7,7 +7,32 @@
 <!-- HEAD -->
 
 
-<body class="d-flex flex-column h-100">
+<style>
+body{
+	background-color: rgb(86, 101, 115);
+}
+th{
+	font-size: 30px;
+	color: white;
+}
+td{
+	font-size: 25px;
+	color: white;
+}
+h2{
+	margin-bottom: 20px;
+}
+.col-4{
+	float:none;
+	margin:auto; 
+	text-align: 
+	center; 
+	margin-top: 45px;
+}
+</style>
+
+
+<body>
 
 
     <!-- NAVBAR -->
@@ -16,8 +41,7 @@
 
 
     <!-- CONTENIDO -->
-    <main layout:fragment="contenido">
-        <div class="col-4" style="float:none;margin:auto; text-align: center; margin-top: 45px;">
+        <div class="col-4" >
 
             <h2>Perfiles</h2>
 
@@ -30,24 +54,13 @@
                 <tbody>
                     <tr th:each="perfil:${perfiles}">
 
-                        <td><span th:text="${perfil.tipoPerfil}"></td>
+                        <td th:text="${perfil.tipoPerfil}"></td>
 
                     </tr>
                 </tbody>
             </table>
         </div>
-    </main>
     <!-- CONTENIDO -->
-
-
-    <!-- FOOTER -->
-    <footer class="bg-light text-center text-lg-start bg-dark">
-        <div class="text-center p-3">
-            © 2022 Copyright:
-            <a class="text-white">GRUPO-10-OO2-2022</a>
-        </div>
-    </footer>
-    <!-- FOOTER -->
 
 
     <!-- FOOTER -->
@@ -58,6 +71,8 @@
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>
     <!-- BOOSTRAP CORE JS -->
+    
+    
 </body>
 
 </html>

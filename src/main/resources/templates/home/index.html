@@ -7,7 +7,7 @@
 <!-- HEAD -->
 
 
-<body class="d-flex flex-column h-100">
+<body style="background-color: rgb(86, 101, 115);">
 
 
     <!-- NAVBAR -->
@@ -16,7 +16,62 @@
 
 
     <!-- CONTENIDO -->
-
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-auto" style="margin: 70px 50px 0 100px;">
+                <div sec:authorize="hasAuthority('administrador')" class="card border-primary"
+                    style="max-width: 300px;">
+                    <div class="card shadow text-center">
+                        <img class="card-img-top" th:src="@{/images/unla.jpg}" />
+                        <div class="card-body">
+                            <h2 class="card-title">Asignar Espacios</h2>
+                            <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Asignar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto" style="margin: 70px 0px 0px 0px;">
+                <div sec:authorize="hasAnyAuthority('auditoria')" class="card border-primary" style="max-width: 300px;">
+                    <div class="card shadow text-center">
+                        <img class="card-img-top" th:src="@{/images/notaPedido.jpg}" />
+                        <div class="card-body">
+                            <h2 class="card-title">Notas Pedidos</h2>
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Crear
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Cursada</a>
+                                    <a class="dropdown-item" href="#">Final</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto" style="margin: 70px 0px 00px 100px;">
+                <div class="card border-primary" style="max-width: 300px;">
+                    <div class="card shadow text-center">
+                        <img class="card-img-top" th:src="@{/images/Edificio.jpg}" />
+                        <div class="card-body">
+                            <h2 class="card-title">Notas Pedidos</h2>
+                            <div class="dropdown">
+                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Ver
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Cursada</a>
+                                    <a class="dropdown-item" href="#">Final</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- CONTENIDO -->
 
 

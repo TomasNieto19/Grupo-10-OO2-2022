@@ -7,7 +7,32 @@
 <!-- HEAD -->
 
 
-<body class="d-flex flex-column h-100">
+<style>
+body{
+	background-color: rgb(86, 101, 115);
+}
+th{
+	font-size: 30px;
+	color: white;
+}
+td{
+	font-size: 25px;
+	color: white;
+}
+h2{
+	margin-bottom: 20px;
+}
+.col-10{
+	float:none;
+	margin:auto; 
+	text-align: 
+	center; 
+	margin-top: 45px;
+}
+</style>
+
+
+<body>
 
 
     <!-- NAVBAR -->
@@ -16,9 +41,10 @@
 
 
     <!-- CONTENIDO -->
-    <main layout:fragment="contenido">
-        <div class="col-10" style="float:none;margin:auto; text-align: center; margin-top: 45px;">
+        <div class="col-10">
+        
             <h2>Usuarios</h2>
+            
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -32,11 +58,12 @@
                 </thead>
                 <tbody>
                     <tr th:each="usuario:${usuarios}">
-                        <td><span th:text="${usuario.nombre}"></td>
-                        <td><span th:text="${usuario.apellido}"></td>
-                        <td><span th:text="${usuario.dni}"></td>
-                        <td><span th:text="${usuario.email}"></td>
-                        <td><span th:text="${usuario.nombreUsuario}"></td>
+                    
+                        <td th:text="${usuario.nombre}"></td>
+                        <td th:text="${usuario.apellido}"></td>
+                        <td th:text="${usuario.dni}"></td>
+                        <td th:text="${usuario.email}"></td>
+                        <td th:text="${usuario.nombreUsuario}"></td>
                         <td>
                             <th:block th:each="perfil,iter:${usuario.perfil}">
                                 <label th:text="${perfil.tipoPerfil}"></label>
@@ -47,7 +74,6 @@
                 </tbody>
             </table>
         </div>
-    </main>
     <!-- CONTENIDO -->
 
 

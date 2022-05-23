@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+
+
+.formulario{
+	max-width: 500px;
+	margin: 20px;
+	padding: 3px 0;
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 2px 2px 4px black;
+}
+
+.listaForm{
+	list-style: none;
+	padding: 0;
+}
+
+.linea {
+	margin: 15px 25px;
+}
+
+.fecha{
+	display : grid;
+	grid-template-rows: 1fr 1fr;
+	justify-content: left;
+}
+
+.inputFecha {
+	border-radius: 10px;
+	border: 1;
+	padding: 1px 2px;
+	box-shadow: 1px 1px 3px black;
+	border-bottom-style: solid;
+	text-align: center;
+}
+
+.botonEnviar{
+	background-color: rgb(51,51,255);
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	padding: 7px;
+	box-shadow: 2px 2px 4px black;
+}
+
+.textoExito{
+	max-width: 350px;
+	background-color: rgb(0, 204, 0);
+	border-radius: 5px;
+	border: 1px solid black;
+	padding: 5px;
+	text-align: center;
+	margin: 20px;
+	box-shadow: 2px 2px 4px black;
+}

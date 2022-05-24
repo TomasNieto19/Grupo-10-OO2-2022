@@ -20,8 +20,12 @@ public class ViewRouteHelper {
 	public final static String ADMIN_INDEX = "admin/index";
 	
 	//ESPACIO
-		public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
-	
+	public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
+
+	//NOTA PEDIDO
+	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
+	public final static String NOTA_PEDIDO_FINALES = "notaPedido/finales";
+		
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";
 	public final static String DEGREE_ROOT = "/degrees/";

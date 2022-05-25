@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
-import com.Grupo10OO22022.services.IPerfilService;
+import com.Grupo10OO22022.services.ICursoService;
+
 
 
 @Controller
@@ -19,8 +19,8 @@ public class NotaPedidoController {
 	
 	
 	@Autowired
-	@Qualifier("perfilService")
-	private IPerfilService perfilService;
+	@Qualifier("cursoService")
+	private ICursoService cursoService;
 	
 	
 	@GetMapping("/cursadas")
@@ -28,7 +28,7 @@ public class NotaPedidoController {
 		
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_CURSADAS);
 		
-		mAV.addObject("cursadas", perfilService.getAll() );
+		mAV.addObject("cursadas", cursoService.getAll() );
 		
 		return mAV;
 	}
@@ -39,7 +39,7 @@ public class NotaPedidoController {
 		
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FINALES);
 		
-		mAV.addObject("finales", perfilService.getAll() );
+		//mAV.addObject("finales", perfilService.getAll() );
 		
 		return mAV;
 	}

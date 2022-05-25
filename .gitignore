@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### CONFIG SQL ###
-application.yml
+src/main/resources/application.yml

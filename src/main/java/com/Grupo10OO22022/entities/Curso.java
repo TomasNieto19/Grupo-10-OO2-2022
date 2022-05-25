@@ -16,11 +16,11 @@ import lombok.Setter;
 public class Curso extends NotaPedido {
 
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Fecha> fechas;
 	
 	@Column(name = "comision")
-	private String comisión;
+	private String comision;
 	
 	
 }

@@ -2,8 +2,6 @@ package com.Grupo10OO22022.controllers;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,16 +26,22 @@ public class FinalController {
 
 	@Autowired
 	@Qualifier("finalService")
-	private IFinalService finalServicio;
+	private IFinalService finalService;
 	
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	@GetMapping("/index")//url
-	public String listarFinales(Model modelo) {
-		List<Final> finales= finalServicio.listaDeFinales();
-		modelo.addAttribute("finales",finales);
-		return ViewRouteHelper.FINAL_VER_FINALES;
+	public ModelAndView listarFinales() {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FINALES);
+		mv.addObject("finales", finalService.listaDeFinales());
+		return mv;
 	}
+	
+	@GetMapping("")//url
+	public RedirectView redirectListarFinales() {
+		return new RedirectView("/index");
+	}
+	
 	
 	@GetMapping("/nuevo")
 	public ModelAndView mostrarFormularioDeFinales() {
@@ -48,19 +52,24 @@ public class FinalController {
 	
 	@PostMapping("/guardar")
 	public RedirectView guardarFinal(@ModelAttribute("final") FinalModel f) {
-		finalServicio.guardarFinal(modelMapper.map(f, Final.class));
+		finalService.guardarFinal(modelMapper.map(f, Final.class));
 		return new RedirectView("");
 	}
 	
+	
+	
+	
+	
+	
 	@GetMapping("/finales/editar/{id}")
 	public String mostrarFormularioDeEditar(@PathVariable int id, Model modelo) {
-		modelo.addAttribute("final",finalServicio.obtenerFinalPorId(id));
+		modelo.addAttribute("final",finalService.obtenerFinalPorId(id));
 		return "editar_final";
 	}
 	
 	@PostMapping("/finales/editar/{id}")
 	public String actualizarFinal(@PathVariable int id,@ModelAttribute("final")Final f, Model modelo) {
-		Final finalExistente= finalServicio.obtenerFinalPorId(id);
+		Final finalExistente= finalService.obtenerFinalPorId(id);
 		
 		finalExistente.setId(id);
 		finalExistente.setMesa(f.getMesa());

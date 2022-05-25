@@ -1,7 +1,7 @@
 package com.Grupo10OO22022.entities;
 
 import java.time.LocalDate;
-import java.util.Set;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
-//@PrimaryKeyJoinColumn(referencedColumnName = "final_pedido")
+@PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class Final extends NotaPedido {
 
 	
@@ -22,6 +22,26 @@ public class Final extends NotaPedido {
 	
 	@Column(name = "mesa")
 	private String mesa;
+
+	
+	@Override
+	public String toString() {
+		return "Final [fecha=" + fecha + ", mesa=" + mesa + "]";
+	}
+
+
+	public Final(LocalDate fecha, String mesa) {
+		super();
+		this.fecha = fecha;
+		this.mesa = mesa;
+	}
+	
+	
+
+	
+	
+
+	
 
 	
 	

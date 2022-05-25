@@ -18,8 +18,29 @@ public class FinalService implements IFinalService{
 	public List<Final> listaDeFinales() {
 		return repositorio.findAll();
 	}
-	
+
+	@Override
 	public Final guardarFinal(Final f) {
+		
 		return repositorio.save(f);
 	}
+
+	@Override
+	public Final obtenerFinalPorId(int id) {
+		
+		return repositorio.findById(id).get();
+	}
+
+	@Override
+	public Final actualizarFinal(Final f) {
+		return repositorio.save(f);
+	}
+
+	@Override
+	public void eliminarFinal(int id) {
+		repositorio.deleteById(id);
+	}
+	
+	
+	
 }

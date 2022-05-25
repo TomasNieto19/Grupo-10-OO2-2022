@@ -65,6 +65,14 @@ public class NotaPedido {
 		this.espaciosAsignados = espaciosAsignados;
 		this.profesores = profesores;
 		this.pendiente = pendiente;
+	}
+
+	public NotaPedido(char turno, int cantEstudiantes, String observaciones, boolean pendiente) {
+		super();
+		this.turno = turno;
+		this.cantEstudiantes = cantEstudiantes;
+		this.observaciones = observaciones;
+		this.pendiente = pendiente;
 	} 
 	
 	

@@ -11,4 +11,10 @@ public interface IFinalService {
 	public List<Final> listaDeFinales();
 	
 	public Final guardarFinal(Final f);
+	
+	public Final obtenerFinalPorId(int id);
+	
+	public Final actualizarFinal(Final f);
+	
+	public void eliminarFinal(int id);
 }

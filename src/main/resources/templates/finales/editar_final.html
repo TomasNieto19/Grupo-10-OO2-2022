@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Editar finales</title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Control de finales</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarText" aria-controls="navbarText"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" th:href="@{/finales}">Control de finales</a></li>
+			</ul>
+			
+		</div>
+	</nav>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Edicion de finales</h1>
+				<div class="card-body">
+					<form th:action="@{/finales/{id}(id=${final.id})}" th:object="${final}" method="POST">
+						<div class="form-group">
+							<label>ID :</label>
+							<input type="text" name="id" th:field="*{id}" class="form-control" placeholder="Digite id de la nota_pedido" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Mesa :</label>
+							<input type="text" name="mesa" th:field="*{mesa}" class="form-control" placeholder="Digite codigo de la mesa" required >
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Fecha :</label>
+							<input type="date" name="fecha" th:field="*{fecha}" class="form-control" placeholder="Digite fecha de la mesa" required>
+						</div>
+						<br>
+						<div class="box-footer">
+							<button class="btn btn-success">Guardar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

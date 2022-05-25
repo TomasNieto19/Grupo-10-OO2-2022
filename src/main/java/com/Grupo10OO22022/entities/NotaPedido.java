@@ -54,6 +54,9 @@ public class NotaPedido {
 	
 	@Column(name = "pendiente")
 	protected boolean pendiente;
+	
+	@Column(name = "activo")
+	protected boolean activo;
 
 	public NotaPedido(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
 			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- HEAD -->
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Unla</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <link rel="stylesheet" th:href="@{/css/crearEspacios.css}">
+ </head>
+<!-- HEAD -->
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+
+    <!-- NAVBAR -->
+    <header th:replace="template/plantilla :: header"></header>
+    <!-- NAVBAR -->
+
+
+    <!-- CONTENIDO -->
+    <div class="formulario">
+	    <form action="#" th:action="@{add}" method="get">
+	        <ul class="listaForm">
+	            <li class="linea fecha">
+	                <label for="fecha_inicial"><b>Fecha inicial del cuatrimestre:</b></label>
+	                <input class="inputFecha" type="date" name="fecha_inicial" id="fecha_inicial">
+	            </li>
+	            <li class="linea fecha">
+	                <label for="fecha_final"><b>Fecha final del cuatrimestre:</b></label>
+	                <input class="inputFecha" type="date" name="fecha_final" id="fecha_final">
+	            </li>
+	            <li class="linea"><input type="submit" class="botonEnviar"></li>
+	        </ul>
+	    </form>
+    </div>
+
+    <div th:if="${espaciosAgregados}">
+        <p class="textoExito"><b>Espacios agregados con exito</b></p>
+    </div>
+    <!-- CONTENIDO -->
+
+
+    <!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+    <!-- FOOTER -->
+
+
+    <!-- BOOSTRAP CORE JS -->
+    <div th:replace="template/plantilla :: scripts"></div>
+    <!-- BOOSTRAP CORE JS -->
+
+
+</body>
+
+</html>

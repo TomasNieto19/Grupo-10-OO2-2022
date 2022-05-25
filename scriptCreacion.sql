@@ -10,7 +10,11 @@
 >>>>>>> dev
 */
 
+
 -- create database if not exists `Grupo-10-BDD-OO2-2022`;
+
+create database if not exists `Grupo-10-BDD-OO2-2022`;
+
 
 use `Grupo-10-BDD-OO2-2022`;
 

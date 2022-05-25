@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado de Finales </title>
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Control de finales</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarText" aria-controls="navbarText"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarText">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" th:href="@{/finales}">Control de finales</a></li>
+			</ul>
+			
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1>Listado de finales</h1>
+		</div>
+		
+		<table class="table table-striped table-dark">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>FECHA DEL FINAL</th>
+					<th>CODIGO DE MESA</th>
+					<th>ACCIONES</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="final:${finales}">
+					<td th:text="${final.id}"></td>
+					<td th:text="${final.fecha}" ></td>
+					<td th:text="${final.mesa}"></td>
+					
+			</tbody>
+					
+		</table>
+
+	</div>
+
+
+</body>
+</html>

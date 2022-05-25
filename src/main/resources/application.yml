@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/grupo-10-bdd-oo2-2022
     username: root
-    password: 1317
+    password: root
   jpa:
     show-sql: true
     hibernate:

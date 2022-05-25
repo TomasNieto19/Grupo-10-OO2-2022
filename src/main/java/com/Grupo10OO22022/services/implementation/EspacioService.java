@@ -56,6 +56,13 @@ public class EspacioService implements IEspacioService {
 		return true;
 	}
 
+
+
+	@Override
+	public List<Espacio> getAll() {
+		return espacioRepository.findAll();
+	}
+
 	
 	
 }

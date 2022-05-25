@@ -8,4 +8,6 @@ import com.Grupo10OO22022.entities.Espacio;
 @Repository("espacioRepository")
 public interface IEspacioRepository extends JpaRepository<Espacio, Integer>{
 
+
+	
 }

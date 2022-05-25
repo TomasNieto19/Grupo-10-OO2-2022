@@ -41,7 +41,12 @@ public class EspacioController {
 		return mv;
 	}
 	
-	
+	@GetMapping("/ver_espacios")
+	public ModelAndView verEspacios() {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
+		mv.addObject("espacios", espacioService.getAll());
+		return mv;
+	}
 	
 
 }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<!-- HEAD -->
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+    <!-- NAVBAR -->
+    <header th:replace="template/plantilla :: header"></header>
+    <!-- NAVBAR -->
+    
+    
+	<!-- CONTENIDO -->
+	<section class="lista">
+	    <table style="background-color: white">
+			<thead>
+				<tr >
+					<th class="tHead">Fecha</th>
+					<th class="tHead">Libre</th>
+					<th class="tHead">Turno</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${espacios}">
+					<td class=""><span class="" th:text="${e.fecha}"/></td>
+					<td class=""><span class="" th:text="${e.libre}"/></td>
+					<td class=""><span class="" th:text="${e.turno}"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<!-- CONTENIDO -->
+    
+    
+	<!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+    <!-- FOOTER -->
+
+
+    <!-- BOOSTRAP CORE JS -->
+    <div th:replace="template/plantilla :: scripts"></div>
+    <!-- BOOSTRAP CORE JS -->
+</body>
+
+
+</html>

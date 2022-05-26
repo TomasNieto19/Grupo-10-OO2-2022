@@ -53,23 +53,38 @@
 		
 		<div class="filtros">
 			<h2>Filtros</h2>
-			<form class="formulario" action="#" th:action="@{filtrarEspacios}"  method="get">
+			<form class="formulario" action="#" th:action="@{filtrarEspacios}" th:object="${filtros}" method="post">
 				<ul class="listaForm">
 		            <li class="linea fecha">
 		                <label for="fecha_inicial"><b>Desde:</label>
-		                <input class="inputFecha" type="date" name="fecha_inicial" id="fecha_inicial">
+		                <input class="inputFecha" type="date" th:field="*{fechaInicial}" id="fecha_inicial">
 		            </li>
 		            <li class="linea fecha">
 		                <label for="fecha_final"><b>Hasta:</b></label>
-		                <input class="inputFecha" type="date" name="fecha_final" id="fecha_final">
+		                <input class="inputFecha" type="date" th:field="*{fechaFinal}" id="fecha_final">
+		            </li>
+		            <li class="linea ">
+		            	<p>Disponibilidad:</p>
 		            </li>
 		            <li class="linea ">
 		                <label for="libre"><b>Libre:</b></label>
-		                <input class="inputFecha" type="checkbox" name="libre" id="libre" value="true">
+		                <input class="inputFecha" type="checkbox" th:field="*{libre}" th:checked="${filtros.noche}" id="libre" >
+		            
+		                <label for="ocupado"><b>Ocupado:</b></label>
+		                <input class="inputFecha" type="checkbox" th:field="*{ocupado}" th:checked="${filtros.noche}" id="ocupado" >
 		            </li>
 		            <li class="linea ">
-		                <label for="ocupado"><b>Ocupado:</b></label>
-		                <input class="inputFecha" type="checkbox" name="ocupado" id="ocupado" value="true">
+		            	<p>Turno:</p>
+		            </li>
+		            <li class="linea ">
+		                <label for="maniana"><b>Mañana:</b></label>
+		                <input class="inputFecha" type="checkbox" th:field="*{maniana}" th:checked="${filtros.noche}" id="maniana"  >
+		            
+		                <label for="tarde"><b>Tarde:</b></label>
+		                <input class="inputFecha" type="checkbox" th:field="*{tarde}" th:checked="${filtros.noche}" id="tarde" >
+		                
+		                <label for="noche"><b>Noche:</b></label>
+		                <input class="inputFecha" type="checkbox" th:field="*{noche}" th:checked="${filtros.noche}" id="noche" >
 		            </li>
 		            <li class="linea"><input type="submit" class="botonEnviar" value="Filtrar"></li>
 		        </ul>

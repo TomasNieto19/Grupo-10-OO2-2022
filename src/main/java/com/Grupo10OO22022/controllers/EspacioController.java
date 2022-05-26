@@ -1,6 +1,7 @@
 package com.Grupo10OO22022.controllers;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +9,14 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Grupo10OO22022.entities.Espacio;
+import com.Grupo10OO22022.helpers.EspacioFiltros;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.services.IEspacioService;
 
@@ -47,47 +51,48 @@ public class EspacioController {
 	public ModelAndView verEspacios() {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
 		mv.addObject("espacios", espacioService.getAll());
+		mv.addObject("filtros", new EspacioFiltros(null, null, true, true, true, true, true));
 		return mv;
 	}
 	
-	@GetMapping("/filtrarEspacios")
-	public ModelAndView verEspaciosFiltrados(@RequestParam(name="fecha_inicial", required=false, defaultValue="") String sFechaInicial,
-											@RequestParam(name="fecha_final", required=false, defaultValue="") String sFechaFinal,
-											@RequestParam(name="libre", required=false, defaultValue="false") boolean libre,
-											@RequestParam(name="ocupado", required=false, defaultValue="false") boolean ocupado){
+	@PostMapping("/filtrarEspacios")
+	public ModelAndView verEspaciosFiltrados(@ModelAttribute("filtros") EspacioFiltros filtros) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
 		List<Espacio> lista = espacioService.getAll();
+		List<Espacio> listaRemover = new ArrayList<>();
 		//se fitra por fecha inicial
-		if (!sFechaInicial.isEmpty()) {
-			LocalDate fecha = LocalDate.parse(sFechaInicial);
+		if (!(filtros.getFechaInicial()==null)) {
 			for (Espacio e: lista) {
-				if (e.getFecha().isBefore(fecha))
-					lista.remove(e);
+				if (e.getFecha().isBefore(filtros.getFechaInicial()))
+					listaRemover.add(e);
 			}
 		}
 		//se filtra por  fecha final
-		if (!sFechaFinal.isEmpty()) {
-			LocalDate fecha = LocalDate.parse(sFechaFinal);
+		if (!(filtros.getFechaFinal()==null)) {
 			for (Espacio e: lista) {
-				if (e.getFecha().isAfter(fecha))
-					lista.remove(e);
+				if (e.getFecha().isAfter(filtros.getFechaFinal()))
+					listaRemover.add(e);
 			}
 		}
-		//se filtra por libres
-		if (!libre) {
+		//se filtra por disponibilidad
+		if ((!filtros.isLibre())||(!filtros.isOcupado())) {
 			for (Espacio e: lista) {
-				if (e.isLibre())
-					lista.remove(e);
+				if (((e.isLibre())&&(!filtros.isLibre()))||((!e.isLibre())&&(!filtros.isOcupado())))
+					listaRemover.add(e);
 			}
 		}
-		//se filtra por ocupados
-		if (!ocupado) {
+		
+		//se fitra por turno
+		if ((!filtros.isManiana())||(!filtros.isTarde())||(!filtros.isNoche())) {
 			for (Espacio e: lista) {
-				if (!e.isLibre())
-					lista.remove(e);
+				if (((!filtros.isManiana())&&(e.getTurno()=='M'))||((!filtros.isTarde())&&(e.getTurno()=='T'))||((!filtros.isNoche())&&(e.getTurno()=='N')))
+					listaRemover.add(e);
 			}
 		}
+		
+		lista.removeAll(listaRemover);
 		mv.addObject("espacios", lista);
+		mv.addObject("filtros", filtros);
 		return mv;
 	}
 	

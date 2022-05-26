@@ -16,55 +16,77 @@
 
 
     <!-- CONTENIDO -->
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-auto" style="margin: 70px 50px 0 100px;">
-                <div sec:authorize="hasAuthority('administrador')" class="card border-primary"
-                    style="max-width: 300px;">
-                    <div class="card shadow text-center">
-                        <img class="card-img-top" th:src="@{/images/unla.jpg}" />
-                        <div class="card-body">
-                            <h2 class="card-title">Asignar Espacios</h2>
-                            <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Asignar</a>
-                        </div>
+    <div class="container" style="height: 100%; width: 100%;">
+
+        <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
+            th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
+
+            <!-- AIGNAR ESPACIOS -->
+            <div class="col-3">
+                <div class="card border-primary" style="margin-top: 50px;">
+                    <img class="card-img-top" th:src="@{/images/unla.jpg}" style="width: 304px; height: 187px;" />
+                    <div class="card-body text-center">
+                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Asignar
+                            Espacio
+                        </h4>
+                        <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Asignar</a>
                     </div>
                 </div>
             </div>
-            <div class="col-auto" style="margin: 70px 0px 0px 0px;">
-                <div sec:authorize="hasAnyAuthority('auditoria')" class="card border-primary" style="max-width: 300px;">
-                    <div class="card shadow text-center">
-                        <img class="card-img-top" th:src="@{/images/notaPedido.jpg}" />
-                        <div class="card-body">
-                            <h2 class="card-title">Notas Pedidos</h2>
-                            <div class="dropdown">
-                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Crear
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Cursada</a>
-                                    <a class="dropdown-item"th:href="@{/finales/nuevo}">Final</a>
-                                </div>
+
+            <!-- VER NOTAS PEDIDO -->
+            <div class="col-3">
+                <div class="card border-primary" style="margin-top: 50px;">
+                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 304px; height: 187px;" />
+                    <div class="card-body text-center">
+                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Notas
+                            Pedidos</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" th:href="@{/notaPedido/cursadas}">Cursadas</a>
+                                <a class="dropdown-item" th:href="@{/finales/index}">Finales</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-auto" style="margin: 70px 0px 00px 100px;">
-                <div class="card border-primary" style="max-width: 300px;">
-                    <div class="card shadow text-center">
-                        <img class="card-img-top" th:src="@{/images/Edificio.jpg}" />
-                        <div class="card-body">
-                            <h2 class="card-title">Notas Pedidos</h2>
-                            <div class="dropdown">
-                                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Ver
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Cursada</a>
-                                    <a class="dropdown-item" th:href="@{/finales/index}">Final</a>
-                                </div>
+        </div>
+        
+        <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
+            th:if="${#authorization.expression('hasAuthority(''auditoria'')')}">
+
+            <!-- CREAR NOTA PEDIDO -->
+            <div class="col-3">
+                <div class="card border-primary" style="margin-top: 50px;">
+                    <img class="card-img-top" th:src="@{/images/notaPedido.jpg}" style="width: 304px; height: 187px;" />
+                    <div class="card-body text-center">
+                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Nota Pedido</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crear</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Cursada</a> 
+                                <a class="dropdown-item" th:href="@{/finales/nuevo}">Final</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VER NOTAS PEDIDO -->
+            <div class="col-3">
+                <div class="card border-primary" style="margin-top: 50px;">
+                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 304px; height: 187px;" />
+                    <div class="card-body text-center">
+                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Notas Pedidos</h4>
+                        <div class="dropdown">
+                            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" th:href="@{/notaPedido/cursadas}">Cursadas</a>
+                                <a class="dropdown-item" th:href="@{/finales/index}">Finales</a>
                             </div>
                         </div>
                     </div>

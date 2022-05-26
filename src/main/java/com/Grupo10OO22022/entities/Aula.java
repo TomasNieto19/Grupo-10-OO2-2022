@@ -28,7 +28,7 @@ public class Aula {
 	@Column(name = "numero")
 	protected int numero;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_edificio", nullable=false)
 	protected Edificio edificio;
 

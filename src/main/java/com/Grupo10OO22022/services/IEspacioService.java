@@ -16,4 +16,6 @@ public interface IEspacioService {
 	public boolean agregarEspaciosParaTodasLasAulas(LocalDate fechaInicial, LocalDate fechaFinal);
 	
 	public List<Espacio> getAll();
+	
+	public List<Espacio> getEntreFechas(LocalDate fechaInicial, LocalDate fechaFinal);
 }

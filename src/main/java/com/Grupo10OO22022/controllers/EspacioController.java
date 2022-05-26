@@ -1,6 +1,7 @@
 package com.Grupo10OO22022.controllers;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.Grupo10OO22022.entities.Espacio;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
+import com.Grupo10OO22022.repositories.IEspacioRepository;
 import com.Grupo10OO22022.services.IEspacioService;
 
 @Controller
@@ -45,6 +48,24 @@ public class EspacioController {
 	public ModelAndView verEspacios() {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
 		mv.addObject("espacios", espacioService.getAll());
+		return mv;
+	}
+	
+	@GetMapping("/filtrarEspacios")
+	public ModelAndView verEspaciosFiltrados(@RequestParam(name="fecha_inicial", required=false, defaultValue="") String sFechaInicial,
+											@RequestParam(name="fecha_final", required=false, defaultValue="") String sFechaFinal,
+											@RequestParam(name="libre", required=false, defaultValue="false") boolean libre,
+											@RequestParam(name="ocupado", required=false, defaultValue="false") boolean ocupado){
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
+		if ((sFechaFinal.isEmpty())&&(sFechaFinal.isEmpty())) {
+			mv.addObject("espacios", espacioService.getAll());
+		} else {
+			mv.addObject("espacios", espacioService.getEntreFechas(LocalDate.parse(sFechaInicial), LocalDate.parse(sFechaFinal)));
+		}
+		List<Espacio> listaEnera = espacioService.getAll();
+		
+		
+		
 		return mv;
 	}
 	

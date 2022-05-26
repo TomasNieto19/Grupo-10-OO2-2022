@@ -63,6 +63,13 @@ public class EspacioService implements IEspacioService {
 		return espacioRepository.findAll();
 	}
 
+
+
+	@Override
+	public List<Espacio> getEntreFechas(LocalDate fechaInicial, LocalDate fechaFinal) {
+		return espacioRepository.findByFechaBetween(fechaInicial, fechaFinal);
+	}
+
 	
 	
 }

@@ -2,11 +2,23 @@
 <html>
 
 <!-- HEAD -->
-<header th:replace="template/plantilla :: head"></header>
+<head >
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Unla</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/verEspacios.css}">
 <!-- HEAD -->
 
 
-<body style="background-color: rgb(86, 101, 115);">
+<body>
 
     <!-- NAVBAR -->
     <header th:replace="template/plantilla :: header"></header>
@@ -14,29 +26,62 @@
     
     
 	<!-- CONTENIDO -->
-	<section class="lista">
-	    <table style="background-color: white">
+	<section class="cuerpo">
+	    <table class="tabla" >
 			<thead>
 				<tr >
 					<th class="tHead">Fecha</th>
 					<th class="tHead">Libre</th>
 					<th class="tHead">Turno</th>
+					<th class="tHead">Edificio</th>
+					<th class="tHead">Numro de aula</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="e : ${espacios}">
-					<td class=""><span class="" th:text="${e.fecha}"/></td>
-					<td class=""><span class="" th:text="${e.libre}"/></td>
-					<td class=""><span class="" th:text="${e.turno}"/></td>
+					<td class="tRow"><span class="" th:text="${e.fecha}"/></td>
+					<td class="tRow">
+						<span th:if="${e.libre == true}">Si</span>
+    					<span th:unless="${e.libre == true}">No</span>
+    				</td>
+					<td class="tRow"><span class="" th:text="${e.turno}"/></td>
+					<td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}"/></td>
+					<td class="tRow"><span class="" th:text="${e.aula.numero}"/></td>
 				</tr>
 			</tbody>
 		</table>
+		
+		<div class="filtros">
+			<h2>Filtros</h2>
+			<form class="formulario" action="#" th:action="@{filtrarEspacios}"  method="get">
+				<ul class="listaForm">
+		            <li class="linea fecha">
+		                <label for="fecha_inicial"><b>Desde:</label>
+		                <input class="inputFecha" type="date" name="fecha_inicial" id="fecha_inicial">
+		            </li>
+		            <li class="linea fecha">
+		                <label for="fecha_final"><b>Hasta:</b></label>
+		                <input class="inputFecha" type="date" name="fecha_final" id="fecha_final">
+		            </li>
+		            <li class="linea ">
+		                <label for="libre"><b>Libre:</b></label>
+		                <input class="inputFecha" type="checkbox" name="libre" id="libre" value="true">
+		            </li>
+		            <li class="linea ">
+		                <label for="ocupado"><b>Ocupado:</b></label>
+		                <input class="inputFecha" type="checkbox" name="ocupado" id="ocupado" value="true">
+		            </li>
+		            <li class="linea"><input type="submit" class="botonEnviar" value="Filtrar"></li>
+		        </ul>
+			</form>
+		</div>
+		
 	</section>
 	<!-- CONTENIDO -->
     
     
 	<!-- FOOTER -->
-    <footer th:replace="template/plantilla :: footer"></footer>
+    
     <!-- FOOTER -->
 
 

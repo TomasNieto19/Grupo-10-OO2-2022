@@ -7,8 +7,6 @@
 */
 
 
--- create database if not exists `Grupo-10-BDD-OO2-2022`;
-
 create database if not exists `Grupo-10-BDD-OO2-2022`;
 
 
@@ -54,9 +52,9 @@ UNLOCK TABLES;
 
 
 LOCK TABLES `materia` WRITE;
-insert into materia values(1, "Programacion orientada a objetos 2", 1);
-insert into materia values(2, "Algoritmos y Estrucutras de Datos", 1);
-insert into materia values(3, "Introduccion a las Bases de Datos", 1);
+insert into materia values(1, "8616", "Programacion orientada a objetos 2", 1);
+insert into materia values(2, "8609","Algoritmos y Estrucutras de Datos", 1);
+insert into materia values(3, "8608","Introduccion a las Bases de Datos", 1);
 UNLOCK TABLES;
 
 
@@ -84,7 +82,7 @@ insert into tradicional values(70, "tiza", false, 3);
 UNLOCK TABLES;
 
 
--- NOTA PEDIDO
+-- NOTA PEDIDO CURSADA
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `observaciones`, `pendiente`, `turno`, `id_aula`, `id_materia`, `activo`) VALUES (1, 90, 'Aula con proyector', true, 'M', 1, 1, false);
 -- PROFESORES DE LA NOTA PEDIDO
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (1, 1);
@@ -104,3 +102,11 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VAL
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 4);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 5);
 
+
+-- NOTA PEDIDO FINAL
+INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `observaciones`, `pendiente`, `turno`, `id_aula`, `id_materia`, `activo`) VALUES (2, 85, 'Aula para final escrito', true, 'T', 2, 2, false);
+-- PROFESORES DE LA NOTA PEDIDO
+INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 3);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 4);
+-- NOTA PEDIDO DEL TIPO FINAL
+INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`fecha`, `mesa`, `id`) values ('2022/10/15', '90', 2);

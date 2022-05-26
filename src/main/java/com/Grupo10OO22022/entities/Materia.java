@@ -26,6 +26,9 @@ public class Materia {
 	@Column(name = "materia")
 	private String materia;
 	
+	@Column(name = "codigo")
+	private String codMateria;
+	
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_carrera", nullable=true)
 	private Carrera carrera;

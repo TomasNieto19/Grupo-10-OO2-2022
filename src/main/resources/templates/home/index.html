@@ -27,10 +27,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
                     <img class="card-img-top" th:src="@{/images/molinos.jpg}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
-                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Asignar
-                            Espacio
-                        </h4>
-                        <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Asignar</a>
+                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">
+                        Espacios
+  						</h4>
+                        <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Crear</a>
+                         <a th:href="@{/index}" class="btn btn-success align-items-center">Ver</a>
                     </div>
                 </div>
             </div>

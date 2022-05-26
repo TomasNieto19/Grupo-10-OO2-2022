@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
@@ -70,26 +71,23 @@ h2 {
 					<td th:text="${curso.turno}"></td>
 
 					<td><th:block th:each="aula:${curso.Aula}">
-						<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
-						<br>
-						</th:block>
-					</td>
+							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
+							<br>
+						</th:block></td>
 
 					<td th:text="${curso.cantEstudiantes}"></td>
 					<td th:text="${curso.materia.materia}"></td>
 					<td th:text="${curso.observaciones}"></td>
-					
+
 					<td><th:block th:each="profesor:${curso.profesores}">
-						<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
-						<br>
-						</th:block>
-					</td>
-					
+							<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
+							<br>
+						</th:block></td>
+
 					<td><th:block th:each="fecha:${curso.fechas}">
-						<label th:text="${fecha.fecha}"></label>
-						<br>
-						</th:block>
-					</td>
+							<label th:text="${fecha.fecha}"></label>
+							<br>
+						</th:block></td>
 					<td th:text="${curso.comision}"></td>
 				</tr>
 			</tbody>

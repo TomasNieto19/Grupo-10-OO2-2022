@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class Grupo10Oo22022Application /*implements CommandLineRunner*/{
+public class Grupo10Oo22022Application{
 
 	
 	public static void main(String[] args) {

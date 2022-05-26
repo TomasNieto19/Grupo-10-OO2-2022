@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.Grupo10OO22022.entities.Aula;
 import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.models.FinalModel;
+import com.Grupo10OO22022.services.IAulaService;
 import com.Grupo10OO22022.services.IFinalService;
 
 @Controller
@@ -28,25 +30,36 @@ public class FinalController {
 	@Qualifier("finalService")
 	private IFinalService finalService;
 	
+	@Autowired
+	private IAulaService aulaService;
+	
 	private ModelMapper modelMapper = new ModelMapper();
 	
-	@GetMapping("/index")//url
+	/*@GetMapping("/index")//url
 	public ModelAndView listarFinales() {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FINALES);
-		mv.addObject("finales", finalService.listaDeFinales());
+		mv.addObject("final", finalService.listaDeFinales());
 		return mv;
 	}
 	
 	@GetMapping("")//url
 	public RedirectView redirectListarFinales() {
 		return new RedirectView("/index");
+	}*/
+	
+	@GetMapping("/index")
+	public String listarFinales(Model modelo) {
+		modelo.addAttribute("finales", finalService.listaDeFinales());
+		return ViewRouteHelper.FINAL_VER_FINALES;
 	}
 	
 	
 	@GetMapping("/nuevo")
 	public ModelAndView mostrarFormularioDeFinales() {
+		List<Aula> listaAulas= aulaService.getAll();
 		ModelAndView mv= new ModelAndView(ViewRouteHelper.FINAL_VER_FORM);
 		mv.addObject("final",new FinalModel(' ', null, 0, null, null, null, null, false, null, null));
+		mv.addObject("listaAulas", listaAulas);
 		return mv;
 	}
 	

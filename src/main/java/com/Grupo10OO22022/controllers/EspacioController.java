@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.Grupo10OO22022.entities.Espacio;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
-import com.Grupo10OO22022.repositories.IEspacioRepository;
 import com.Grupo10OO22022.services.IEspacioService;
 
 @Controller
@@ -57,15 +56,38 @@ public class EspacioController {
 											@RequestParam(name="libre", required=false, defaultValue="false") boolean libre,
 											@RequestParam(name="ocupado", required=false, defaultValue="false") boolean ocupado){
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
-		if ((sFechaFinal.isEmpty())&&(sFechaFinal.isEmpty())) {
-			mv.addObject("espacios", espacioService.getAll());
-		} else {
-			mv.addObject("espacios", espacioService.getEntreFechas(LocalDate.parse(sFechaInicial), LocalDate.parse(sFechaFinal)));
+		List<Espacio> lista = espacioService.getAll();
+		//se fitra por fecha inicial
+		if (!sFechaInicial.isEmpty()) {
+			LocalDate fecha = LocalDate.parse(sFechaInicial);
+			for (Espacio e: lista) {
+				if (e.getFecha().isBefore(fecha))
+					lista.remove(e);
+			}
 		}
-		List<Espacio> listaEnera = espacioService.getAll();
-		
-		
-		
+		//se filtra por  fecha final
+		if (!sFechaFinal.isEmpty()) {
+			LocalDate fecha = LocalDate.parse(sFechaFinal);
+			for (Espacio e: lista) {
+				if (e.getFecha().isAfter(fecha))
+					lista.remove(e);
+			}
+		}
+		//se filtra por libres
+		if (!libre) {
+			for (Espacio e: lista) {
+				if (e.isLibre())
+					lista.remove(e);
+			}
+		}
+		//se filtra por ocupados
+		if (!ocupado) {
+			for (Espacio e: lista) {
+				if (!e.isLibre())
+					lista.remove(e);
+			}
+		}
+		mv.addObject("espacios", lista);
 		return mv;
 	}
 	

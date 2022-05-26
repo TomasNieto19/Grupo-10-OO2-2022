@@ -32,17 +32,5 @@ public class NotaPedidoController {
 		
 		return mAV;
 	}
-	
-	
-	@GetMapping("/finales")
-	public ModelAndView finales() {
-		
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FINALES);
-		
-		//mAV.addObject("finales", perfilService.getAll() );
-		
-		return mAV;
-	}
 
-	
 }

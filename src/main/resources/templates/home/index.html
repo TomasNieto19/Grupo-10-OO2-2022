@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html 
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
@@ -17,29 +19,27 @@
 
     <!-- CONTENIDO -->
     <div class="container" style="height: 100%; width: 100%;">
-
+        <!-- VISTA DEL ADMINISTRADOR -->
         <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
             th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
-
             <!-- AIGNAR ESPACIOS -->
-            <div class="col-3">
-                <div class="card border-primary" style="margin-top: 50px;">
-                    <img class="card-img-top" th:src="@{/images/unla.jpg}" style="width: 304px; height: 187px;" />
+            <div class="col-4">
+                <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
+                    <img class="card-img-top" th:src="@{/images/molinos.jpg}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
-                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Asignar
+                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Asignar
                             Espacio
                         </h4>
                         <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Asignar</a>
                     </div>
                 </div>
             </div>
-
             <!-- VER NOTAS PEDIDO -->
-            <div class="col-3">
-                <div class="card border-primary" style="margin-top: 50px;">
-                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 304px; height: 187px;" />
+            <div class="col-4">
+                <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
+                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
-                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Notas
+                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Notas
                             Pedidos</h4>
                         <div class="dropdown">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -53,34 +53,34 @@
                 </div>
             </div>
         </div>
-        
+        <!-- VISTA DEL AUDITOR -->
         <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
             th:if="${#authorization.expression('hasAuthority(''auditoria'')')}">
-
             <!-- CREAR NOTA PEDIDO -->
-            <div class="col-3">
-                <div class="card border-primary" style="margin-top: 50px;">
-                    <img class="card-img-top" th:src="@{/images/notaPedido.jpg}" style="width: 304px; height: 187px;" />
+            <div class="col-4">
+                <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
+                    <img class="card-img-top" th:src="@{/images/fondo_triangulos.jpg}"
+                        style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
-                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Nota Pedido</h4>
+                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Nota Pedido</h4>
                         <div class="dropdown">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crear</button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Cursada</a> 
+                                <a class="dropdown-item" href="#">Cursada</a>
                                 <a class="dropdown-item" th:href="@{/finales/nuevo}">Final</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <!-- VER NOTAS PEDIDO -->
-            <div class="col-3">
-                <div class="card border-primary" style="margin-top: 50px;">
-                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 304px; height: 187px;" />
+            <div class="col-4">
+                <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
+                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
-                        <h4 class="card-title" style="margin: 15px 0px 20px 0px;">Notas Pedidos</h4>
+                        <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Notas
+                            Pedidos</h4>
                         <div class="dropdown">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ver</button>

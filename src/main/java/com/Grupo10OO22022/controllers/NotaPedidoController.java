@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.services.ICursoService;
+import com.Grupo10OO22022.services.IFinalService;
 
 
 
@@ -22,6 +23,10 @@ public class NotaPedidoController {
 	@Qualifier("cursoService")
 	private ICursoService cursoService;
 	
+	@Autowired
+	@Qualifier("finalService")
+	private IFinalService finalService;
+	
 	
 	@GetMapping("/cursadas")
 	public ModelAndView cursadas() {
@@ -33,4 +38,15 @@ public class NotaPedidoController {
 		return mAV;
 	}
 
+
+	@GetMapping("/finales")
+	public ModelAndView listarFinales() {
+		
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FINALES);
+		
+		mv.addObject("finales", finalService.listaDeFinales());
+		
+		return mv;
+	}
+	
 }

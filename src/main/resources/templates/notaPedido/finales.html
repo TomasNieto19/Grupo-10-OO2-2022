@@ -20,7 +20,7 @@
 	<!-- CONTENIDO -->
 	<div class="col-12">
 
-		<h2>Cursadas</h2>
+		<h2>Finales</h2>
 
 		<table class="table table-bordered">
 			<thead>
@@ -31,34 +31,32 @@
 					<th>MATERIA</th>
 					<th>OBSERVACIONES</th>
 					<th>PROFESORES</th>
-					<th>FECHAS</th>
-					<th>COMISION</th>
+					<th>FECHA</th>
+					<th>MESA</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="curso:${cursadas}">
+				<tr th:each="final:${finales}">
 
-					<td th:text="${curso.turno}"></td>
+					<td th:text="${final.turno}"></td>
 
-					<td><th:block th:each="aula:${curso.Aula}">
+					<td><th:block th:each="aula:${final.Aula}">
 							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
 							<br>
 						</th:block></td>
 
-					<td th:text="${curso.cantEstudiantes}"></td>
-					<td th:text="${curso.materia.materia}"></td>
-					<td th:text="${curso.observaciones}"></td>
+					<td th:text="${final.cantEstudiantes}"></td>
+					<td th:text="${final.materia.materia}"></td>
+					<td th:text="${final.observaciones}"></td>
 
-					<td><th:block th:each="profesor:${curso.profesores}">
+					<td><th:block th:each="profesor:${final.profesores}">
 							<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
 							<br>
 						</th:block></td>
 
-					<td><th:block th:each="fecha:${curso.fechas}">
-							<label th:text="${#temporals.format(fecha.fecha,'dd-MM-yyyy')}"></label>
-							<br>
-						</th:block></td>
-					<td th:text="${curso.comision}"></td>
+					<td th:text="${#temporals.format(final.fecha,'dd-MM-yyyy')}"></td>
+
+					<td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
 				</tr>
 			</tbody>
 		</table>

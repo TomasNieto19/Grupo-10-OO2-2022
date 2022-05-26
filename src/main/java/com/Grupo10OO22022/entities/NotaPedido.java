@@ -52,11 +52,11 @@ public class NotaPedido {
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected Set<Profesor> profesores;
 	
-	@Column(name = "pendiente")
-	protected boolean pendiente;
+	@Column(name = "pendiente")	 //1 - se le asignaron espacio/s 
+	protected boolean pendiente; //0 - no se le asignaron espacio/s
 	
-	@Column(name = "activo")
-	protected boolean activo;
+	@Column(name = "activo")  //1 - Acativa en el sistema con espacios asignados
+	protected boolean activo; //0 - Inactiva en el sistma, no ocupa espacios
 
 	public NotaPedido(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
 			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {

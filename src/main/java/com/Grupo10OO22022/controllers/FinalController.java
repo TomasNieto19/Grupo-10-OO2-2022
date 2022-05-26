@@ -28,12 +28,6 @@ public class FinalController {
 	
 	private ModelMapper modelMapper = new ModelMapper();
 	
-	@GetMapping("/index")//url
-	public ModelAndView listarFinales() {
-		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FINALES);
-		mv.addObject("finales", finalService.listaDeFinales());
-		return mv;
-	}
 	
 	@GetMapping("")//url
 	public RedirectView redirectListarFinales() {

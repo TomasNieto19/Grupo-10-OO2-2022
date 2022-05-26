@@ -6,11 +6,7 @@
  --- 3) EJECUTAR EL SCRIPT COMPLETO.
 */
 
-
--- create database if not exists `Grupo-10-BDD-OO2-2022`;
-
 create database if not exists `Grupo-10-BDD-OO2-2022`;
-
 
 use `Grupo-10-BDD-OO2-2022`;
 
@@ -103,4 +99,3 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VAL
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 3);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 4);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 5);
-

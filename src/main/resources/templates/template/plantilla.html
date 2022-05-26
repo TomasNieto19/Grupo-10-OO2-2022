@@ -1,70 +1,95 @@
 <!DOCTYPE html>
-<html 
-xmlns:th="http://www.thymeleaf.org" 
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:fragment="head">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Unla</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Unla</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
 </head>
 
 
 <body style="margin: 0; margin-bottom: 40px;">
 
 
-    <!-- NAVBAR -->
-    <header th:fragment="header" class="p-3 bg-dark text-white">
-	    <div class="container">
-	      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" style="font-size: 30px;">
-
-	        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-	          <li><a class="nav-link px-2 text-white" style="margin-right: 10px;" th:href="@{/index}">Home</a></li>
-	          <li><a class="nav-link px-2 text-white" style="margin-right: 10px;" sec:authorize="hasAnyAuthority('administrador', 'auditoria')" th:href="@{/perfiles/}">Perfiles</a></li>
-	          <li><a class="nav-link px-2 text-white" style="margin-right: 10px;" sec:authorize="hasAuthority('administrador')" th:href="@{/usuarios/}">Usuarios</a></li>
-	        </ul>
-
-
-	        	<div class="text-end">
-	        	
-	          		<a class="nav-link px-2 text-white" href="javascript: document.logoutForm.submit()" role="menuitem">Logout</a>
-	                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-	                	<input hidden type="submit" value="Sign Out" />
-	              </form>
-	        	</div>
-	          
-	        </div>
-	        
-	      </div>
-	  </header>
-    <!-- NAVBAR -->
+	<!-- NAVBAR -->
+	<header th:fragment="header" class="p-3 bg-dark text-white">
+		<div class="container">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+				style="font-size: 25px;">
+				<ul
+					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+					<li><a class="nav-link px-2 text-white"
+						style="margin-right: 10px;" th:href="@{/index}">Home</a></li>
+					<li><a class="nav-link px-2 text-white"
+						style="margin-right: 10px;"
+						sec:authorize="hasAnyAuthority('administrador', 'auditoria')"
+						th:href="@{/perfiles/}">Perfiles</a></li>
+					<li><a class="nav-link px-2 text-white"
+						style="margin-right: 10px;"
+						sec:authorize="hasAuthority('administrador')"
+						th:href="@{/usuarios/}">Usuarios</a></li>
+				</ul>
 
 
-    <!-- FOOTER -->
-    <footer th:fragment="footer" class="bg-light text-center text-lg-start bg-dark" 
-    	style="position: fixed;
-			   bottom: 0;
-			   left: 0;
-			   width: 100%;
-			   color: white;">
-        <div class="text-center p-3">
-            © 2022 Copyright:
-            <a class="text-white">GRUPO-10-OO2-2022</a>
-        </div>
-    </footer>
-    <!-- FOOTER -->
+				<div class="text-end">
+					<div class="btn-group">
+						<button type="button" class="btn btn-danger dropdown-toggle"
+							style="text-transform: uppercase" data-toggle="dropdown"
+							aria-haspopup="true" aria-expanded="false"
+							sec:authentication="name"></button>
+						<div class="dropdown-menu">
+							<a class="nav-link px-2	 text-black"
+								href="javascript: document.logoutForm.submit()" role="menuitem">Logout</a>
+							<form name="logoutForm" th:action="@{/logout}" method="post"
+								th:hidden="true">
+								<input hidden type="submit" value="Sign Out" />
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- NAVBAR -->
 
 
-    <!-- BOOSTRAP CORE JS -->
-    <div th:fragment="scripts">
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script> 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>   
-    </div>
-    <!-- BOOSTRAP CORE JS -->
+
+	<!-- FOOTER -->
+	<footer th:fragment="footer"
+		class="bg-light text-center text-lg-start bg-dark"
+		style="position: absolute; bottom: 0; width: 100%; color: white;">
+		<div class="text-center p-3">
+			© 2022 Copyright: <a class="text-white">GRUPO-10-OO2-2022</a>
+		</div>
+	</footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:fragment="scripts">
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+			integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+			integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+			crossorigin="anonymous"></script>
+	</div>
+	<!-- BOOSTRAP CORE JS -->
 
 
 </body>

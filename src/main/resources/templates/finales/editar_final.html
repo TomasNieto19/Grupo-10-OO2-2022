@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<!-- HEAD -->
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+
+	<!-- NAVBAR -->
+	<header th:replace="template/plantilla :: header"></header>
+	<!-- NAVBAR -->
+
+
+	<!-- CONTENIDO -->
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Edicion de finales</h1>
+				<div class="card-body">
+					<form th:action="@{/finales/{id}(id=${final.id})}"
+						th:object="${final}" method="POST">
+						<div class="form-group">
+							<label>ID :</label> <input type="text" name="id" th:field="*{id}"
+								class="form-control" placeholder="Digite id de la nota_pedido"
+								required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Mesa :</label> <input type="text" name="mesa"
+								th:field="*{mesa}" class="form-control"
+								placeholder="Digite codigo de la mesa" required>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Fecha :</label> <input type="date" name="fecha"
+								th:field="*{fecha}" class="form-control"
+								placeholder="Digite fecha de la mesa" required>
+						</div>
+						<br>
+						<div class="box-footer">
+							<button class="btn btn-success">Guardar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- CONTENIDO -->
+
+
+	<!-- FOOTER -->
+	<footer th:replace="template/plantilla :: footer"></footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:replace="template/plantilla :: scripts"></div>
+	<!-- BOOSTRAP CORE JS -->
+
+
+</body>
+
+</html>

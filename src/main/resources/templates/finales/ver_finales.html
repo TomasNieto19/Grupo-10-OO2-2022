@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<!-- HEAD -->
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+
+	<!-- NAVBAR -->
+	<header th:replace="template/plantilla :: header"></header>
+	<!-- NAVBAR -->
+
+
+	<!-- CONTENIDO -->
+	<div class="container">
+		<div class="row">
+			<h1>Listado de finales</h1>
+		</div>
+		<table class="table table-striped table-dark">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>FECHA DEL FINAL</th>
+					<th>CODIGO DE MESA</th>
+					<th>ACCIONES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="final:${finales}">
+					<td th:text="${final.id}"></td>
+					<td th:text="${final.fecha}"></td>
+					<td th:text="${final.mesa}"></td>
+			</tbody>
+		</table>
+	</div>
+	<!-- CONTENIDO -->
+
+
+	<!-- FOOTER -->
+	<footer th:replace="template/plantilla :: footer"></footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:replace="template/plantilla :: scripts"></div>
+	<!-- BOOSTRAP CORE JS -->
+
+
+</body>
+
+</html>

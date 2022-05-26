@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<!-- HEAD -->
+
+
+<style>
+body {
+	background-color: rgb(86, 101, 115);
+}
+
+th {
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+td {
+	font-size: 20px;
+	color: white;
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.col-4 {
+	float: none;
+	margin: auto;
+	text-align: center;
+	margin-top: 45px;
+}
+</style>
+
+
+<body>
+
+
+	<!-- NAVBAR -->
+	<header th:replace="template/plantilla :: header"></header>
+	<!-- NAVBAR -->
+
+
+	<!-- CONTENIDO -->
+	<div class="col-12">
+
+		<h2>cursadas</h2>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>TURNO</th>
+					<th>AULA</th>
+					<th>ESTUDIANTES</th>
+					<th>MATERIA</th>
+					<th>OBSERVACIONES</th>
+					<th>PROFESORES</th>
+					<th>FECHAS</th>
+					<th>COMISION</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="curso:${cursadas}">
+
+					<td th:text="${curso.turno}"></td>
+
+					<td><th:block th:each="aula:${curso.Aula}">
+							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
+							<br>
+						</th:block></td>
+
+					<td th:text="${curso.cantEstudiantes}"></td>
+					<td th:text="${curso.materia.materia}"></td>
+					<td th:text="${curso.observaciones}"></td>
+
+					<td><th:block th:each="profesor:${curso.profesores}">
+							<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
+							<br>
+						</th:block></td>
+
+					<td><th:block th:each="fecha:${curso.fechas}">
+							<label th:text="${fecha.fecha}"></label>
+							<br>
+						</th:block></td>
+					<td th:text="${curso.comision}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- CONTENIDO -->
+
+
+	<!-- FOOTER -->
+	<footer th:replace="template/plantilla :: footer"></footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:replace="template/plantilla :: scripts"></div>
+	<!-- BOOSTRAP CORE JS -->
+
+
+</body>
+
+</html>

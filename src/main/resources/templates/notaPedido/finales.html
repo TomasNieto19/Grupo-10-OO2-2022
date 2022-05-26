@@ -33,30 +33,42 @@
 					<th>PROFESORES</th>
 					<th>FECHA</th>
 					<th>MESA</th>
+					<th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
+					<th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="final:${finales}">
 
 					<td th:text="${final.turno}"></td>
-
 					<td><th:block th:each="aula:${final.Aula}">
 							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
 							<br>
-						</th:block></td>
-
+						</th:block>
+					</td>
 					<td th:text="${final.cantEstudiantes}"></td>
 					<td th:text="${final.materia.materia}"></td>
 					<td th:text="${final.observaciones}"></td>
-
 					<td><th:block th:each="profesor:${final.profesores}">
 							<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
 							<br>
-						</th:block></td>
-
+						</th:block>
+					</td>
 					<td th:text="${#temporals.format(final.fecha,'dd-MM-yyyy')}"></td>
-
 					<td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
+					
+					<td sec:authorize="hasAuthority('administrador')">
+						<a class="btn btn-success btn-sm"  th:href="@{#}"
+							th:text="'Asignar'" title="Asignar Nota Pedido">
+						</a>
+					</td>	
+					<td sec:authorize="hasAuthority('auditoria')">
+						<a class="btn btn-danger btn-sm"  th:href="@{#}"
+							th:text="'Eliminar'" title="Eliminar Nota Pedido"
+							onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+						</a>
+					</td>
+					
 				</tr>
 			</tbody>
 		</table>

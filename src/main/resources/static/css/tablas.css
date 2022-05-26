@@ -3,13 +3,13 @@ body {
 }
 
 th {
-	font-size: 20px;
+	font-size: 19px;
 	color: white;
 	text-align: center;
 }
 
 td {
-	font-size: 20px;
+	font-size: 18px;
 	color: white;
 	text-align: center;
 }
@@ -20,6 +20,13 @@ h2 {
 }
 
 .col-4 {
+	float: none;
+	margin: auto;
+	text-align: center;
+	margin-top: 45px;
+}
+
+.col-10 {
 	float: none;
 	margin: auto;
 	text-align: center;

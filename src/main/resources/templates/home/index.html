@@ -31,10 +31,11 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                         Espacios
   						</h4>
                         <a th:href="@{/espacio/crear_espacios}" class="btn btn-success align-items-center">Crear</a>
-                         <a th:href="@{/index}" class="btn btn-success align-items-center">Ver</a>
+                         <a th:href="@{/espacio/ver_espacios}" class="btn btn-success align-items-center">Ver</a>
                     </div>
                 </div>
             </div>
+
             <!-- VER NOTAS PEDIDO -->
             <div class="col-4">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
@@ -54,6 +55,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 </div>
             </div>
         </div>
+        
         <!-- VISTA DEL AUDITOR -->
         <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
             th:if="${#authorization.expression('hasAuthority(''auditoria'')')}">

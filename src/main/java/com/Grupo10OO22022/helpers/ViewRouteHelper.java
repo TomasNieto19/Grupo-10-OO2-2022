@@ -21,6 +21,8 @@ public class ViewRouteHelper {
 	
 	//ESPACIO
 	public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
+	public final static String ESPACIO_VER_ESPACIO = "espacio/verEspacios";
+
 
 	//VER NOTAS PEDIDOS
 	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
@@ -29,7 +31,6 @@ public class ViewRouteHelper {
 	//FINAL
 	public final static String FINAL_VER_FORM = "finales/form_final";
 
-  
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";
 	public final static String DEGREE_ROOT = "/degrees/";

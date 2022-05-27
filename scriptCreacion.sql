@@ -110,3 +110,11 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, 
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 4);
 -- NOTA PEDIDO DEL TIPO FINAL
 INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`fecha`, `mesa`, `id`) values ('2022/10/15', '90', 2);
+
+
+-- NOTA PEDIDO FINAL
+INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `observaciones`, `pendiente`, `turno`, `id_aula`, `id_materia`, `activo`) VALUES (3, 50, 'Final pocos alumnos', true, 'M', 3, 3, false);
+-- PROFESORES DE LA NOTA PEDIDO
+INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (3, 5);
+-- NOTA PEDIDO DEL TIPO FINAL
+INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`fecha`, `mesa`, `id`) values ('2022/9/12', '99', 3);

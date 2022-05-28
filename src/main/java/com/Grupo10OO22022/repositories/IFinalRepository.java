@@ -22,7 +22,8 @@ public interface IFinalRepository extends JpaRepository<Final, Integer>{
 
 }
 /*
-	 ¡¡ REVISAR !!
+		 ¡¡ REVISAR !!
+	protected char turno;
 	protected boolean pendiente;
 	protected boolean activo;
 */

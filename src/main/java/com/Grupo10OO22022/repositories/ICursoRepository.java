@@ -21,9 +21,9 @@ public interface ICursoRepository extends JpaRepository<Curso, Integer>{
 
 }
 /*
-		 ¡¡ CURSO !!
-	private Set<Fecha> fechas;
 		 ¡¡ REVISAR !!
+	private Set<Fecha> fechas;
+	protected char turno;
 	protected boolean pendiente;
 	protected boolean activo;
 	

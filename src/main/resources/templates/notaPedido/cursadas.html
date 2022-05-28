@@ -55,7 +55,7 @@
 						</th:block>
 					</td>
 					<td><th:block th:each="fecha:${curso.fechas}">
-							<label th:text="${#temporals.format(fecha.fecha,'dd-MM-yyyy')}"></label>
+							<label th:text="${fecha.fecha}"></label>
 							<br>
 						</th:block></td>
 					<td th:text="${curso.comision}"></td>

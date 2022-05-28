@@ -12,7 +12,7 @@ public interface IFinalRepository extends JpaRepository<Final, Integer>{
 
 	
      @Query("SELECT f FROM Final f JOIN f.profesores p JOIN f.materia m JOIN f.aula a JOIN a.edificio e WHERE "
-    		+ "CONCAT (f.turno, f.cantEstudiantes, f.observaciones, f.mesa, "
+     		+ "CONCAT (f.turno, f.cantEstudiantes, f.observaciones, f.mesa, f.fecha, "
     		+ "p.nombre, p.apellido, "
     		+ "m.materia, m.codMateria, "
     		+ "a.numero, "
@@ -24,12 +24,5 @@ public interface IFinalRepository extends JpaRepository<Final, Integer>{
 /*
 	 ¡¡ REVISAR !!
 	protected boolean pendiente;
-	
 	protected boolean activo;
-
-	-----PROPIOS DE FINAL-----
-
-	private LocalDate fecha;
-	
-
 */

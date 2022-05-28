@@ -62,7 +62,7 @@
 							<br>
 						</th:block>
 					</td>
-					<td th:text="${#temporals.format(final.fecha,'dd-MM-yyyy')}"></td>
+					<td th:text="${final.fecha}"></td>
 					<td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
 					
 					<td sec:authorize="hasAuthority('administrador')">

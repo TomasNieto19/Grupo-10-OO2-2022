@@ -26,9 +26,9 @@
 			<form style="margin-bottom: 15px;" th:action="@{/notaPedido/finales}">
 			    Filtrar: <input type="text"  name="keyword" id="keyword" size="50" th:value="${keyword}" required />
 			    &nbsp;
-			    <input type="submit" class="btn btn-success" value="Search" />
+			    <input type="submit" class="btn btn-success" value="Buscar" />
 			    &nbsp;
-			    <input type="button" class="btn btn-danger" value="Clear" id="btnClear" onclick="clearSearch()" />
+			    <input type="button" class="btn btn-danger" value="Limpiar" id="btnClear" onclick="clearSearch()" />
 			</form>
 
 		<table class="table table-bordered">
@@ -50,7 +50,7 @@
 				<tr th:each="final:${finales}">
 					<td th:text="${final.turno}"></td>
 					<td><th:block th:each="aula:${final.Aula}">
-							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
+							<label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
 							<br>
 						</th:block>
 					</td>

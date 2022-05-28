@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import com.Grupo10OO22022.entities.Curso;
 import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.services.ICursoService;
@@ -33,31 +33,45 @@ public class NotaPedidoController {
 	
 	
 	@GetMapping("/cursadas")
-	public ModelAndView cursadas() {
+	public String listarCursadas(Model model, @Param("keyword") String keyword) {
 		
-		ModelAndView mAV = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_CURSADAS);
+		//Esta consulta puede devolver objetos repetidos.
+		List<Curso> cursadasRepetidas = this.cursoService.listAll(keyword);
 		
-		mAV.addObject("cursadas", cursoService.getAll() );
+		//Nueva lista para agregar objetos sin repetir.
+		List<Curso> cursadas = new ArrayList<Curso>();
 		
-		return mAV;
+		//Si el objeto ya está, no lo vuelve agregar.
+		for (Curso objeto : cursadasRepetidas) {
+			
+	          if ( !cursadas.contains(objeto) ) {
+	        	  
+	        	  cursadas.add(objeto);
+	            
+	          }
+	    }
+		
+		model.addAttribute("cursadas", cursadas);
+		
+		model.addAttribute("keyword", keyword);
+		
+		return ViewRouteHelper.NOTA_PEDIDO_CURSADAS;
 	}
 
 
 	@GetMapping("/finales")
 	public String listarFinales(Model model, @Param("keyword") String keyword) {
 		
-		//Esta consulta puede devolver objetos repetidos.
 		List<Final> finalesRepetidos = this.finalService.listAll(keyword);
 		
-		//Lista sin objetos repetidos para devolver a la vista.
 		List<Final> finales = new ArrayList<Final>();
 		
-		//Si el objeto ya está, no lo vuelve agregar.
-		for (Final element : finalesRepetidos) {
+
+		for (Final objeto : finalesRepetidos) {
 			
-	          if (!finales.contains(element)) {
+	          if (!finales.contains(objeto)) {
 	        	  
-	            finales.add(element);
+	            finales.add(objeto);
 	            
 	          }
 	    }
@@ -66,7 +80,7 @@ public class NotaPedidoController {
 		
 		model.addAttribute("keyword", keyword);
 		
-		return ViewRouteHelper.FINAL_VER_FINALES;
+		return ViewRouteHelper.NOTA_PEDIDO_FINALES;
 	}
 	
 }

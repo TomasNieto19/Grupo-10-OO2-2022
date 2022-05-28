@@ -22,6 +22,14 @@
 
 		<h2>Cursadas</h2>
 
+			<form style="margin-bottom: 15px;" th:action="@{/notaPedido/cursadas}">
+			    Filtrar: <input type="text"  name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+			    &nbsp;
+			    <input type="submit" class="btn btn-success" value="Buscar" />
+			    &nbsp;
+			    <input type="button" class="btn btn-danger" value="Limpiar" id="btnClear" onclick="clearSearch()" />
+			</form>
+
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -42,7 +50,7 @@
 
 					<td th:text="${curso.turno}"></td>
 					<td><th:block th:each="aula:${curso.Aula}">
-							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
+							<label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
 							<br>
 						</th:block>
 					</td>
@@ -82,6 +90,13 @@
 	<!-- FOOTER -->
 	<footer th:replace="template/plantilla :: footer"></footer>
 	<!-- FOOTER -->
+
+
+		<script type="text/javascript">
+		    function clearSearch() {
+		        window.location = "[[@{/notaPedido/cursadas}]]";
+		    }
+		</script>
 
 
 	<!-- BOOSTRAP CORE JS -->

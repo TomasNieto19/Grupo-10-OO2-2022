@@ -1,13 +1,10 @@
 package com.Grupo10OO22022.entities;
 
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,16 +13,11 @@ import lombok.Setter;
 @Entity
 //@PrimaryKeyJoinColumn(referencedColumnName = "curso_pedido")
 public class Curso extends NotaPedido {
-
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	private Set<Fecha> fechas;
 	
 	@Column(name = "comision")
-	private String comisión;
-
-	
-	
-	
+	private String comision;
 	
 }

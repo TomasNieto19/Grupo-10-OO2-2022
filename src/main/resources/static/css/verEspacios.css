@@ -1,0 +1,111 @@
+@charset "ISO-8859-1";
+
+/* Estilos de Tabla*/
+
+body {
+	background-color: rgb(86, 101, 115);
+	display:flex; 
+  	flex-direction:column; 
+}
+
+.cuerpo {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+}
+
+
+
+.tabla {
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 10px 20px;
+}
+
+.tHead {
+	font-size: 20px;
+	
+	text-align: center;
+	background-color: lightgrey;
+	border: solid 1px black ;
+	padding: 2px 3px;
+	
+}
+
+.tabla tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+/* top-right border-radius */
+.tabla tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+/* bottom-left border-radius */
+.tabla tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+/* bottom-right border-radius */
+.tabla tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+
+/* Estilos de Formulario de filtros*/
+
+.tRow {
+	font-size: 20px;
+	
+	text-align: center;
+	background-color: white;
+	border: solid 1px black ;
+	padding: 2px 10px;
+}
+
+.filtros {
+	
+	margin: 20px;
+	height: 400px;
+	padding: 3px 0;
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 2px 2px 4px black;
+}
+
+.filtros h2{
+	
+	text-align: center;
+}
+
+
+.listaForm{
+	list-style: none;
+	padding: 0;
+}
+
+.linea {
+	margin: 15px 25px;
+}
+
+
+.inputFecha {
+	border-radius: 10px;
+	border: 1;
+	padding: 1px 2px;
+	box-shadow: 1px 1px 3px black;
+	border-bottom-style: solid;
+	text-align: center;
+}
+
+.botonEnviar{
+	background-color: rgb(51,51,255);
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	padding: 7px;
+	box-shadow: 2px 2px 4px black;
+}
+
+
+

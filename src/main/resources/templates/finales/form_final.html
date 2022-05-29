@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html  xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Registro de finales</title>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<<<<<<< HEAD
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -23,15 +20,35 @@
 		</div>
 	</nav>
 	<br>
+=======
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<!-- HEAD -->
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+
+	<!-- NAVBAR -->
+	<header th:replace="template/plantilla :: header"></header>
+	<!-- NAVBAR -->
+
+
+	<!-- CONTENIDO -->
+>>>>>>> 58b4b8d2a8a40682208c8496dcff1fa075ded858
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class="text-center">Registro de un final</h1>
 				<div class="card-body">
-					<form action="#"   th:action="@{/finales}" th:object="${final}" method="POST">
-			
+					<form action="#" th:action="@{/finales}" th:object="${final}"
+						method="POST">
+
 						<br>
 						<div class="form-group">
+<<<<<<< HEAD
 							<label>Turno :</label>
 							<input type="text" name="turno" th:field="*{turno}" class="form-control" placeholder="Digite turno de la mesa" required="required" >
 						</div>
@@ -52,24 +69,52 @@
 						<div class="form-group">
 							<label>Observaciones :</label>
 							<input type="text" name="observaciones" th:field="*{observaciones}" class="form-control" placeholder="Observaciones" required="required" >
+=======
+							<label>Mesa :</label> <input type="text" name="mesa"
+								th:field="*{mesa}" class="form-control"
+								placeholder="Digite codigo de la mesa" required="required">
 						</div>
 						<div class="form-group">
-							<label>Mesa :</label>
-							<input type="text" name="mesa" th:field="*{mesa}" class="form-control" placeholder="Digite codigo de la mesa" required="required" >
+							<label>Mesa :</label> <input type="text" name="mesa"
+								th:field="*{mesa}" class="form-control"
+								placeholder="Digite codigo de la mesa" required="required">
+						</div>
+						<div class="form-group">
+							<label>Mesa :</label> <input type="text" name="mesa"
+								th:field="*{mesa}" class="form-control"
+								placeholder="Digite codigo de la mesa" required="required">
+>>>>>>> 58b4b8d2a8a40682208c8496dcff1fa075ded858
+						</div>
+						<div class="form-group">
+							<label>Mesa :</label> <input type="text" name="mesa"
+								th:field="*{mesa}" class="form-control"
+								placeholder="Digite codigo de la mesa" required="required">
 						</div>
 						<br>
 						<div class="form-group">
-							<label>Fecha :</label>
-							<input type="date" name="fecha" th:field="*{fecha}" class="form-control" placeholder="Digite fecha de la mesa" required="required">
+							<label>Fecha :</label> <input type="date" name="fecha"
+								th:field="*{fecha}" class="form-control"
+								placeholder="Digite fecha de la mesa" required="required">
 						</div>
-						<br>
-						<input type="submit">
+						<br> <input type="submit">
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- CONTENIDO -->
+
+
+	<!-- FOOTER -->
+	<footer th:replace="template/plantilla :: footer"></footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:replace="template/plantilla :: scripts"></div>
+	<!-- BOOSTRAP CORE JS -->
 
 
 </body>
+
 </html>

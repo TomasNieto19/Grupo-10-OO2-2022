@@ -1,7 +1,5 @@
 package com.Grupo10OO22022.controllers;
 
-import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+
 import com.Grupo10OO22022.entities.Aula;
+
 import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.models.FinalModel;
 import com.Grupo10OO22022.services.IAulaService;
 import com.Grupo10OO22022.services.IFinalService;
+
 
 @Controller
 @RequestMapping("/finales")
@@ -35,12 +36,14 @@ public class FinalController {
 	
 	private ModelMapper modelMapper = new ModelMapper();
 	
+
 	/*@GetMapping("/index")//url
 	public ModelAndView listarFinales() {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FINALES);
 		mv.addObject("final", finalService.listaDeFinales());
 		return mv;
 	}
+
 	
 	@GetMapping("")//url
 	public RedirectView redirectListarFinales() {

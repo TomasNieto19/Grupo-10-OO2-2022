@@ -21,11 +21,12 @@ public class ViewRouteHelper {
 	
 	//ESPACIO
 	public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
+
 		
-	//FINAL
+	/*//FINAL
 
 	public final static String FINAL_VER_FINALES = "finales/ver_finales";
-	public final static String FINAL_VER_FORM = "finales/form_final";
+	public final static String FINAL_VER_FORM = "finales/form_final";*/
 
 	//DEPARTAMENTO
 	public final static String DEPARTAMENTO_VER_DEPARTAMENTOS = "departamento/ver_departamentos";
@@ -39,7 +40,18 @@ public class ViewRouteHelper {
 	//MATERIA
 	public final static String MATERIA_VER_MATERIAS = "materia/ver_materias";
 	public final static String MATERIA_VER_FORM ="materia/form_materia";
+
+	public final static String ESPACIO_VER_ESPACIO = "espacio/verEspacios";
+
+
+	//VER NOTAS PEDIDOS
+	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
+	public final static String FINAL_VER_FINALES = "notaPedido/finales";	
+
 	
+	//FINAL
+	public final static String FINAL_VER_FORM = "finales/form_final";
+
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";
 	public final static String DEGREE_ROOT = "/degrees/";

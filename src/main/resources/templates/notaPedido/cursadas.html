@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- HEAD -->
+<header th:replace="template/plantilla :: head"></header>
+<link rel="stylesheet" th:href="@{/css/tablas.css}">
+<!-- HEAD -->
+
+
+<body>
+
+
+	<!-- NAVBAR -->
+	<header th:replace="template/plantilla :: header"></header>
+	<!-- NAVBAR -->
+
+
+	<!-- CONTENIDO -->
+	<div class="col-12">
+
+		<h2>Cursadas</h2>
+
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>TURNO</th>
+					<th>AULA</th>
+					<th>ESTUDIANTES</th>
+					<th>MATERIA</th>
+					<th>OBSERVACIONES</th>
+					<th>PROFESORES</th>
+					<th>FECHAS</th>
+					<th>COMISION</th>
+					<th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
+					<th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="curso:${cursadas}">
+
+					<td th:text="${curso.turno}"></td>
+					<td><th:block th:each="aula:${curso.Aula}">
+							<label th:text="${aula.edificio.edificio +' '+ aula.numero}"></label>
+							<br>
+						</th:block>
+					</td>
+					<td th:text="${curso.cantEstudiantes}"></td>
+					<td th:text="${curso.materia.materia}"></td>
+					<td th:text="${curso.observaciones}"></td>
+					<td><th:block th:each="profesor:${curso.profesores}">
+							<label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
+							<br>
+						</th:block>
+					</td>
+					<td><th:block th:each="fecha:${curso.fechas}">
+							<label th:text="${#temporals.format(fecha.fecha,'dd-MM-yyyy')}"></label>
+							<br>
+						</th:block></td>
+					<td th:text="${curso.comision}"></td>
+					
+					<td sec:authorize="hasAuthority('administrador')">
+						<a class="btn btn-success btn-sm"  th:href="@{#}"
+							th:text="'Asignar'" title="Asignar Nota Pedido">
+						</a>
+					</td>	
+					<td sec:authorize="hasAuthority('auditoria')">
+						<a class="btn btn-danger btn-sm"  th:href="@{#}"
+							th:text="'Eliminar'" title="Eliminar Nota Pedido"
+							onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+						</a>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!-- CONTENIDO -->
+
+
+	<!-- FOOTER -->
+	<footer th:replace="template/plantilla :: footer"></footer>
+	<!-- FOOTER -->
+
+
+	<!-- BOOSTRAP CORE JS -->
+	<div th:replace="template/plantilla :: scripts"></div>
+	<!-- BOOSTRAP CORE JS -->
+
+
+</body>
+
+</html>

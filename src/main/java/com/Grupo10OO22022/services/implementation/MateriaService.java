@@ -22,4 +22,15 @@ public class MateriaService implements IMateriaService{
 		return materiaRepository.findAll();
 	}
 
+	@Override
+	public Materia guardarMateria(Materia m) {
+		return materiaRepository.save(m);
+	}
+
+	@Override
+	public void eliminarMateria(int id) {
+		materiaRepository.deleteById(id);
+		
+	}
+
 }

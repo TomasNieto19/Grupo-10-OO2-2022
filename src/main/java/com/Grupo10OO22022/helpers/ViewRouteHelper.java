@@ -36,6 +36,9 @@ public class ViewRouteHelper {
 	public final static String CARRERA_VER_CARRERAS = "carrera/ver_carreras";
 	public final static String CARRERA_VER_FORM ="carrera/form_carrera";
 	
+	//MATERIA
+	public final static String MATERIA_VER_MATERIAS = "materia/ver_materias";
+	public final static String MATERIA_VER_FORM ="materia/form_materia";
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";

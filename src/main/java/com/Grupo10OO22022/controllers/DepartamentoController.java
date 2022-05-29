@@ -50,7 +50,6 @@ public class DepartamentoController {
 	@GetMapping("/nuevo")
 	public ModelAndView mostrarFormularioDeDepartamentos() {
 		ModelAndView mv= new ModelAndView(ViewRouteHelper.DEPARTAMENTO_VER_FORM);
-		
 		mv.addObject("departamento", new DepartamentoModel());
 		return mv;
 	}

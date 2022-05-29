@@ -32,6 +32,10 @@ public class ViewRouteHelper {
 	public final static String DEPARTAMENTO_VER_FORM = "departamento/form_departamento";
 	public final static String DEPARTAMENTO_EDITAR = "departamento/editar_departamento";
 	
+	//CARRERA
+	public final static String CARRERA_VER_CARRERAS = "carrera/ver_carreras";
+	public final static String CARRERA_VER_FORM ="carrera/form_carrera";
+	
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";

@@ -35,6 +35,11 @@ public class Carrera {
 		this.carrera = carrera;
 		this.departamento = departamento;
 	}
+
+	@Override
+	public String toString() {
+		return "departamento=" + departamento;
+	}
 	
 	
 	

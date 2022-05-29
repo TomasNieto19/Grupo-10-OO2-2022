@@ -54,7 +54,7 @@ public class FinalController {
 	}
 	
 	
-	@GetMapping("/nuevo")
+	/*@GetMapping("/nuevo")
 	public ModelAndView mostrarFormularioDeFinales() {
 		List<Aula> listaAulas= aulaService.getAll();
 		ModelAndView mv= new ModelAndView(ViewRouteHelper.FINAL_VER_FORM);
@@ -67,7 +67,7 @@ public class FinalController {
 	public RedirectView guardarFinal(@ModelAttribute("final") FinalModel f) {
 		finalService.guardarFinal(modelMapper.map(f, Final.class));
 		return new RedirectView("");
-	}
+	}*/
 	
 	
 	

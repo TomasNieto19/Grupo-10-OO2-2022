@@ -20,13 +20,18 @@ public class ViewRouteHelper {
 	public final static String ADMIN_INDEX = "admin/index";
 	
 	//ESPACIO
-		public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
+	public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
 		
 	//FINAL
 
 	public final static String FINAL_VER_FINALES = "finales/ver_finales";
 	public final static String FINAL_VER_FORM = "finales/form_final";
-		
+
+	//DEPARTAMENTO
+	public final static String DEPARTAMENTO_VER_DEPARTAMENTOS = "departamento/ver_departamentos";
+	public final static String DEPARTAMENTO_VER_FORM = "departamento/form_departamento";
+	public final static String DEPARTAMENTO_EDITAR = "departamento/editar_departamento";
+	
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";

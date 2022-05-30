@@ -40,12 +40,17 @@ public class ViewRouteHelper {
 	//MATERIA
 	public final static String MATERIA_VER_MATERIAS = "materia/ver_materias";
 	public final static String MATERIA_VER_FORM ="materia/form_materia";
+	
+	//PROFESOR
+	public final static String PROFESOR_VER_PROFESORES = "profesor/ver_profesores"; 
+	public final static String PROFESOR_VER_FORM = "profesor/form_profesor";
 
 	public final static String ESPACIO_VER_ESPACIO = "espacio/verEspacios";
 
 
 	//VER NOTAS PEDIDOS
 	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
+	public final static String NOTA_PEDIDO_FORM_CURSADA = "notaPedido/form_cursada";
 	public final static String FINAL_VER_FINALES = "notaPedido/finales";	
 
 	

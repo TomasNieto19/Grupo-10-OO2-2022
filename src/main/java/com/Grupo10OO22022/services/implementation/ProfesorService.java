@@ -22,5 +22,16 @@ public class ProfesorService implements IProfesorService {
 	public List<Profesor> getAll() {
 		return profesorRepository.findAll();
 	}
+
+	@Override
+	public Profesor guardarProfesor(Profesor p) {
+		return profesorRepository.save(p);
+	}
+
+	@Override
+	public void eliminarProfesor(int id) {
+		profesorRepository.deleteById(id);
+		
+	}
 	
 }

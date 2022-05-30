@@ -16,18 +16,19 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor
 public class CursoModel extends NotaPedidoModel {
 
-	
 	private Set<Fecha> fechas;
 	
-	private String comisión;
+	private String comision;
 
 	public CursoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
 			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente, Set<Fecha> fechas,
-			String comisión) {
+			String comision) {
 		super(turno, aula, cantEstudiantes, materia, observaciones, espaciosAsignados, profesores, pendiente);
 		this.fechas = fechas;
-		this.comisión = comisión;
+		this.comision = comision;
 	}
+
+	
 	
 	
 	

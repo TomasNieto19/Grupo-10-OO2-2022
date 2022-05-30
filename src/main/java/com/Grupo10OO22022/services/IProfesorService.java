@@ -8,4 +8,10 @@ public interface IProfesorService {
 
 	public List<Profesor> getAll();
 	
+	public Profesor guardarProfesor(Profesor p);
+	
+	public void eliminarProfesor(int id);
+	
+	
+	
 }

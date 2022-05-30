@@ -2,34 +2,36 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de departamentos</title>
+<title>LISTADO DE MATERIAS</title>
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<h1>Lista de Carreras</h1>
+			<h1>Lista de materias</h1>
 			
 		</div>
 		<a th:href=@{nuevo} class="btn btn-primary">Nueva Materia</a>
+		
 		<table class="table">
 			<thead class="table-dark">
 				<tr>
 					<th>ID</th>
-					<th>Codigo de materia</th>
-					<th>Carrera</th>
-					<th>Accion</th>
+					<th>CODIGO</th>
+					<th>NOMBRE</th>
+					<th>CARRERA</th>
+					<th>ACCION<th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="materia: ${materias}">
 					<td th:text="${materia.id}"></td>
 					<td th:text="${materia.codMateria}"></td>
-					<td th:text="${carrera.departamento.departamento}"></td>
+					<td th:text="${materia.materia}"></td>
+					<td th:text="${materia.carrera.carrera}"></td>
 					<td>
-						<a th:href="@{'editar'+'/'+ ${carrera.id}}" class="btn btn-warning">Editar</a>
-						<a th:href= "@{'eliminar'+'/'+ ${carrera.id}}" class="btn btn-danger">Eliminar</a>
+						<a th:href= "@{'eliminar'+'/'+ ${materia.id}}" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>
 			</tbody>

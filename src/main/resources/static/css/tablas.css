@@ -32,3 +32,20 @@ h2 {
 	text-align: center;
 	margin-top: 45px;
 }
+
+.col-12 {
+	float: none;
+	text-align: center;
+}
+
+col-12 th {
+	font-size: 19px;
+	color: white;
+	text-align: center;
+}
+
+col-12 td {
+	font-size: 18px;
+	color: white;
+	text-align: center;
+}

@@ -62,7 +62,7 @@
                             <br>
                         </th:block>
                     </td>
-                    <td th:text="${final.fecha}"></td>
+                    <td th:text="${final.fecha.fecha}"></td>
                     <td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
                     <td sec:authorize="hasAuthority('administrador')">
                         <a class="btn btn-success btn-sm" th:href="@{#}" th:text="'Asignar'"

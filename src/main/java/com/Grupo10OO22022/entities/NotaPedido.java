@@ -14,7 +14,6 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,9 +45,6 @@ public class NotaPedido {
 	@Column(name = "observaciones")
 	protected  String observaciones;
 	
-	@OneToMany(fetch = FetchType.EAGER)
-	protected Set<Espacio> espaciosAsignados;
-	
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected Set<Profesor> profesores;
 	
@@ -59,13 +55,12 @@ public class NotaPedido {
 	protected boolean activo; //0 - Inactiva en el sistma, no ocupa espacios
 
 	public NotaPedido(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {
+		 Set<Profesor> profesores, boolean pendiente) {
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
-		this.espaciosAsignados = espaciosAsignados;
 		this.profesores = profesores;
 		this.pendiente = pendiente;
 	}

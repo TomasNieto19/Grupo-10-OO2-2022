@@ -117,6 +117,11 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VAL
 INSERT INTO `grupo-10-bdd-oo2-2022`.`curso_fechas` (`curso_id`, `fechas_id`) VALUES (1, 5);
 UNLOCK TABLES;
 
+-- FECHAS PARA FINALES
+LOCK TABLES `fecha` WRITE;
+INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (11, '2022/9/12');
+INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (12, '2022/10/15');
+UNLOCK TABLES;
 
 -- NOTA PEDIDO FINAL
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `observaciones`, `pendiente`, `turno`, `id_aula`, `id_materia`, `activo`) VALUES (2, 85, 'Aula para final escrito', true, 'T', 2, 2, false);
@@ -124,7 +129,7 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `ob
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 3);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 4);
 -- NOTA PEDIDO DEL TIPO FINAL
-INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`fecha`, `mesa`, `id`) values ('2022/10/15', '90', 2);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (12, '90', 2);
 
 
 -- NOTA PEDIDO FINAL
@@ -154,8 +159,6 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (7, '2022/8/1
 INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (8, '2022/8/26');
 INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (9, '2022/9/2');
 INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (10, '2022/9/9');
-INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (11, '2022/9/12');
-INSERT INTO `grupo-10-bdd-oo2-2022`.`fecha` (`id`, `fecha`) values (12, '2022/10/15');
 UNLOCK TABLES;
 -- CURSO_FECHAS
 LOCK TABLES `curso_fechas` WRITE;

@@ -43,12 +43,12 @@ UNLOCK TABLES;
 
 
 LOCK TABLES `profesor` WRITE;
-insert into profesor values(1, "Alejandra", "Vranic");
-insert into profesor values(2, "Gustavo", "Siciliano");
-insert into profesor values(3, "Nicolas", "Perez");
-insert into profesor values(4, "Alejandro", "Sasin");
-insert into profesor values(5, "Federico", "Ribeiro");
-insert into profesor values(6, "Hernan", "Amatriain");
+insert into profesor values(1, "Vranic", "Alejandra");
+insert into profesor values(2, "Siciliano", "Gustavo");
+insert into profesor values(3, "Perez", "Nicolas");
+insert into profesor values(4, "Sasin", "Alejandro");
+insert into profesor values(5, "Ribeiro", "Federico");
+insert into profesor values(6, "Amatriain", "Hernan");
 UNLOCK TABLES;
 
 

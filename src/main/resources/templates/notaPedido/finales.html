@@ -58,7 +58,7 @@
                     <td th:text="${final.observaciones}"></td>
                     <td>
                         <th:block th:each="profesor:${final.profesores}">
-                            <label th:text="${profesor.nombre + ' ' + profesor.apellido}"></label>
+                            <label th:text="${profesor.apellido + ' ' + profesor.nombre}"></label>
                             <br>
                         </th:block>
                     </td>

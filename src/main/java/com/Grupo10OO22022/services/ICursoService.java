@@ -9,4 +9,5 @@ public interface ICursoService {
 	public List<Curso> listAll(String keyword);
 	
 	
+	public Curso getById(int id);
 }

@@ -28,4 +28,10 @@ public class CursoService implements ICursoService{
 		return cursoRepository.findAll();
 	}
 
+
+	@Override
+	public Curso getById(int id) {
+		return cursoRepository.getById(id);
+	}
+
 }

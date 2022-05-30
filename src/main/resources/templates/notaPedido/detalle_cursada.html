@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head >
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Unla</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+	<link rel="stylesheet" th:href="@{/css/detalle.css}">
+</head>
+	
+<body style="background-color: rgb(86, 101, 115);">
+
+
+    <!-- NAVBAR -->
+    <header th:replace="template/plantilla :: header"></header>
+    <!-- NAVBAR -->
+
+
+    <!-- CONTENIDO -->
+    
+
+        <h2>Materia: <span th:text="${curso.materia.materia}"></span></h2>
+        <ul>
+        	<li><p>Codigo: <span th:text="${curso.materia.codMateria}"></span>-<span th:text="${curso.comision}"></span></p></li>
+  			<li><p>Turno: <span th:text="${curso.turno}"></span></p></li>
+ 			<li><p>Cantidad De alumnos: <span th:text="${curso.cantEstudiantes}"></span></p></li>
+ 			<li><p>Profesores:</p>
+ 				<ul>
+ 					<li th:each="profesor : ${curso.profesores}" th:text="${profesor.apellido + ' ' + profesor.nombre}">
+ 				</ul>
+ 			</li>
+ 			<li><p>Aula requerida: <span th:text="${ curso.aula.numero + ' de ' + curso.aula.edificio.edificio}"></span></p></li>
+ 			<li><p>Observaciones:<br><span th:text="${curso.observaciones}"></span></p></li>
+		</ul>
+		<table>
+			<thead>
+                <tr>
+                    <th>Fecha Pedidas</th>
+                    <th>Espacio Asignado</th>
+                </tr>
+            </thead>
+            <tbody>
+            	<tr th:each="fecha : ${curso.fechas}">
+   					 <td th:text="${fecha.fecha}"><a></a></td>
+   					 <span th:if="${fecha.espacioAsignado != null}">
+   					 	<td th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}"></td>
+   					 </span>
+   					 <span>
+   					 	<td><a th:href="@{asignarEspacio/{id_fecha}(id_fecha=${fecha.id})}">SIN ASIGNAR</a></td>
+   					 </span>
+				</tr>
+			</tbody>
+		</table>
+       
+    
+    <!-- CONTENIDO -->
+
+
+    <!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+    <!-- FOOTER -->
+
+
+    <script type="text/javascript">
+        function clearSearch() {
+            window.location = "[[@{/notaPedido/cursadas}]]";
+        }
+    </script>
+
+
+    <!-- BOOSTRAP CORE JS -->
+    <div th:replace="template/plantilla :: scripts"></div>
+    <!-- BOOSTRAP CORE JS -->
+
+
+</body>
+</html>

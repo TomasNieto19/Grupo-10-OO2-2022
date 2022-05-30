@@ -2,11 +2,9 @@ package com.Grupo10OO22022.services.implementation;
 
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
 import com.Grupo10OO22022.entities.Curso;
 import com.Grupo10OO22022.repositories.ICursoRepository;
 import com.Grupo10OO22022.services.ICursoService;
@@ -21,10 +19,14 @@ public class CursoService implements ICursoService{
 	
 	
 	@Override
-	public List<Curso> getAll() {
+	public List<Curso> listAll(String keyword) {
 
-		return this.cursoRepository.findAll();
-		
+		if (keyword != null) {
+
+			return cursoRepository.search(keyword);
+		}
+
+		return cursoRepository.findAll();
 	}
 
 

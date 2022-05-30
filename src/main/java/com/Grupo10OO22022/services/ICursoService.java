@@ -7,7 +7,7 @@ import com.Grupo10OO22022.entities.Curso;
 public interface ICursoService {
 
 	
-	public List<Curso> getAll();
+	public List<Curso> listAll(String keyword);
 	
 	
 	public Curso guardarCurso(Curso curso);

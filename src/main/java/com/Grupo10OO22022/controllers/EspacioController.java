@@ -1,7 +1,6 @@
 package com.Grupo10OO22022.controllers;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,39 +57,7 @@ public class EspacioController {
 	@PostMapping("/filtrarEspacios")
 	public ModelAndView verEspaciosFiltrados(@ModelAttribute("filtros") EspacioFiltros filtros) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
-		List<Espacio> lista = espacioService.getAll();
-		List<Espacio> listaRemover = new ArrayList<>();
-		//se fitra por fecha inicial
-		if (!(filtros.getFechaInicial()==null)) {
-			for (Espacio e: lista) {
-				if (e.getFecha().isBefore(filtros.getFechaInicial()))
-					listaRemover.add(e);
-			}
-		}
-		//se filtra por  fecha final
-		if (!(filtros.getFechaFinal()==null)) {
-			for (Espacio e: lista) {
-				if (e.getFecha().isAfter(filtros.getFechaFinal()))
-					listaRemover.add(e);
-			}
-		}
-		//se filtra por disponibilidad
-		if ((!filtros.isLibre())||(!filtros.isOcupado())) {
-			for (Espacio e: lista) {
-				if (((e.isLibre())&&(!filtros.isLibre()))||((!e.isLibre())&&(!filtros.isOcupado())))
-					listaRemover.add(e);
-			}
-		}
-		
-		//se fitra por turno
-		if ((!filtros.isManiana())||(!filtros.isTarde())||(!filtros.isNoche())) {
-			for (Espacio e: lista) {
-				if (((!filtros.isManiana())&&(e.getTurno()=='M'))||((!filtros.isTarde())&&(e.getTurno()=='T'))||((!filtros.isNoche())&&(e.getTurno()=='N')))
-					listaRemover.add(e);
-			}
-		}
-		
-		lista.removeAll(listaRemover);
+		List<Espacio> lista = espacioService.traerPorFiltros(filtros);
 		mv.addObject("espacios", lista);
 		mv.addObject("filtros", filtros);
 		return mv;

@@ -72,7 +72,7 @@
                     <td th:text="${curso.comision}"></td>
 
                     <td sec:authorize="hasAuthority('administrador')">
-                        <a class="btn btn-success btn-sm" th:href="@{#}" th:text="'Asignar'"
+                        <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleCursada/{id}(id=${curso.id})}" th:text="'Asignar'"
                             title="Asignar Nota Pedido">
                         </a>
                     </td>

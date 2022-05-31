@@ -8,6 +8,7 @@ body {
   	flex-direction:column; 
 }
 
+
 .cuerpo {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -20,6 +21,8 @@ body {
 	border-collapse: separate;
 	border-spacing: 0;
 	margin: 10px 20px;
+
+	
 }
 
 .tHead {
@@ -51,9 +54,6 @@ body {
   border-bottom-right-radius: 10px;
 }
 
-
-/* Estilos de Formulario de filtros*/
-
 .tRow {
 	font-size: 20px;
 	
@@ -62,6 +62,10 @@ body {
 	border: solid 1px black ;
 	padding: 2px 10px;
 }
+
+/* Estilos de Formulario de filtros*/
+
+
 
 .filtros {
 	

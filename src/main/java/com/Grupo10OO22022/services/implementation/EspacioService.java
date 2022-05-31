@@ -109,5 +109,12 @@ public class EspacioService implements IEspacioService {
 	public Espacio getById(int id) {
 		return espacioRepository.getById(id);
 	}
+
+
+
+	@Override
+	public void modificarEspacio(Espacio e) {
+		espacioRepository.save(e);
+	}
 	
 }

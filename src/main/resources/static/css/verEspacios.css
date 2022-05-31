@@ -54,9 +54,6 @@ body {
   border-bottom-right-radius: 10px;
 }
 
-
-/* Estilos de Formulario de filtros*/
-
 .tRow {
 	font-size: 20px;
 	
@@ -65,6 +62,10 @@ body {
 	border: solid 1px black ;
 	padding: 2px 10px;
 }
+
+/* Estilos de Formulario de filtros*/
+
+
 
 .filtros {
 	

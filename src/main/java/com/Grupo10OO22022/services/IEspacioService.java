@@ -23,4 +23,6 @@ public interface IEspacioService {
 	public List<Espacio> getEntreFechas(LocalDate fechaInicial, LocalDate fechaFinal);
 	
 	public List<Espacio> traerPorFiltros(EspacioFiltros filtros);
+	
+	public void modificarEspacio(Espacio e);
 }

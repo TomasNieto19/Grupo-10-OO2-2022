@@ -27,6 +27,7 @@ public class ViewRouteHelper {
 	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
 	public final static String NOTA_PEDIDO_FINALES = "notaPedido/finales";	
 	public final static String NOTA_PEDIDO_DETALLE_CURSADA = "notaPedido/detalle_cursada";	
+	public final static String NOTA_PEDIDO_DETALLE_FINAL = "notaPedido/detalle_final";	
 	
 	//FINAL
 	public final static String FINAL_VER_FORM = "finales/form_final";

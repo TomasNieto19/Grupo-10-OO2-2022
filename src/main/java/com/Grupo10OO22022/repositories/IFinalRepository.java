@@ -6,24 +6,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.Grupo10OO22022.entities.Final;
 
-
 @Repository
-public interface IFinalRepository extends JpaRepository<Final, Integer>{
+public interface IFinalRepository extends JpaRepository<Final, Integer> {
 
 	
-     @Query("SELECT f FROM Final f JOIN f.profesores p JOIN f.materia m JOIN f.aula a JOIN a.edificio e WHERE "
-     		+ "CONCAT (f.turno, f.cantEstudiantes, f.observaciones, f.mesa, f.fecha, "
-    		+ "p.nombre, p.apellido, "
-    		+ "m.materia, m.codMateria, "
-    		+ "a.numero, "
-    		+ "e.edificio)"
-    		+ " LIKE %?1%")
-    public List<Final> search(String keyword);
+	@Query("SELECT f FROM Final f JOIN f.profesores p JOIN f.materia m JOIN f.aula a JOIN a.edificio e WHERE f.activo = true and "
+			+ "CONCAT (f.turno, f.cantEstudiantes, f.observaciones, f.mesa, f.fecha, " + "p.nombre, p.apellido, "
+			+ "m.materia, m.codMateria, " + "a.numero, " + "e.edificio)" + " LIKE %?1%")
+	public List<Final> search(String keyword);
 
+	
+	@Query("SELECT f FROM Final f WHERE f.activo = (:activo)")
+	public List<Final> findAll(boolean activo);
 }
-/*
-		 ¡¡ REVISAR !!
-	protected char turno;
-	protected boolean pendiente;
-	protected boolean activo;
-*/

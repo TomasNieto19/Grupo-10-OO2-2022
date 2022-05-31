@@ -27,7 +27,7 @@ public class CursoService implements ICursoService{
 			return cursoRepository.search(keyword);
 		}
 
-		return cursoRepository.findAll();
+		return cursoRepository.findAll(true);
 	}
 
 

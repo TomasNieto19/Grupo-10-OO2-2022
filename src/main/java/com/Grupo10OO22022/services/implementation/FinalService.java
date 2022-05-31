@@ -20,7 +20,7 @@ public class FinalService implements IFinalService {
 			return repositorio.search(keyword);
 		}
 
-		return repositorio.findAll();
+		return repositorio.findAll(true);
 	}
 
 	@Override

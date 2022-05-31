@@ -31,6 +31,7 @@ public class CursoService implements ICursoService{
 
 
 	@Override
+
 	public Curso guardarCurso(Curso curso) {
 		return cursoRepository.save(curso);
 	}
@@ -44,8 +45,9 @@ public class CursoService implements ICursoService{
 
 
 
-
-
+	public Curso getById(int id) {
+		return cursoRepository.getById(id);
+	}
 
 
 }

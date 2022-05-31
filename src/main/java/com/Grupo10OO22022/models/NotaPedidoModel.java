@@ -34,9 +34,6 @@ public class NotaPedidoModel {
 	
 	protected String observaciones;
 	
-	
-	protected Set<Espacio> espaciosAsignados;
-	
 
 	protected Set<Profesor> profesores;
 	
@@ -45,16 +42,18 @@ public class NotaPedidoModel {
 
 
 	public NotaPedidoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {
+			Set<Profesor> profesores, boolean pendiente) {
+		super();
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
-		this.espaciosAsignados = espaciosAsignados;
 		this.profesores = profesores;
 		this.pendiente = pendiente;
 	}
+
+	
 	
 	
 }

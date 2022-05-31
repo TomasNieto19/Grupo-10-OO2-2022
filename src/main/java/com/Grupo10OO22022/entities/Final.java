@@ -1,10 +1,12 @@
 package com.Grupo10OO22022.entities;
 
-import java.time.LocalDate;
 
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 import lombok.Getter;
@@ -17,8 +19,9 @@ import lombok.Setter;
 public class Final extends NotaPedido {
 
 	
-	@Column(name = "fecha")
-	private LocalDate fecha;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_fecha", nullable=true)
+	private Fecha fecha;
 	
 	@Column(name = "mesa")
 	private String mesa;
@@ -30,10 +33,9 @@ public class Final extends NotaPedido {
 	}
 
 
-	public Final(LocalDate fecha, String mesa) {
-		super();
-		this.fecha = fecha;
+	public Final(String mesa, Fecha fecha) {
 		this.mesa = mesa;
+		this.fecha = fecha;
 	}
 	
 	

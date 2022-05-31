@@ -21,13 +21,13 @@ public class CursoModel extends NotaPedidoModel {
 	private String comision;
 
 	public CursoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente, Set<Fecha> fechas,
-			String comision) {
-		super(turno, aula, cantEstudiantes, materia, observaciones, espaciosAsignados, profesores, pendiente);
+			Set<Profesor> profesores, boolean pendiente, Set<Fecha> fechas, String comision) {
+		super(turno, aula, cantEstudiantes, materia, observaciones, profesores, pendiente);
 		this.fechas = fechas;
 		this.comision = comision;
 	}
 
+	
 	
 	
 	

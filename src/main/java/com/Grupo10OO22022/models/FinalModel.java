@@ -21,11 +21,14 @@ public class FinalModel extends NotaPedidoModel{
 	private String mesa;
 
 	public FinalModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente, LocalDate fecha, String mesa) {
-		super(turno, aula, cantEstudiantes, materia, observaciones, espaciosAsignados, profesores, pendiente);
+			Set<Profesor> profesores, boolean pendiente, LocalDate fecha, String mesa) {
+		super(turno, aula, cantEstudiantes, materia, observaciones, profesores, pendiente);
 		this.fecha = fecha;
 		this.mesa = mesa;
 	}
+
+	
+	
 	
 	
 	

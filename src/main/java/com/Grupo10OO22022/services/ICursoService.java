@@ -14,4 +14,7 @@ public interface ICursoService {
 	
 	
 	public void eliminarCurso(int id);
+
+	public Curso getById(int id);
+
 }

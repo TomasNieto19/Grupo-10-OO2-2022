@@ -1,7 +1,6 @@
 package com.Grupo10OO22022.controllers;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,32 +57,7 @@ public class EspacioController {
 	@PostMapping("/filtrarEspacios")
 	public ModelAndView verEspaciosFiltrados(@ModelAttribute("filtros") EspacioFiltros filtros) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
-		List<Espacio> lista = espacioService.getAll();
-		List<Espacio> listaRemover = new ArrayList<>();
-		
-		for (Espacio e: lista) {
-			//filtro por fecha inicial
-			if (filtros.getFechaInicial()!=null)
-				if (filtros.getFechaInicial().isAfter(e.getFecha()))
-					listaRemover.add(e);	
-			//filtro por fecha final
-			if (filtros.getFechaFinal()!=null)
-				if (filtros.getFechaFinal().isBefore(e.getFecha()))
-					listaRemover.add(e);	
-			//filtros por disponibilidad
-			if (!filtros.isLibre()&&(e.isLibre())) 
-				listaRemover.add(e);
-			if (!filtros.isOcupado()&&(!e.isLibre())) 
-				listaRemover.add(e);	
-			//filtros por turno
-			if (!filtros.isManiana()&&e.getTurno()=='M')
-				listaRemover.add(e);
-			if (!filtros.isTarde()&&e.getTurno()=='T')
-				listaRemover.add(e);
-			if (!filtros.isNoche()&&e.getTurno()=='N')
-				listaRemover.add(e);
-		}
-		lista.removeAll(listaRemover);
+		List<Espacio> lista = espacioService.traerPorFiltros(filtros);
 		mv.addObject("espacios", lista);
 		mv.addObject("filtros", filtros);
 		return mv;

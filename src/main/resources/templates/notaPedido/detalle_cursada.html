@@ -26,6 +26,7 @@
 
     <!-- CONTENIDO -->
     
+		<a th:href="@{~/notaPedido/cursadas}"><button>Volver</button></a>
 
         <h2>Materia: <span th:text="${curso.materia.materia}"></span></h2>
         <ul>
@@ -51,22 +52,52 @@
             	<tr th:each="fecha : ${curso.fechas}">
    					 <td th:text="${fecha.fecha}"><a></a></td>
    					 <span th:if="${fecha.espacioAsignado != null}">
-   					 	<td th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}"></td>
+   					 	<td>
+   					 		<a 
+   					 			th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}"
+   					 			th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}"
+   					 		></a>
+   					 	</td>
    					 </span>
-   					 <span>
-   					 	<td><a th:href="@{asignarEspacio/{id_fecha}(id_fecha=${fecha.id})}">SIN ASIGNAR</a></td>
+   					 <span th:unless="${fecha.espacioAsignado != null}">
+   					 	<td><a th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}">SIN ASIGNAR</a></td>
    					 </span>
 				</tr>
 			</tbody>
 		</table>
+		
+		
+		 <table class="tabla" >
+			<thead>
+				<tr >
+					<th class="tHead">Fecha</th>
+					<th class="tHead">Libre</th>
+					<th class="tHead">Turno</th>
+					<th class="tHead">Edificio</th>
+					<th class="tHead">Numro de aula</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${espacios}">
+					<td class="tRow"><span class="" th:text="${e.fecha}"/></td>
+					<td class="tRow">
+						<span th:if="${e.libre == true}">Si</span>
+    					<span th:unless="${e.libre == true}">No</span>
+    				</td>
+					<td class="tRow"><span class="" th:text="${e.turno}"/></td>
+					<td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}"/></td>
+					<td class="tRow"><span class="" th:text="${e.aula.numero}"/></td>
+					<td class="tRow"><a th:href="@{~/notaPedido/asignarEspacio/{id}/{id_fecha}/{id_espacio}(id=${curso.id}, id_fecha=${fechaActual_id}, id_espacio=${e.id})}"><button>Asignar</button></a></td>
+				</tr>
+			</tbody>
+		</table>
+		
        
     
     <!-- CONTENIDO -->
 
 
-    <!-- FOOTER -->
-    <footer th:replace="template/plantilla :: footer"></footer>
-    <!-- FOOTER -->
+    
 
 
     <script type="text/javascript">
@@ -74,7 +105,7 @@
             window.location = "[[@{/notaPedido/cursadas}]]";
         }
     </script>
-
+	
 
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>

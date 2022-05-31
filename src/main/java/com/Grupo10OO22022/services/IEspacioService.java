@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.Grupo10OO22022.entities.Aula;
 import com.Grupo10OO22022.entities.Espacio;
+import com.Grupo10OO22022.helpers.EspacioFiltros;
 
 public interface IEspacioService {
 
@@ -15,7 +16,11 @@ public interface IEspacioService {
 	
 	public boolean agregarEspaciosParaTodasLasAulas(LocalDate fechaInicial, LocalDate fechaFinal);
 	
+	public Espacio getById(int id);
+	
 	public List<Espacio> getAll();
 	
 	public List<Espacio> getEntreFechas(LocalDate fechaInicial, LocalDate fechaFinal);
+	
+	public List<Espacio> traerPorFiltros(EspacioFiltros filtros);
 }

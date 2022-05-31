@@ -10,4 +10,6 @@ public interface ICursoService {
 	
 	
 	public Curso getById(int id);
+	
+	public void verificarPendiente(Curso curso);
 }

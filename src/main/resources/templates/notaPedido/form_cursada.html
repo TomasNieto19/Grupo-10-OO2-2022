@@ -10,8 +10,12 @@
 <body>
 	<form action="#" th:action="@{guardar}" th:object="${curso}" method="post">
 		<div class="mb-3">
-			<label class="form-label">Tuno:</label>
-			<input type="text" th:field="*{turno}" class="form-control" placeholder="Agregar turno">
+			<label class="form-label">Turno: </label>
+			<select th:field="*{turno}" class="form-control" placeholder="Agregar turno">
+				<option value="M" label="M" />
+				<option value="T" label="T" />
+				<option value="N" label="N" />											
+			</select>
 		</div>
 		<br>
 		<div class="mb-3">

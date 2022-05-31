@@ -70,7 +70,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Crear</button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Cursada</a>
+                                <a class="dropdown-item" th:href="@{/notaPedido/nuevo}">Cursada</a>
                                 <a class="dropdown-item" th:href="@{/finales/nuevo}">Final</a>
                             </div>
                         </div>

@@ -16,6 +16,6 @@ public interface IFinalRepository extends JpaRepository<Final, Integer> {
 	public List<Final> search(String keyword);
 
 	
-	@Query("SELECT f FROM Final f WHERE f.activo = (:activo)")
+	@Query("SELECT f FROM Final f JOIN f.materia m WHERE f.activo = (:activo) ORDER BY m.materia ASC")
 	public List<Final> findAll(boolean activo);
 }

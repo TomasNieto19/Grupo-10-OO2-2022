@@ -16,7 +16,7 @@ public interface ICursoRepository extends JpaRepository<Curso, Integer>{
 	public List<Curso> search(String keyword);
 
 	
-	@Query("SELECT c FROM Curso c WHERE c.activo = (:activo)")
+	@Query("SELECT c FROM Curso c JOIN c.fechas f WHERE c.activo = (:activo) ORDER BY f.fecha ASC")
 	public List<Curso> findAll(boolean activo);
 
 }

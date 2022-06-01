@@ -7,77 +7,90 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
-<body>
-	<form action="#" th:action="@{guardar}" th:object="${curso}" method="post">
-		<div class="mb-3">
-			<label class="form-label">Turno: </label>
-			<select th:field="*{turno}" class="form-control" placeholder="Agregar turno">
-				<option value="M" label="M" />
-				<option value="T" label="T" />
-				<option value="N" label="N" />											
-			</select>
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Aula: </label>
-			<div class="mb-3">
-				<select th:field="*{aula}" class="form-control">
-					<th:block th:each="aula: ${listaAulas}">
-						<option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}"></option>
-					</th:block>
-				</select>
+
+<body style="background-color: rgb(86, 101, 115);">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Registrar cursada</h1>
+				<div class="card-body">
+					<form action="#" th:action="@{guardar}" th:object="${curso}" method="post">
+						<div class="form-group">
+							<label>Turno: </label>
+							<select th:field="*{turno}" class="form-control">
+								<option value="M" label="M" />
+								<option value="T" label="T" />
+								<option value="N" label="N" />
+							</select>
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Aula: </label>
+							
+							<select th:field="*{aula}" class="form-control">
+								<th:block th:each="aula: ${listaAulas}">
+									<option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}"></option>
+								</th:block>
+							</select>
+							
+						</div>
+						<br>
+						<div class="form-group">
+							<label>Cantidad de estudiantes: </label>
+							<input type="text" th:field="*{cantEstudiantes}" class="form-control" placeholder="Agregar cantidad de estudiantes">
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="form-label">Materia: </label>
+							
+							<select th:field="*{materia}" class="form-control">
+								<th:block th:each="materia: ${listaMaterias}">
+									<option th:text="${materia.materia}" th:value="${materia.id}"></option>
+								</th:block>
+							</select>
+							
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="form-label">Observaciones: </label>
+							<input type="text" th:field="*{observaciones}" class="form-control" placeholder="Agregar observaciones">
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="form-label">Selecciones los docentes: </label>
+							
+							<select th:field="*{profesores}" class="form-control" multiple="multiple" required="required">
+								<th:block th:each="profesor: ${listaProfesores}">
+									<option th:text="${profesor.nombre + ' ' + profesor.apellido}" th:value="${profesor.id}"></option>
+								</th:block>
+							</select>
+							
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="form-label">Selecciones fechas: </label>
+							
+							<select th:field="*{fechas}" class="form-control"
+								multiple="multiple" required="required">
+								<th:block th:each="fecha: ${listaFechas}">
+									<option th:text="${fecha.fecha}" th:value="${fecha.id}"></option>
+								</th:block>
+							</select>
+							
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="form-label">Comision: </label>
+							<input type="text" th:field="*{comision}" class="form-control" placeholder="Agregar comision">
+						</div>
+						<br>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</form>
+				</div>
 			</div>
 		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Cantidad de estudiantes: </label>
-			<input type="text" th:field="*{cantEstudiantes}" class="form-control" placeholder="Agregar cantidad de estudiantes">
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Materia: </label>
-			<div class="mb-3">
-				<select th:field="*{materia}" class="form-control">
-					<th:block th:each="materia: ${listaMaterias}">
-						<option th:text="${materia.materia}" th:value="${materia.id}"></option>
-					</th:block>
-				</select>
-			</div>
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Observaciones: </label>
-			<input type="text" th:field="*{observaciones}" class="form-control" placeholder="Agregar observaciones">
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Selecciones los docentes: </label>
-			<div class="mb-3">
-				<select th:field="*{profesores}" class="form-control">
-					<th:block th:each="profesor: ${listaProfesores}">
-						<option th:text="${profesor.nombre + ' ' + profesor.apellido}" th:value="${profesor.id}"></option>
-					</th:block>
-				</select>
-			</div>
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Selecciones fechas: </label>
-			<div class="mb-3">
-				<select th:field="*{fechas}" class="form-control">
-					<th:block th:each="fecha: ${listaFechas}">
-						<option th:text="${fecha.fecha}" th:value="${fecha.id}"></option>
-					</th:block>
-				</select>
-			</div>
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Comision: </label>
-			<input type="text" th:field="*{comision}" class="form-control" placeholder="Agregar comision">
-		</div>
-		<br>
-		<button type="submit" class="btn btn-primary">Guardar</button>
-	</form>
+	</div>
+
 </body>
 </html>

@@ -29,7 +29,7 @@ public class Final extends NotaPedido {
 	
 	@Override
 	public String toString() {
-		return "Final [fecha=" + fecha + ", mesa=" + mesa + "]";
+		return "fecha" + fecha ;
 	}
 
 

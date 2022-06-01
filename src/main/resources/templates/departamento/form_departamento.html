@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Listado de departamentos</title>
+<title>Formulario</title>
 <!-- CSS only -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -10,19 +10,31 @@
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
 </head>
-<body>
-	
-	<form action="#" th:action="@{guardar}" th:object="${departamento}" method="post">
+<body style="background-color: rgb(86, 101, 115);">
+	<div class="container">
+		<div class="row">
+			<br>
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<br>
+				<h1 class="text-center">Registrar departamento</h1>
+				<div class="card-body">
+					<form action="#" th:action="@{guardar}" th:object="${departamento}"
+						method="post">
 
-		<div class="mb-3">
-			<label class="form-label">Nombre del departamento</label>
-			<input type="text" th:field="*{departamento}" class="form-control" placeholder="Agregar nombre del departamento">
+						<div class="mb-3">
+							<label class="form-label">Nombre del departamento</label> <input
+								type="text" th:field="*{departamento}" class="form-control"
+								placeholder="Agregar nombre del departamento">
+						</div>
+						<br>
+
+						<button type="submit" class="btn btn-primary">Guardar</button>
+
+					</form>
+				</div>
+			</div>
 		</div>
-
-
-		<button type="submit" class="btn btn-primary">Guardar</button>
-
-	</form>
-
+	</div>
 </body>
 </html>

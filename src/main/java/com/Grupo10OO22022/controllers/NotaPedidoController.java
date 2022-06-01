@@ -37,7 +37,7 @@ import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.models.CarreraModel;
 import com.Grupo10OO22022.models.CursoModel;
-
+import com.Grupo10OO22022.models.FinalModel;
 import com.Grupo10OO22022.services.IAulaService;
 
 import com.Grupo10OO22022.services.ICursoService;
@@ -157,6 +157,28 @@ public class NotaPedidoController {
 		return mv;
 	}
 	
+	@GetMapping("/nuevoFinal")
+	public ModelAndView mostrarFormularioFinal() {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FORM_FINAL);
+		mv.addObject("final", new FinalModel());
+		mv.addObject("listaAulas",aulaService.getAll());
+		mv.addObject("listaMaterias", materiaService.getAll());
+		mv.addObject("listaProfesores", profesorService.getAll());
+		mv.addObject("listaFechas", fechaService.getAll());
+		return mv;
+	}
+	
+	@PostMapping("/guardarFinal")
+	public String guardarFinales(@ModelAttribute("final") FinalModel f) {
+		finalService.guardarFinal(modelMapper.map(f, Final.class));
+		return "redirect:/notaPedido/finales";
+	}
+
+	@GetMapping("/eliminarFinal/{id}")
+	public String eliminarFinalSeleccionado(int id) {
+		finalService.eliminarFinal(id);
+		return "redirect:/notaPedido/finales";
+	}
 	
 	
 

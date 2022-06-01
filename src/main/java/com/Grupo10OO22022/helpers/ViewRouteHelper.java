@@ -50,15 +50,16 @@ public class ViewRouteHelper {
 
 	//VER NOTAS PEDIDOS
 	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
-
 	public final static String NOTA_PEDIDO_FORM_CURSADA = "notaPedido/form_cursada";
+	
 	public final static String FINAL_VER_FINALES = "notaPedido/finales";	
 
 
 	public final static String NOTA_PEDIDO_FINALES = "notaPedido/finales";	
-
+	
+	
 	public final static String NOTA_PEDIDO_DETALLE_CURSADA = "notaPedido/detalle_cursada";	
-
+	public final static String NOTA_PEDIDO_FORM_FINAL ="notaPedido/form_finales";
 	
 	//FINAL
 	public final static String FINAL_VER_FORM = "finales/form_final";

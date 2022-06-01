@@ -10,10 +10,6 @@ public interface IFinalService {
 	
 	public Final guardarFinal(Final f);
 	
-	public Final obtenerFinalPorId(int id);
-	
-	public Final actualizarFinal(Final f);
-	
 	public void eliminarFinal(int id);
 
 	public List<Final> listAll(String keyword);

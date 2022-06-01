@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>LISTADO DE MATERIAS</title>
+<title>FORMULARIO</title>
 <!-- CSS only -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -10,35 +10,48 @@
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
 </head>
-<body>
-	
-	<form action="#" th:action="@{guardar}" th:object="${materia}" method="post">
-		<div class="mb-3">
-			<label class="form-label">Codigo de la materia: </label>
-			<input type="text" th:field="*{codMateria}" class="form-control" placeholder="Agregar codigo de la materia">
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Nombre de la materia: </label>
-			<input type="text" th:field="*{materia}" class="form-control" placeholder="Agregar nombre de la materia">
-		</div>
-		<br>
-		<div class="mb-3">
-			<label class="form-label">Carrera: </label>
-			<div class="mb-3">
-				<select th:field="*{carrera}" class="form-control">
-					<th:block th:each="carrera: ${listaCarreras}">
-						<option th:text="${carrera.carrera}" th:value="${carrera.id}"></option>
-					</th:block>
-				</select>
+<body style="background-color: rgb(86, 101, 115);">
+	<div class="container">
+		<div class="row">
+			<br>
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<br>
+				<h1 class="text-center">Registrar materia</h1>
+				<div class="card-body">
+					<form action="#" th:action="@{guardar}" th:object="${materia}"
+						method="post">
+						<div class="mb-3">
+							<label class="form-label">Codigo de la materia: </label> <input
+								type="text" th:field="*{codMateria}" class="form-control"
+								placeholder="Agregar codigo de la materia">
+						</div>
+						<br>
+						<div class="mb-3">
+							<label class="form-label">Nombre de la materia: </label> <input
+								type="text" th:field="*{materia}" class="form-control"
+								placeholder="Agregar nombre de la materia">
+						</div>
+						<br>
+						<div class="mb-3">
+							<label class="form-label">Carrera: </label>
+							<div class="mb-3">
+								<select th:field="*{carrera}" class="form-control">
+									<th:block th:each="carrera: ${listaCarreras}">
+										<option th:text="${carrera.carrera}" th:value="${carrera.id}"></option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+
+						
+						<br>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+
+					</form>
+				</div>
 			</div>
 		</div>
-		
-
-
-		<button type="submit" class="btn btn-primary">Guardar</button>
-
-	</form>
-
+	</div>
 </body>
 </html>

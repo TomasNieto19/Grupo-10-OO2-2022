@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>REGISTRAR FINAL</title>
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+
+<body style="background-color: rgb(86, 101, 115);">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class="text-center">Registrar final</h1>
+			<div class="card-body">
+				<form action="#" th:action="@{guardarFinal}" th:object="${final}"
+					method="post">
+					<div class="form-group">
+						<label class="form-label">Turno: </label> 
+						<select th:field="*{turno}" class="form-control">
+							<option value="M" label="M" />
+							<option value="T" label="T" />
+							<option value="N" label="N" />
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Aula: </label>
+						<select th:field="*{aula}" class="form-control">
+							<th:block th:each="aula: ${listaAulas}">
+								<option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}"></option>
+							</th:block>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Cantidad de estudiantes :</label>
+						<input type="text" name="cantEstudiantes" th:field="*{cantEstudiantes}" class="form-control" placeholder="Digite cantidad de estudiantes" required="required">
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Materia: </label> <select th:field="*{materia}"
+							class="form-control">
+							<th:block th:each="materia: ${listaMaterias}">
+								<option th:text="${materia.materia}" th:value="${materia.id}"></option>
+							</th:block>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Observaciones :</label> <input type="text"
+							name="observaciones" th:field="*{observaciones}"
+							class="form-control" placeholder="Observaciones"
+							required="required">
+					</div>
+					<br>
+					<div class="form-group">
+						<label class="form-label">Selecciones los docentes: </label> <select
+							th:field="*{profesores}" class="form-control" multiple="multiple"
+							required="required">
+							<th:block th:each="profesor: ${listaProfesores}">
+								<option th:text="${profesor.nombre + ' ' + profesor.apellido}"
+									th:value="${profesor.id}"></option>
+							</th:block>
+						</select>
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Mesa</label> <input type="text" name="mesa"
+							th:field="*{mesa}" class="form-control"
+							placeholder="Digite codigo de la mesa" required="required">
+					</div>
+					<br>
+					<div class="form-group">
+						<label>Seleccion la fecha del final: </label> <select
+							th:field="*{fecha}" class="form-control">
+							<th:block th:each="fecha: ${listaFechas}">
+								<option th:text="${fecha.fecha}" th:value="${fecha.id}"></option>
+							</th:block>
+						</select>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>	
+
+</body>
+</html>

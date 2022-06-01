@@ -9,10 +9,10 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<h1>Lista de Departamentos</h1>
+			<h1 class="text-center">Lista de Departamentos</h1>
 			
 		</div>
-		<a th:href=@{nuevo} class="btn btn-primary">Nuevo</a>
+		<a th:href=@{nuevo} class="btn btn-primary">Agregar departamento</a>
 		<table class="table">
 			<thead class="table-dark">
 				<tr>
@@ -26,7 +26,6 @@
 					<td th:text="${departamento.id}"></td>
 					<td th:text="${departamento.departamento}"></td>
 					<td>
-						<a th:href="@{'editar'+'/'+ ${departamento.id}}" class="btn btn-warning">Editar</a>
 						<a th:href= "@{'eliminar'+'/'+ ${departamento.id}}" class="btn btn-danger">Eliminar</a>
 					</td>
 				</tr>

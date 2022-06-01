@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.Grupo10OO22022.entities.Fecha;
 
 
-@Repository
-public interface IFechaRepository extends JpaRepository<Fecha, Integer> {
 
 @Repository("fechaRepository")
 public interface IFechaRepository extends JpaRepository<Fecha, Integer>{

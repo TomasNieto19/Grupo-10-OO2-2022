@@ -41,4 +41,9 @@ public class FinalService implements IFinalService {
 		repositorio.deleteById(id);
 	}
 
+	@Override
+	public Final getById(int id) {
+		return repositorio.getById(id) ;
+	}
+
 }

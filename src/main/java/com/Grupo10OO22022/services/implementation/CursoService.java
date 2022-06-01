@@ -1,11 +1,14 @@
 package com.Grupo10OO22022.services.implementation;
 
 
+import java.util.ArrayList;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import com.Grupo10OO22022.entities.Curso;
+import com.Grupo10OO22022.entities.Fecha;
 import com.Grupo10OO22022.repositories.ICursoRepository;
 import com.Grupo10OO22022.services.ICursoService;
 
@@ -47,6 +50,24 @@ public class CursoService implements ICursoService{
 
 	public Curso getById(int id) {
 		return cursoRepository.getById(id);
+	}
+
+
+
+	@Override
+	public void verificarPendiente(Curso curso) {
+		List<Fecha> fechas = new ArrayList<Fecha>(curso.getFechas());
+		int i=0;
+		boolean completado = true;
+		while ((completado)&&(i<fechas.size())) {
+			if (fechas.get(i).getEspacioAsignado()==null)
+				completado = false;
+			i++;
+		}
+		if (completado) {
+			curso.setPendiente(false);
+			cursoRepository.save(curso);
+		}
 	}
 
 

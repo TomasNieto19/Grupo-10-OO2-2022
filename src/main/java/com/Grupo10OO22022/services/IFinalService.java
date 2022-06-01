@@ -13,4 +13,8 @@ public interface IFinalService {
 	public void eliminarFinal(int id);
 
 	public List<Final> listAll(String keyword);
+	
+	public Final getById(int id);
+	
+	
 }

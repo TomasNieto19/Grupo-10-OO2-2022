@@ -10,7 +10,7 @@ TP Cuatrimestral Objetos 2.
 
 --- Nota ---
 
-Para entrar en pa pagina los usuarios son los siguientes:
+Para entrar en la pagina los usuarios son los siguientes:
   - Usuario: admin      Contraseña: admin
   - Usuario: auditor    Contraseña: auditor
  

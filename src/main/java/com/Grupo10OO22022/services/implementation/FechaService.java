@@ -18,6 +18,7 @@ import com.Grupo10OO22022.services.IFechaService;
 public class FechaService implements IFechaService{
 
 	@Autowired
+	@Qualifier("fechaRepository")
 	private IFechaRepository fechaRepository;
 	
 	@Override
@@ -25,9 +26,6 @@ public class FechaService implements IFechaService{
 		return fechaRepository.findAll();
 
 
-	@Autowired
-	@Qualifier("fechaRepository")
-	IFechaRepository fechaRepository;
 	
 	@Override
 	public Fecha getbyId(int id) {

@@ -81,8 +81,7 @@ public class NotaPedidoController {
 	@Autowired
 	private IProfesorService profesorService;
 	
-	@Autowired
-	private IFechaService fechaService;
+	
 	
 	private ModelMapper modelMapper = new ModelMapper();
 

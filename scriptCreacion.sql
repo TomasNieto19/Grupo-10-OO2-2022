@@ -201,7 +201,7 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (1
 -- NOTA PEDIDO CURSADA -- 
 LOCK TABLES `nota_pedido` WRITE;
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido` (`id`, `cant_estudiantes`, `observaciones`, `pendiente`, `turno`, `id_aula`, `id_materia`, `activo`) 
-VALUES (4, 65, 'Aula tradicional', true, 'T', 4, 4, true);
+VALUES (4, 65, 'Aula tradicional', false, 'T', 4, 4, true);
 UNLOCK TABLES;
 -- PROFESORES DE LA NOTA PEDIDO
 LOCK TABLES `nota_pedido_profesores` WRITE;

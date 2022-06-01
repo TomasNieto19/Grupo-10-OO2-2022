@@ -17,6 +17,12 @@ public class FinalService implements IFinalService {
 
 		if (keyword != null) {
 
+			if( keyword.equalsIgnoreCase("Pendiente") )
+				return this.repositorio.findAll(true, true);
+			
+			if( keyword.equalsIgnoreCase("Asignado") )
+				return this.repositorio.findAll(true, false);
+			
 			return repositorio.search(keyword);
 		}
 

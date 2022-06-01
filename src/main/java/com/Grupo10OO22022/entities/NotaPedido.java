@@ -14,6 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderBy;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,6 +47,7 @@ public class NotaPedido {
 	protected  String observaciones;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@OrderBy("apellido ASC")
 	protected Set<Profesor> profesores;
 	
 	@Column(name = "pendiente")	 //1 - se le asignaron espacio/s 

@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +17,7 @@ import lombok.Setter;
 public class Curso extends NotaPedido {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@OrderBy("fecha ASC")
 	private Set<Fecha> fechas;
 	
 	@Column(name = "comision")

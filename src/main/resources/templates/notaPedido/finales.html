@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
@@ -22,62 +23,69 @@
         <h2>Finales</h2>
 
         <form style="margin-bottom: 15px;" th:action="@{/notaPedido/finales}">
-            Filtrar: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+            FILTRAR: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
             &nbsp;
             <input type="submit" class="btn btn-success" value="Buscar" />
             &nbsp;
             <input type="button" class="btn btn-danger" value="Limpiar" id="btnClear" onclick="clearSearch()" />
         </form>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>TURNO</th>
-                    <th>AULA</th>
-                    <th>ESTUDIANTES</th>
-                    <th>MATERIA</th>
-                    <th>OBSERVACIONES</th>
-                    <th>PROFESORES</th>
-                    <th>FECHA</th>
-                    <th>MESA</th>
-                    <th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
-                    <th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="final:${finales}">
-                    <td th:text="${final.turno}"></td>
-                    <td>
-                        <th:block th:each="aula:${final.Aula}">
-                            <label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
-                            <br>
-                        </th:block>
-                    </td>
-                    <td th:text="${final.cantEstudiantes}"></td>
-                    <td th:text="${final.materia.materia}"></td>
-                    <td th:text="${final.observaciones}"></td>
-                    <td>
-                        <th:block th:each="profesor:${final.profesores}">
-                            <label th:text="${profesor.apellido + ' ' + profesor.nombre}"></label>
-                            <br>
-                        </th:block>
-                    </td>
-                    <td th:text="${final.fecha.fecha}"></td>
-                    <td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
-                    <td sec:authorize="hasAuthority('administrador')">
-                        <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleFinal/{id}(id=${final.id})}" th:text="'Asignar'"
-                            title="Asignar Nota Pedido">
-                        </a>
-                    </td>
-                    <td sec:authorize="hasAuthority('auditoria')">
-                        <a class="btn btn-danger btn-sm" th:href="@{#}" th:text="'Eliminar'"
-                            title="Eliminar Nota Pedido"
-                            onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>TURNO</th>
+                        <th>AULA</th>
+                        <th>ESTUDIANTES</th>
+                        <th>MATERIA</th>
+                        <th>OBSERVACIONES</th>
+                        <th>PROFESORES</th>
+                        <th>FECHA</th>
+                        <th>MESA</th>
+                        <th>ESPACIO/S</th>
+                        <th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
+                        <th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="final:${finales}">
+                        <td th:text="${final.turno}"></td>
+                        <td>
+                            <th:block th:each="aula:${final.Aula}">
+                                <label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
+                                <br>
+                            </th:block>
+                        </td>
+                        <td th:text="${final.cantEstudiantes}"></td>
+                        <td th:text="${final.materia.materia}"></td>
+                        <td th:text="${final.observaciones}"></td>
+                        <td>
+                            <th:block th:each="profesor:${final.profesores}">
+                                <label th:text="${profesor.apellido + ' ' + profesor.nombre}"></label>
+                                <br>
+                            </th:block>
+                        </td>
+                        <td th:text="${final.fecha.fecha}"></td>
+                        <td th:text="${final.materia.codMateria +'-'+final.mesa}"></td>
+                        <td>
+                            <span th:if="${final.pendiente == true}">Pendiente</span>
+                            <span th:unless="${final.pendiente == true}">Asignado</span>
+                        </td>
+                        <td sec:authorize="hasAuthority('administrador')">
+                            <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleFinal/{id}(id=${final.id})}"
+                                th:text="'Asignar'" title="Asignar Nota Pedido">
+                            </a>
+                        </td>
+                        <td sec:authorize="hasAuthority('auditoria')">
+                            <a class="btn btn-danger btn-sm" th:href="@{#}" th:text="'Eliminar'"
+                                title="Eliminar Nota Pedido"
+                                onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- CONTENIDO -->
 
@@ -86,11 +94,13 @@
     <footer th:replace="template/plantilla :: footer"></footer>
     <!-- FOOTER -->
 
+
     <script type="text/javascript">
         function clearSearch() {
             window.location = "[[@{/notaPedido/finales}]]";
         }
     </script>
+
 
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>

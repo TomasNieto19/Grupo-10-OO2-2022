@@ -25,7 +25,7 @@ public class FechaService implements IFechaService{
 	public List<Fecha> getAll() {
 		return fechaRepository.findAll();
 
-
+	}
 	
 	@Override
 	public Fecha getbyId(int id) {

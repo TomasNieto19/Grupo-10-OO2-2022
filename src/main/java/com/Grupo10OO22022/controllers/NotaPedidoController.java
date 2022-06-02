@@ -49,6 +49,7 @@ public class NotaPedidoController {
 	private IFechaService fechaService;
 	
 	
+	@PreAuthorize("hasAnyAuthority('administrador', 'auditoria')")
 	@GetMapping("/cursadas")
 	public String listarCursadas(Model model, @Param("keyword") String keyword) {
 		
@@ -75,7 +76,8 @@ public class NotaPedidoController {
 		return ViewRouteHelper.NOTA_PEDIDO_CURSADAS;
 	}
 
-
+	
+	@PreAuthorize("hasAnyAuthority('administrador', 'auditoria')")
 	@GetMapping("/finales")
 	public String listarFinales(Model model, @Param("keyword") String keyword) {
 		
@@ -101,7 +103,7 @@ public class NotaPedidoController {
 	}
 	
 	
-	
+	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/detalleCursada/{id}")
 	public ModelAndView detallarCursada(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_CURSADA);
@@ -110,6 +112,8 @@ public class NotaPedidoController {
 		return mv;
 	}
 	
+	
+	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/traerEspacios/{id}/{id_fecha}")
 	public ModelAndView traerEspacios(@PathVariable("id") int id, @PathVariable("id_fecha") int id_fecha) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_CURSADA);
@@ -128,6 +132,8 @@ public class NotaPedidoController {
 		return mv;
 	}
 	
+	
+	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/asignarEspacioCurso/{id}/{id_fecha}/{id_espacio}")
 	public RedirectView asignarEspacioCurso(@PathVariable("id") int id, @PathVariable("id_fecha") int id_fecha,
 										@PathVariable("id_espacio") int id_espacio) {
@@ -142,6 +148,7 @@ public class NotaPedidoController {
 	}
 	
 	
+	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/detalleFinal/{id}")
 	public ModelAndView detallarFinal(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_FINAL);
@@ -158,6 +165,8 @@ public class NotaPedidoController {
 		return mv;
 	}
 	
+	
+	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/asignarEspacioFinal/{id}/{id_espacio}")
 	public RedirectView asignarEspacio(@PathVariable("id") int id, @PathVariable("id_espacio") int id_espacio) {
 		Espacio espacio = espacioService.getById(id_espacio);
@@ -169,6 +178,5 @@ public class NotaPedidoController {
 		notaFinal.setPendiente(false);
 		return new RedirectView("/notaPedido/detalleFinal/"+id);
 	}
-	
-	
+
 }

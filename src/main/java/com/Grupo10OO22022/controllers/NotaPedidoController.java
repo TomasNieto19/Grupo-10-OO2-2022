@@ -44,6 +44,7 @@ import com.Grupo10OO22022.helpers.EspacioFiltros;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
 import com.Grupo10OO22022.models.CarreraModel;
 import com.Grupo10OO22022.models.CursoModel;
+import com.Grupo10OO22022.models.FechaModel;
 import com.Grupo10OO22022.models.FinalModel;
 import com.Grupo10OO22022.services.IAulaService;
 
@@ -128,17 +129,28 @@ public class NotaPedidoController {
 		mv.addObject("listaMaterias", materiaService.getAll());
 		mv.addObject("listaProfesores", profesorService.getAll());
 		mv.addObject("listaFechas", fechaService.getAll());
+		
 		return mv;
 	}
+	
 	@PostMapping("/guardar")
 	public String guardar(@ModelAttribute("curso") CursoModel c) {
 		cursoService.guardarCurso(modelMapper.map(c, Curso.class));
 		return "redirect:/notaPedido/cursadas";
 	}
 
+	
 	@GetMapping("/eliminar/{id}")
-	public String eliminarCursoSeleccionado(int id) {
+	public String eliminarCursoSeleccionado(@PathVariable("id") int id) {
+		/*//Si se quiere eliminar de la base de datos, se hace esto
 		cursoService.eliminarCurso(id);
+		return "redirect:/notaPedido/cursadas";*/
+		
+		//Oculto de la vista, pero sigue estando en la base de datos
+		Curso curso =cursoService.getById(id);
+		curso.setActivo(false);
+		
+		cursoService.guardarCurso(curso);
 		return "redirect:/notaPedido/cursadas";
 	}
 
@@ -257,8 +269,10 @@ public class NotaPedidoController {
 	}
 
 	@GetMapping("/eliminarFinal/{id}")
-	public String eliminarFinalSeleccionado(int id) {
-		finalService.eliminarFinal(id);
+	public String eliminarFinalSeleccionado(@PathVariable("id") int id) {
+		Final finalAux=finalService.getById(id);
+		finalAux.setActivo(false);
+		finalService.guardarFinal(finalAux);
 		return "redirect:/notaPedido/finales";
 	}
 	

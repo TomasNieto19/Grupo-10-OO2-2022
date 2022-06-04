@@ -55,22 +55,22 @@ public class NotaPedido {
 	protected boolean activo; //0 - Inactiva en el sistma, no ocupa espacios
 
 	public NotaPedido(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-		 Set<Profesor> profesores, boolean pendiente) {
+		 Set<Profesor> profesores) {
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
 		this.profesores = profesores;
-		this.pendiente = pendiente;
+		this.pendiente = true;
 	}
 
-	public NotaPedido(char turno, int cantEstudiantes, String observaciones, boolean pendiente) {
+	public NotaPedido(char turno, int cantEstudiantes, String observaciones) {
 		super();
 		this.turno = turno;
 		this.cantEstudiantes = cantEstudiantes;
 		this.observaciones = observaciones;
-		this.pendiente = pendiente;
+		this.pendiente = true;
 	} 
 	
 	

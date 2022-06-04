@@ -74,14 +74,20 @@
 							placeholder="Digite codigo de la mesa" required="required">
 					</div>
 					<br>
+				
 					<div class="form-group">
-						<label>Seleccion la fecha del final: </label> <select
+					  	<label>Seleccion la fecha del final: </label> <select
 							th:field="*{fecha}" class="form-control">
 							<th:block th:each="fecha: ${listaFechas}">
 								<option th:text="${fecha.fecha}" th:value="${fecha.id}"></option>
 							</th:block>
 						</select>
 					</div>
+				
+				
+						
+								
+					
 					<br>
 					<button type="submit" class="btn btn-primary">Guardar</button>
 				</form>

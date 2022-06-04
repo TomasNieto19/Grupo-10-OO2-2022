@@ -38,4 +38,9 @@ public class FechaService implements IFechaService{
 
 	}
 
+	@Override
+	public Fecha guardarFecha(Fecha f) {
+		return fechaRepository.save(f);
+	}
+
 }

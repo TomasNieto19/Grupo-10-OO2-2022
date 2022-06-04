@@ -68,16 +68,23 @@
 							
 						</div>
 						<br>
-						<div class="form-group">
-							<label class="form-label">Selecciones fechas: </label>
+						<div class="card-body">
+						
+							<div class="form-group">
+								<label class="form-label">Seleccione la fecha: </label>
 							
-							<select th:field="*{fechas}" class="form-control"
-								multiple="multiple" required="required">
+							 <select th:field="*{fechas}" class="form-control" multiple="multiple" required="required">
 								<th:block th:each="fecha: ${listaFechas}">
 									<option th:text="${fecha.fecha}" th:value="${fecha.id}"></option>
 								</th:block>
 							</select>
 							
+							
+							</div>
+						<br>
+						
+						
+					
 						</div>
 						<br>
 						<div class="form-group">

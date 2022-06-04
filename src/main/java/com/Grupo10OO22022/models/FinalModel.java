@@ -21,16 +21,20 @@ public class FinalModel extends NotaPedidoModel{
 	
 	private String mesa;
 
-	public FinalModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Profesor> profesores, boolean pendiente, Fecha fecha, String mesa) {
-		super(turno, aula, cantEstudiantes, materia, observaciones, profesores, pendiente);
-		this.fecha = fecha;
-		this.mesa = mesa;
-	}
+	
 	
 	@Override
 	public String toString() {
 		return "fecha " + fecha;
+	}
+
+
+
+	public FinalModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
+			Set<Profesor> profesores, Fecha fecha, String mesa) {
+		super(turno, aula, cantEstudiantes, materia, observaciones, profesores);
+		this.fecha = fecha;
+		this.mesa = mesa;
 	}
 
 

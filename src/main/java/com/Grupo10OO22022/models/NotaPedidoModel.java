@@ -42,7 +42,7 @@ public class NotaPedidoModel {
 
 
 	public NotaPedidoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Profesor> profesores, boolean pendiente) {
+			Set<Profesor> profesores) {
 		super();
 		this.turno = turno;
 		this.aula = aula;
@@ -50,7 +50,7 @@ public class NotaPedidoModel {
 		this.materia = materia;
 		this.observaciones = observaciones;
 		this.profesores = profesores;
-		this.pendiente = pendiente;
+		this.pendiente = true;
 	}
 
 	

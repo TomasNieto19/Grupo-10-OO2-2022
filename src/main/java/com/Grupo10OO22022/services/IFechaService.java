@@ -13,5 +13,6 @@ public interface IFechaService {
 	
 	public Fecha modificarFecha(Fecha fechaModificada);
 	
+	public Fecha guardarFecha(Fecha f);
 
 }

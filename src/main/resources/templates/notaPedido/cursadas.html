@@ -20,7 +20,7 @@
     <div class="col-12">
 
         <h2>Cursadas</h2>
-
+		
         <form style="margin-bottom: 15px;" th:action="@{/notaPedido/cursadas}">
             Filtrar: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
             &nbsp;
@@ -77,7 +77,7 @@
                         </a>
                     </td>
                     <td sec:authorize="hasAuthority('auditoria')">
-                        <a class="btn btn-danger btn-sm" th:href="@{#}" th:text="'Eliminar'"
+                        <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminar/{id}(id=${curso.id})}" th:text="'Eliminar'"
                             title="Eliminar Nota Pedido"
                             onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
                         </a>

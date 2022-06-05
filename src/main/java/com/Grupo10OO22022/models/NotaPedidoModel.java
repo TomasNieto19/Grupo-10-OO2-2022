@@ -39,7 +39,10 @@ public class NotaPedidoModel {
 
 	protected boolean pendiente;
 
-
+	
+	protected boolean activo = true;
+	
+	
 	public NotaPedidoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones, 
 			Set<Profesor> profesores) {
 		this.turno = turno;

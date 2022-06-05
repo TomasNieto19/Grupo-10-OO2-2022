@@ -105,14 +105,6 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUE
 INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (8, 2, 3);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (9, 3, 3);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (10, 5, 4);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (11, 4, 4);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (12, 3, 4);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (13, 12, 5);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (14, 5, 5);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (15, 2, 5);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (16, 1, 6);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (17, 2, 6);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`aula` (`id`, `numero`, `id_edificio`) VALUES (18, 4, 6);
 UNLOCK TABLES;
 
 
@@ -122,23 +114,16 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`
 INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (3, 85, 85);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (4, 75, 80);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (5, 70, 80);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (6, 65, 70);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (7, 60, 70);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (8, 55, 60);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`laboratorio` (`id`, `cantpc`, `cant_sillas`) VALUES (9, 50, 65);
 UNLOCK TABLES;
 
 
 LOCK TABLES `tradicional` WRITE;
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (10, true, "Tiza", 80);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (11, false, "Fibron", 65);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (12, false, "Tiza", 70);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (13, false, "Fibron", 55);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (14, true, "Tiza", 75);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (15, false, "Fibron", 50);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (16, true, "Tiza", 65);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (17, false, "Fibron", 60);
-INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (18, true, "Tiza", 80);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (6, true, "Tiza", 80);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (7, false, "Fibron", 65);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (8, false, "Tiza", 70);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (9, false, "Fibron", 55);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`tradicional` (`id`, `tiene_proyector`, `pizarron`, `cant_bancos`) VALUES (10, true, "Tiza", 75);
+
 UNLOCK TABLES;
 
 

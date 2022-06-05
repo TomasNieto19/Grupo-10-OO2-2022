@@ -77,7 +77,7 @@
                         </a>
                     </td>
                     <td sec:authorize="hasAuthority('auditoria')">
-                        <a class="btn btn-danger btn-sm" th:href="@{#}" th:text="'Eliminar'"
+                        <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarCursada/{id}(id=${curso.id})}" th:text="'Eliminar'"
                             title="Eliminar Nota Pedido"
                             onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
                         </a>
@@ -91,8 +91,7 @@
 
 
     <!-- FOOTER -->
-    <footer th:replace="template/plantilla :: footer"></footer>
-    <!-- FOOTER -->
+	<!-- FOOTER -->
 
 
     <script type="text/javascript">

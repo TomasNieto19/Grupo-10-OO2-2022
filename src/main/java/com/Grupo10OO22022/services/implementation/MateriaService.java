@@ -15,7 +15,7 @@ public class MateriaService implements IMateriaService{
 
 	@Autowired
 	@Qualifier("materiaRepository")
-	IMateriaRepository materiaRepository;
+	private IMateriaRepository materiaRepository;
 	
 	@Override
 	public List<Materia> getAll() {

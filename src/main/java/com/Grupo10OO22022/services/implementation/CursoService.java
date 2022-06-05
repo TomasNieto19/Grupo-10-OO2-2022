@@ -19,6 +19,8 @@ public class CursoService implements ICursoService{
 	private ICursoRepository cursoRepository;
 	
 	
+	//TRAER
+	
 	@Override
 	public List<Curso> listAll(String keyword) {
 
@@ -43,6 +45,21 @@ public class CursoService implements ICursoService{
 	}
 
 
+	
+	// GUARDAR/MODIFICAR
+	
+	public Curso guardarCurso(Curso curso) {
+		return cursoRepository.save(curso);
+	}
+	
+	
+	
+	
+	
+	
+
+	//VARIOS
+	
 	@Override
 	public void verificarPendiente(Curso curso) {
 		List<Fecha> fechas = new ArrayList<Fecha>(curso.getFechas());

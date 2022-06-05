@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +29,7 @@ public class Fecha {
 	private int id;
 	
 	@Column(name = "fecha")
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fecha;
 	
 	@OneToOne(fetch = FetchType.LAZY)

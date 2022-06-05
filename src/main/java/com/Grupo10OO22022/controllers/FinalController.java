@@ -34,13 +34,17 @@ public class FinalController {
 	public RedirectView redirectListarFinales() {
 		return new RedirectView("/index");
 	}
+  
 
 	@GetMapping("/nuevo")
 	public ModelAndView mostrarFormularioDeFinales() {
-		ModelAndView mv = new ModelAndView(ViewRouteHelper.FINAL_VER_FORM);
-		mv.addObject("final", new FinalModel(' ', null, 0, null, null, null, null, false, null, null));
+
+		ModelAndView mv= new ModelAndView(ViewRouteHelper.FINAL_VER_FORM);
+		mv.addObject("final",new FinalModel(' ', null, 0, null, null, null, null, null));
+
 		return mv;
 	}
+  
 
 	@PostMapping("/guardar")
 	public RedirectView guardarFinal(@ModelAttribute("final") FinalModel f) {
@@ -48,18 +52,24 @@ public class FinalController {
 		return new RedirectView("");
 	}
 
+
 	@GetMapping("/finales/editar/{id}")
 	public String mostrarFormularioDeEditar(@PathVariable int id, Model modelo) {
-		modelo.addAttribute("final", finalService.obtenerFinalPorId(id));
+
+		modelo.addAttribute("final",finalService.getById(id));
+
 		return "editar_final";
 	}
 
 	@PostMapping("/finales/editar/{id}")
-	public String actualizarFinal(@PathVariable int id, @ModelAttribute("final") Final f, Model modelo) {
-		Final finalExistente = finalService.obtenerFinalPorId(id);
+	public String actualizarFinal(@PathVariable int id,@ModelAttribute("final")Final f, Model modelo) {
+    
+		Final finalExistente= finalService.getById(id);
 
 		finalExistente.setId(id);
+    
 		finalExistente.setMesa(f.getMesa());
+    
 		finalExistente.setFecha(f.getFecha());
 
 		return "redirect:/finales";

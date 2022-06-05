@@ -2,6 +2,7 @@ package com.Grupo10OO22022.entities;
 
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +20,7 @@ import lombok.Setter;
 public class Final extends NotaPedido {
 
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name="id_fecha", nullable=true)
 	private Fecha fecha;
 	

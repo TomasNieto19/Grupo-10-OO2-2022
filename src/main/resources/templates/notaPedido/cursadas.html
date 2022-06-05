@@ -29,7 +29,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             &nbsp;
             <input type="button" class="btn btn-danger" value="Limpiar" id="btnClear" onclick="clearSearch()" />
         </form>
-        
+
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-dark">
                 <thead>
@@ -83,22 +83,21 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                             </a>
                         </td>
                         <td sec:authorize="hasAuthority('auditoria')">
-                            <a class="btn btn-danger btn-sm" th:href="@{#}" th:text="'Eliminar'"
-                                title="Eliminar Nota Pedido"
-                                onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
-                            </a>
+                          <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarCursada/{id}(id=${curso.id})}" th:text="'Eliminar'"
+                              title="Eliminar Nota Pedido"
+                              onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+                          </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    </div>
     <!-- CONTENIDO -->
 
 
     <!-- FOOTER -->
     <footer th:replace="template/plantilla :: footer"></footer>
-    <!-- FOOTER -->
+	  <!-- FOOTER -->
 
 
     <script type="text/javascript">

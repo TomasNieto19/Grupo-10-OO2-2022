@@ -2,6 +2,7 @@ package com.Grupo10OO22022.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.query.Param;
@@ -9,21 +10,28 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-
 import com.Grupo10OO22022.entities.Curso;
 import com.Grupo10OO22022.entities.Espacio;
 import com.Grupo10OO22022.entities.Fecha;
 import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.EspacioFiltros;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
+import com.Grupo10OO22022.models.CursoModel;
+import com.Grupo10OO22022.models.FinalModel;
+import com.Grupo10OO22022.services.IAulaService;
 import com.Grupo10OO22022.services.ICursoService;
 import com.Grupo10OO22022.services.IEspacioService;
 import com.Grupo10OO22022.services.IFechaService;
 import com.Grupo10OO22022.services.IFinalService;
+import com.Grupo10OO22022.services.IMateriaService;
+import com.Grupo10OO22022.services.IProfesorService;
 
 
 @Controller
@@ -48,6 +56,22 @@ public class NotaPedidoController {
 	@Qualifier("fechaService")
 	private IFechaService fechaService;
 	
+	@Autowired
+	@Qualifier("aulaService")
+	private IAulaService aulaService;
+	
+	@Autowired
+	@Qualifier("materiaService")
+	private IMateriaService materiaService;
+	
+	@Autowired
+	@Qualifier("profesorService")
+	private IProfesorService profesorService;
+	
+	private ModelMapper modelMapper = new ModelMapper();
+	
+  
+	// **************************LISTAR NOTAS PEDIDO**********************
 	
 	@PreAuthorize("hasAnyAuthority('administrador', 'auditoria')")
 	@GetMapping("/cursadas")
@@ -102,8 +126,11 @@ public class NotaPedidoController {
 		return ViewRouteHelper.NOTA_PEDIDO_FINALES;
 	}
 	
-	
-	@PreAuthorize("hasAuthority('administrador')")
+
+  
+	// **********************ASIGNAR ESPACIOS *******************************
+  
+  @PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/detalleCursada/{id}")
 	public ModelAndView detallarCursada(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_CURSADA);
@@ -140,7 +167,7 @@ public class NotaPedidoController {
 		Fecha fecha = fechaService.getbyId(id_fecha);
 		Espacio espacio = espacioService.getById(id_espacio);
 		fecha.setEspacioAsignado(espacio);
-		fechaService.modificarFecha(fecha);
+		fechaService.guardar(fecha);
 		espacio.setLibre(false);
 		espacioService.modificarEspacio(espacio);
 		cursoService.verificarPendiente(cursoService.getById(id));
@@ -172,11 +199,94 @@ public class NotaPedidoController {
 		Espacio espacio = espacioService.getById(id_espacio);
 		Final notaFinal = finalService.getById(id);
 		notaFinal.getFecha().setEspacioAsignado(espacio);
-		fechaService.modificarFecha(notaFinal.getFecha());
+		fechaService.guardar(notaFinal.getFecha());
 		espacio.setLibre(false);
 		espacioService.modificarEspacio(espacio);
 		notaFinal.setPendiente(false);
 		return new RedirectView("/notaPedido/detalleFinal/"+id);
 	}
 
+	
+  
+	// ****************ELIMINAR**********************
+  
+  @PreAuthorize("hasAuthority('auditoria')")
+	@GetMapping("/eliminarCursada/{id}")
+	public String eliminarCursoSeleccionado(@PathVariable("id") int id) {
+		/*//Si se quiere eliminar de la base de datos, se hace esto
+		cursoService.eliminarCurso(id);
+		return "redirect:/notaPedido/cursadas";*/
+
+		//Oculto de la vista, pero sigue estando en la base de datos
+		Curso curso =cursoService.getById(id);
+		curso.setActivo(false);
+
+		cursoService.guardarCurso(curso);
+		return "redirect:/notaPedido/cursadas";
+	}
+	
+  @PreAuthorize("hasAuthority('auditoria')")
+	@GetMapping("/eliminarFinal/{id}")
+	public String eliminarFinalSeleccionado(@PathVariable("id") int id) {
+		Final finalAux=finalService.getById(id);
+		finalAux.setActivo(false);
+		finalService.guardarFinal(finalAux);
+		return "redirect:/notaPedido/finales";
+	}
+	
+  
+	
+	// **************************AGREGAR*********************
+	
+  @PreAuthorize("hasAuthority('auditoria')")
+	@GetMapping("/nuevaCursada")
+	public ModelAndView mostrarFormularioCursada() {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FORM_CURSADA);
+		CursoModel c = new CursoModel(' ', null, 0, null, null, null, null);
+		c.getFechas().add(new Fecha(null, null));
+		mv.addObject("curso", c);
+		mv.addObject("listaAulas",aulaService.getAll());
+		mv.addObject("listaMaterias", materiaService.getAll());
+		mv.addObject("listaProfesores", profesorService.getAll());
+
+		return mv;
+	}
+  
+	@PreAuthorize("hasAuthority('auditoria')")
+	@RequestMapping(value="/guardar", method=RequestMethod.POST, params="accion=guardar")
+	public String guardar(@ModelAttribute("curso") CursoModel c) {
+		cursoService.guardarCurso(modelMapper.map(c, Curso.class));
+		return "redirect:/notaPedido/cursadas";
+	}
+	
+  @PreAuthorize("hasAuthority('auditoria')")
+	@RequestMapping(value="/guardar", method=RequestMethod.POST, params="accion=agregar")
+	public ModelAndView agregarFecha(@ModelAttribute("curso") CursoModel c) {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FORM_CURSADA);
+		c.getFechas().add(new Fecha(null, null));
+		mv.addObject("curso", c);
+		mv.addObject("listaAulas",aulaService.getAll());
+		mv.addObject("listaMaterias", materiaService.getAll());
+		mv.addObject("listaProfesores", profesorService.getAll());
+
+		return mv;
+	}
+	
+  @PreAuthorize("hasAuthority('auditoria')")
+	@GetMapping("/nuevoFinal")
+	public ModelAndView mostrarFormularioFinal() {
+		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_FORM_FINAL);
+		mv.addObject("final", new FinalModel(' ', null, 0, null, null, null, new Fecha(null, null), null));
+		mv.addObject("listaAulas",aulaService.getAll());
+		mv.addObject("listaMaterias", materiaService.getAll());
+		mv.addObject("listaProfesores", profesorService.getAll());
+		return mv;
+	}
+	
+  @PreAuthorize("hasAuthority('auditoria')")
+	@PostMapping("/guardarFinal")
+	public String guardarFinales(@ModelAttribute("final") FinalModel f) {
+		finalService.guardarFinal(modelMapper.map(f, Final.class));
+		return "redirect:/notaPedido/finales";
+	}
 }

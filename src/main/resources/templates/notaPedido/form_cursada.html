@@ -8,10 +8,18 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
+
 <body style="background-color: rgb(86, 101, 115);">
 
-	<div class="container">
-		<div class="row">
+
+    <!-- NAVBAR -->
+    <header th:replace="template/plantilla :: header"></header>
+    <!-- NAVBAR -->
+
+
+    <!-- CONTENIDO -->
+    <div class="container">
+        <div class="row" style="margin-top: 15px;" >
 			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h1 class="text-center">Registrar cursada</h1>
 				<div class="card-body">
@@ -84,9 +92,6 @@
 
 							</div>
 						<br>
-
-
-
 						</div>
 						<br>
 						<div class="form-group">
@@ -100,6 +105,8 @@
 			</div>
 		</div>
 	</div>
-
+    <!-- CONTENIDO -->
+    
+    
 </body>
 </html>

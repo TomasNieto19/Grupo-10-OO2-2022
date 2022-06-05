@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import com.Grupo10OO22022.entities.Curso;
+
 
 
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+
 import org.springframework.web.servlet.view.RedirectView;
 
 
@@ -42,9 +42,9 @@ import com.Grupo10OO22022.entities.Final;
 import com.Grupo10OO22022.helpers.EspacioFiltros;
 
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
-import com.Grupo10OO22022.models.CarreraModel;
+
 import com.Grupo10OO22022.models.CursoModel;
-import com.Grupo10OO22022.models.FechaModel;
+
 import com.Grupo10OO22022.models.FinalModel;
 import com.Grupo10OO22022.services.IAulaService;
 

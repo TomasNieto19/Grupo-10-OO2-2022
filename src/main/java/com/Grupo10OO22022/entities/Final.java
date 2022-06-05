@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName = "id")
+//@PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class Final extends NotaPedido {
 
 	

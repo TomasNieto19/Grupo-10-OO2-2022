@@ -13,7 +13,7 @@ import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName = "id")
+//@PrimaryKeyJoinColumn(referencedColumnName = "id")
 public class Curso extends NotaPedido {
 	
 	@ManyToMany(fetch = FetchType.EAGER)

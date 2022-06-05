@@ -5,7 +5,6 @@ import com.Grupo10OO22022.entities.Curso;
 
 public interface ICursoService {
 
-
 	// TRAER
 	
 	public List<Curso> listAll(String keyword);

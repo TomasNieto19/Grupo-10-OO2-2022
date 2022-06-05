@@ -1,6 +1,8 @@
 package com.Grupo10OO22022.entities;
 
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,7 +18,7 @@ import lombok.Setter;
 //@PrimaryKeyJoinColumn(referencedColumnName = "curso_pedido")
 public class Curso extends NotaPedido {
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL )
 	@OrderBy("fecha ASC")
 	private Set<Fecha> fechas;
 	

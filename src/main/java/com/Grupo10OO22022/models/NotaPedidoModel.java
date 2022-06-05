@@ -4,7 +4,6 @@ import java.util.Set;
 
 
 import com.Grupo10OO22022.entities.Aula;
-import com.Grupo10OO22022.entities.Espacio;
 import com.Grupo10OO22022.entities.Materia;
 import com.Grupo10OO22022.entities.Profesor;
 
@@ -33,10 +32,7 @@ public class NotaPedidoModel {
 	
 	
 	protected String observaciones;
-	
-	
-	protected Set<Espacio> espaciosAsignados;
-	
+		
 
 	protected Set<Profesor> profesores;
 	
@@ -44,16 +40,15 @@ public class NotaPedidoModel {
 	protected boolean pendiente;
 
 
-	public NotaPedidoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {
+	public NotaPedidoModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones, 
+			Set<Profesor> profesores) {
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
-		this.espaciosAsignados = espaciosAsignados;
 		this.profesores = profesores;
-		this.pendiente = pendiente;
+		this.pendiente = true;
 	}
 	
 	

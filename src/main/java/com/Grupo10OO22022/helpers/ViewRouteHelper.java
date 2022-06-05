@@ -23,11 +23,17 @@ public class ViewRouteHelper {
 	public final static String ESPACIO_CREAR_ESPACIO = "espacio/crearEspacios";
 	public final static String ESPACIO_VER_ESPACIO = "espacio/verEspacios";
 
-	//VER NOTAS PEDIDOS
+	//NOTAS PEDIDOS
+	
+		//-VER
 	public final static String NOTA_PEDIDO_CURSADAS = "notaPedido/cursadas";
 	public final static String NOTA_PEDIDO_FINALES = "notaPedido/finales";	
+		//-DETALLES
 	public final static String NOTA_PEDIDO_DETALLE_CURSADA = "notaPedido/detalle_cursada";	
 	public final static String NOTA_PEDIDO_DETALLE_FINAL = "notaPedido/detalle_final";	
+		//-CREAR
+	public final static String NOTA_PEDIDO_FORM_CURSADA = "notaPedido/form_cursada";
+	public final static String NOTA_PEDIDO_FORM_FINAL ="notaPedido/form_final";
 	
 	//FINAL
 	public final static String FINAL_VER_FORM = "finales/form_final";

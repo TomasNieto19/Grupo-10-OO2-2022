@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
@@ -18,11 +18,12 @@
 
 
     <!-- CONTENIDO -->
-        <div class="col-4" >
+    <div class="col-4">
 
-            <h2>Perfiles</h2>
+        <h2>Perfiles</h2>
 
-            <table class="table table-bordered">
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered table-dark">
                 <thead>
                     <tr>
                         <th>NOMBRE</th>
@@ -30,13 +31,12 @@
                 </thead>
                 <tbody>
                     <tr th:each="perfil:${perfiles}">
-
                         <td th:text="${perfil.tipoPerfil}"></td>
-
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
     <!-- CONTENIDO -->
 
 
@@ -48,8 +48,8 @@
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>
     <!-- BOOSTRAP CORE JS -->
-    
-    
+
+
 </body>
 
 </html>

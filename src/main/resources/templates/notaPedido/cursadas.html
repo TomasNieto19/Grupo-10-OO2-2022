@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
@@ -22,76 +23,81 @@
         <h2>Cursadas</h2>
 
         <form style="margin-bottom: 15px;" th:action="@{/notaPedido/cursadas}">
-            Filtrar: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+            FILTRAR: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
             &nbsp;
             <input type="submit" class="btn btn-success" value="Buscar" />
             &nbsp;
             <input type="button" class="btn btn-danger" value="Limpiar" id="btnClear" onclick="clearSearch()" />
         </form>
 
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>TURNO</th>
-                    <th>AULA</th>
-                    <th>CANTIDAD</th>
-                    <th>MATERIA</th>
-                    <th>OBSERVACIONES</th>
-                    <th>PROFESORES</th>
-                    <th>FECHAS</th>
-                    <th>COMISION</th>
-                    <th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
-                    <th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="curso:${cursadas}">
-
-                    <td th:text="${curso.turno}"></td>
-                    <td>
-                        <th:block th:each="aula:${curso.Aula}">
-                            <label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
-                            <br>
-                        </th:block>
-                    </td>
-                    <td th:text="${curso.cantEstudiantes}"></td>
-                    <td th:text="${curso.materia.materia}"></td>
-                    <td th:text="${curso.observaciones}"></td>
-                    <td>
-                        <th:block th:each="profesor:${curso.profesores}">
-                            <label th:text="${profesor.apellido + ' ' + profesor.nombre}"></label>
-                            <br>
-                        </th:block>
-                    </td>
-                    <td>
-                        <th:block th:each="fecha:${curso.fechas}">
-                            <label th:text="${fecha.fecha}"></label>
-                            <br>
-                        </th:block>
-                    </td>
-                    <td th:text="${curso.comision}"></td>
-
-                    <td sec:authorize="hasAuthority('administrador')">
-                        <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleCursada/{id}(id=${curso.id})}" th:text="'Asignar'"
-                            title="Asignar Nota Pedido">
-                        </a>
-                    </td>
-                    <td sec:authorize="hasAuthority('auditoria')">
-                        <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarCursada/{id}(id=${curso.id})}" th:text="'Eliminar'"
-                            title="Eliminar Nota Pedido"
-                            onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
-                        </a>
-                    </td>
-
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="table-responsive">
+            <table class="table table-sm table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>TURNO</th>
+                        <th>AULA</th>
+                        <th>CANTIDAD</th>
+                        <th>MATERIA</th>
+                        <th>OBSERVACIONES</th>
+                        <th>PROFESORES</th>
+                        <th>FECHAS</th>
+                        <th>COMISION</th>
+                        <th>ESPACIO/S</th>
+                        <th sec:authorize="hasAuthority('administrador')">ASIGNAR</th>
+                        <th sec:authorize="hasAuthority('auditoria')">ELIMINAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="curso:${cursadas}">
+                        <td th:text="${curso.turno}"></td>
+                        <td>
+                            <th:block th:each="aula:${curso.Aula}">
+                                <label th:text="${aula.numero +' '+ aula.edificio.edificio}"></label>
+                                <br>
+                            </th:block>
+                        </td>
+                        <td th:text="${curso.cantEstudiantes}"></td>
+                        <td th:text="${curso.materia.materia}"></td>
+                        <td th:text="${curso.observaciones}"></td>
+                        <td>
+                            <th:block th:each="profesor:${curso.profesores}">
+                                <label th:text="${profesor.apellido + ' ' + profesor.nombre}"></label>
+                                <br>
+                            </th:block>
+                        </td>
+                        <td>
+                            <th:block th:each="fecha:${curso.fechas}">
+                                <label th:text="${fecha.fecha}"></label>
+                                <br>
+                            </th:block>
+                        </td>
+                        <td th:text="${curso.comision}"></td>
+                        <td>
+                            <span th:if="${curso.pendiente == true}">Pendiente</span>
+                            <span th:unless="${curso.pendiente == true}">Asignado</span>
+                        </td>
+                        <td sec:authorize="hasAuthority('administrador')">
+                            <a class="btn btn-success btn-sm"
+                                th:href="@{/notaPedido/detalleCursada/{id}(id=${curso.id})}" th:text="'Asignar'"
+                                title="Asignar Nota Pedido">
+                            </a>
+                        </td>
+                        <td sec:authorize="hasAuthority('auditoria')">
+                          <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarCursada/{id}(id=${curso.id})}" th:text="'Eliminar'"
+                              title="Eliminar Nota Pedido"
+                              onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+                          </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     <!-- CONTENIDO -->
 
 
     <!-- FOOTER -->
-	<!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+	  <!-- FOOTER -->
 
 
     <script type="text/javascript">

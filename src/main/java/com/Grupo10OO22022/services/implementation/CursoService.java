@@ -26,10 +26,16 @@ public class CursoService implements ICursoService{
 
 		if (keyword != null) {
 
+			if( keyword.equalsIgnoreCase("Pendiente") )
+				return this.cursoRepository.findAll(true, true);
+			
+			if( keyword.equalsIgnoreCase("Asignado") )
+				return this.cursoRepository.findAll(true, false);
+			
 			return cursoRepository.search(keyword);
 		}
 
-		return cursoRepository.findAll();
+		return cursoRepository.findAll(true);
 	}
 
 

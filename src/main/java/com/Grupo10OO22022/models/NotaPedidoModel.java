@@ -37,7 +37,7 @@ public class NotaPedidoModel {
 	protected Set<Profesor> profesores;
 	
 
-	protected boolean pendiente;
+	protected boolean pendiente = true;
 
 	
 	protected boolean activo = true;
@@ -51,7 +51,6 @@ public class NotaPedidoModel {
 		this.materia = materia;
 		this.observaciones = observaciones;
 		this.profesores = profesores;
-		this.pendiente = true;
 	}
 	
 	

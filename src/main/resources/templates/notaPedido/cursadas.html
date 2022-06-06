@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
-<header th:replace="template/plantilla :: head"></header>
+<head th:replace="template/plantilla :: head"></head>
+<link rel="stylesheet" th:href="@{/css/plantilla.css}">
 <link rel="stylesheet" th:href="@{/css/tablas.css}">
+<title>UNLa - Cursadas</title>
 <!-- HEAD -->
 
 
@@ -19,9 +20,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <!-- CONTENIDO -->
     <div class="col-12">
-
         <h2>Cursadas</h2>
-
         <form style="margin-bottom: 15px;" th:action="@{/notaPedido/cursadas}">
             FILTRAR: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
             &nbsp;
@@ -92,23 +91,22 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 </tbody>
             </table>
         </div>
+    </div>
     <!-- CONTENIDO -->
 
 
     <!-- FOOTER -->
     <footer th:replace="template/plantilla :: footer"></footer>
-	  <!-- FOOTER -->
+    <!-- FOOTER -->
 
 
+    <!-- BOOSTRAP CORE JS -->
+    <div th:replace="template/plantilla :: scripts"></div>
     <script type="text/javascript">
         function clearSearch() {
             window.location = "[[@{/notaPedido/cursadas}]]";
         }
     </script>
-
-
-    <!-- BOOSTRAP CORE JS -->
-    <div th:replace="template/plantilla :: scripts"></div>
     <!-- BOOSTRAP CORE JS -->
 
 

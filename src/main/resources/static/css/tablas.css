@@ -1,7 +1,3 @@
-body {
-	background-color: rgb(86, 101, 115);
-}
-
 tbody, td, tfoot, th, thead, tr {
 	border-color: white;
 	border-style: solid;

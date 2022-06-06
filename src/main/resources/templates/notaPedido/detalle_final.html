@@ -23,7 +23,7 @@
     <!-- CONTENIDO -->
 		<a th:href="@{~/notaPedido/finales}"><button class="boton">Volver</button></a>
 
-        <h2 class="titulo">Asignar un espacio al final</h2>
+        <h2 class="titulo" sec:authorize="hasAuthority('administrador')">Asignar un espacio al final</h2>
         
         <section class="main">
 		        
@@ -64,7 +64,8 @@
 			
 			</div>
 			
-			 <table class="tabla" >
+			 <table class="tabla" sec:authorize="isAuthenticated()"
+            	th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
 				<thead>
 					<tr >
 						<th class="tHead">Fecha</th>

@@ -123,7 +123,7 @@ public class NotaPedidoController {
 
 	// **********************ASIGNAR ESPACIOS *******************************
 
-	@PreAuthorize("hasAuthority('administrador')")
+	
 	@GetMapping("/detalleCursada/{id}")
 	public ModelAndView detallarCursada(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_CURSADA);
@@ -166,7 +166,6 @@ public class NotaPedidoController {
 		return new RedirectView("/notaPedido/detalleCursada/" + id);
 	}
 
-	@PreAuthorize("hasAuthority('administrador')")
 	@GetMapping("/detalleFinal/{id}")
 	public ModelAndView detallarFinal(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_FINAL);

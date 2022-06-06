@@ -87,6 +87,20 @@
     		<artifactId>spring-security-config</artifactId>
     		<version>5.6.3</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
+		
+		
+		<!-- DEPENDENCIAS DE SPRING SECUIRTY  -->
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId> <!--SEGURITY -->			
+		</dependency>
+		
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId> <!-- SEGURITY PARA THYMELEAF -->
+		</dependency>
+
 
 	</dependencies>
 

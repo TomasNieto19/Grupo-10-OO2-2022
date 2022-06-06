@@ -1,6 +1,8 @@
 package com.Grupo10OO22022.entities;
 
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,13 +30,30 @@ public class Aula {
 	@Column(name = "numero")
 	protected int numero;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_edificio", nullable=false)
 	protected Edificio edificio;
 
 	public Aula(int numero, Edificio edificio) {
 		this.numero = numero;
 		this.edificio = edificio;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aula other = (Aula) obj;
+		return id == other.id;
 	}
 
 }

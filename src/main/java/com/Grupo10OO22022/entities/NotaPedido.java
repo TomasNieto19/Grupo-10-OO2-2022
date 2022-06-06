@@ -14,7 +14,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,38 +32,46 @@ public class NotaPedido {
 	@Column(name = "turno")
 	protected char turno;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_aula", nullable=true)
 	protected Aula aula;
 	
 	@Column(name = "cantEstudiantes")
 	protected int cantEstudiantes;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="id_materia", nullable=false)
 	protected Materia materia;
 	
 	@Column(name = "observaciones")
 	protected  String observaciones;
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	protected Set<Espacio> espaciosAsignados;
-	
-	@ManyToMany(fetch=FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
+	@OrderBy("apellido ASC")
 	protected Set<Profesor> profesores;
 	
-	@Column(name = "pendiente")
-	protected boolean pendiente;
+	@Column(name = "pendiente")	 //1 - se le asignaron espacio/s 
+	protected boolean pendiente; //0 - no se le asignaron espacio/s
+	
+	@Column(name = "activo")  //1 - Activa en el sistema con espacios asignados
+	protected boolean activo; //0 - Inactiva en el sistma, no ocupa espacios
 
 	public NotaPedido(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
-			Set<Espacio> espaciosAsignados, Set<Profesor> profesores, boolean pendiente) {
+		 Set<Profesor> profesores, boolean pendiente) {
 		this.turno = turno;
 		this.aula = aula;
 		this.cantEstudiantes = cantEstudiantes;
 		this.materia = materia;
 		this.observaciones = observaciones;
-		this.espaciosAsignados = espaciosAsignados;
 		this.profesores = profesores;
+		this.pendiente = pendiente;
+	}
+
+	public NotaPedido(char turno, int cantEstudiantes, String observaciones, boolean pendiente) {
+		super();
+		this.turno = turno;
+		this.cantEstudiantes = cantEstudiantes;
+		this.observaciones = observaciones;
 		this.pendiente = pendiente;
 	} 
 	

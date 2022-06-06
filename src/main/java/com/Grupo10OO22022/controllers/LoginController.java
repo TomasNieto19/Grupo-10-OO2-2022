@@ -27,7 +27,7 @@ public class LoginController {
 	public String logout(RedirectAttributes redirectAttrs) {
 
 		redirectAttrs
-		.addFlashAttribute("mensaje", "Session cerrada con exito!")
+		.addFlashAttribute("mensaje", "Sesión cerrada con exito!")
 		.addFlashAttribute("clase", "success");
 
 		return "redirect:/login";

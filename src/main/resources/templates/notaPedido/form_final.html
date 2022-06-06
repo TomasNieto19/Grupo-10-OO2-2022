@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!-- HEAD -->
+<head th:replace="template/plantilla :: head"></head>
+<meta charset="utf-8" />
+<link rel="stylesheet" th:href="@{/css/plantilla.css}">
+<title>UNLa - Registrar Final</title>
+<!-- HEAD -->
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <header th:replace="template/plantilla :: header"></header>
+    <!-- NAVBAR -->
+
+
+    <!-- CONTENIDO -->
+    <div class="container">
+        <div class="row" style="margin-top: 15px;" >
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h3 class="text-center">Registrar final</h3>
+                <div class="card-body">
+                    <form action="#" th:action="@{guardarFinal}" th:object="${final}" method="post">
+                        <div class="form-group">
+                            <label class="form-label">Turno: </label>
+                            <select th:field="*{turno}" class="form-control">
+                                <option value="M" label="M" />
+                                <option value="T" label="T" />
+                                <option value="N" label="N" />
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Aula: </label>
+                            <select th:field="*{aula}" class="form-control">
+                                <th:block th:each="aula: ${listaAulas}">
+                                    <option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}">
+                                    </option>
+                                </th:block>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Cantidad de estudiantes :</label>
+                            <input type="text" name="cantEstudiantes" th:field="*{cantEstudiantes}" class="form-control"
+                                placeholder="Digite cantidad de estudiantes" required="required">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Materia: </label> <select th:field="*{materia}" class="form-control">
+                                <th:block th:each="materia: ${listaMaterias}">
+                                    <option th:text="${materia.materia}" th:value="${materia.id}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Observaciones :</label> <input type="text" name="observaciones"
+                                th:field="*{observaciones}" class="form-control" placeholder="Observaciones"
+                                required="required">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label> <select
+                                th:field="*{profesores}" class="form-control" multiple="multiple" required="required">
+                                <th:block th:each="profesor: ${listaProfesores}">
+                                    <option th:text="${profesor.nombre + ' ' + profesor.apellido}"
+                                        th:value="${profesor.id}"></option>
+                                </th:block>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Mesa</label> <input type="text" name="mesa" th:field="*{mesa}" class="form-control"
+                                placeholder="Digite codigo de la mesa" required="required">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Seleccion la fecha del final: </label>
+                            <input type="date" th:field="*{fecha.fecha}" />
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CONTENIDO -->
+
+
+</body>
+
+</html>

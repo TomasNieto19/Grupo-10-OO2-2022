@@ -37,4 +37,11 @@ public class Espacio {
 	
 	@Column(name = "libre")
 	private boolean libre;
+
+	public Espacio(LocalDate fecha, char turno, Aula aula, boolean libre) {
+		this.fecha = fecha;
+		this.turno = turno;
+		this.aula = aula;
+		this.libre = libre;
+	}
 }

@@ -1,0 +1,75 @@
+tbody, td, tfoot, th, thead, tr {
+	border-color: white;
+	border-style: solid;
+	border-width: 0;
+}
+
+h2 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+/*TABLA PARA LOS PERFILES*/
+.col-4 {
+	float: none;
+	margin: auto;
+	text-align: center;
+	margin-top: 45px;
+}
+
+.col-4 th {
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	border-color: white;
+}
+
+.col-4 td {
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	border-color: white;
+}
+/*TABLA PARA LOS PERFILES*/
+
+/*TABLA PARA LOS USUARIOS*/
+.col-11 {
+	float: none;
+	margin: auto;
+	text-align: center;
+	margin-top: 45px;
+}
+
+.col-11 th {
+	font-size: 30px;
+	color: white;
+	text-align: center;
+	border-color: white;
+}
+
+.col-11 td {
+	font-size: 25px;
+	color: white;
+	text-align: center;
+	border-color: white;
+}
+/*TABLA PARA LOS USUARIOS*/
+
+/* TABLAS DE NOTA PEDIDO CURSADAS Y FINALES*/
+.col-12 {
+	float: none;
+	text-align: center;
+}
+
+col-12 th {
+	font-size: 19px;
+	color: white;
+	text-align: center;
+}
+
+col-12 td {
+	font-size: 18px;
+	color: white;
+	text-align: center;
+}
+/* TABLAS DE NOTA PEDIDO CURSADAS Y FINALES*/

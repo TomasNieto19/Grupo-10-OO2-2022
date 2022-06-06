@@ -4,10 +4,16 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +29,18 @@ public class Fecha {
 	private int id;
 	
 	@Column(name = "fecha")
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate fecha;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_espacio", nullable=true)
+	private Espacio espacioAsignado;
+
+	public Fecha(LocalDate fecha, Espacio espacioAsignado) {
+		this.fecha = fecha;
+		this.espacioAsignado = espacioAsignado;
+	}
+	
+	
 	
 }

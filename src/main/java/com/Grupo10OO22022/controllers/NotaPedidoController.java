@@ -210,7 +210,13 @@ public class NotaPedidoController {
 		// Oculto de la vista, pero sigue estando en la base de datos
 		Curso curso = cursoService.getById(id);
 		curso.setActivo(false);
-
+		for(Fecha fecha: curso.getFechas()) {
+			if(fecha.getEspacioAsignado()!=null) {
+				fecha.getEspacioAsignado().setLibre(true);
+				fecha.setEspacioAsignado(null);
+				fechaService.guardar(fecha);
+			}
+		}
 		cursoService.guardarCurso(curso);
 		return "redirect:/notaPedido/cursadas";
 	}
@@ -220,6 +226,12 @@ public class NotaPedidoController {
 	public String eliminarFinalSeleccionado(@PathVariable("id") int id) {
 		Final finalAux = finalService.getById(id);
 		finalAux.setActivo(false);
+		
+		if(finalAux.getFecha().getEspacioAsignado()!=null) {
+			finalAux.getFecha().getEspacioAsignado().setLibre(true);
+			finalAux.getFecha().setEspacioAsignado(null);
+			fechaService.guardar(finalAux.getFecha());
+		}
 		finalService.guardarFinal(finalAux);
 		return "redirect:/notaPedido/finales";
 	}

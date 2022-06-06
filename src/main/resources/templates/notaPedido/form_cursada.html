@@ -4,6 +4,7 @@
 
 <!-- HEAD -->
 <head th:replace="template/plantilla :: head"></head>
+<meta charset="utf-8" />
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
 <title>UNLa - Registrar Cursada</title>
 <!-- HEAD -->
@@ -66,7 +67,7 @@
 						</div>
 						<br>
 						<div class="form-group">
-							<label class="form-label">Selecciones los docentes: </label>
+							<label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label>
 
 							<select th:field="*{profesores}" class="form-control" multiple="multiple" required="required">
 								<th:block th:each="profesor: ${listaProfesores}">

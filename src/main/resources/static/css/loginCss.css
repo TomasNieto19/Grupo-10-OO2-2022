@@ -1,34 +1,25 @@
-/* BASIC */
-
-
 html{
-	background-color: rgb(86, 101, 115);
+	background-color: white;
 }
 
 body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh; 	
-    background-color: rgb(86, 101, 115);
+	font-family: "Poppins", sans-serif;
+	height: 100vh;
+	background: url(../images/molinos.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position: center;
 }
 
-a {
-    color: #92badd;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 400;
-}
-
-h2 {
-    text-align: center;
-    font-size: 16px;
+h1{
+	text-align: center;
+    font-size: 30px;
     font-weight: 600;
     text-transform: uppercase;
     display: inline-block;
-    margin: 40px 8px 10px 8px;
-    color: #cccccc;
+    margin: 20px 8px 0px 8px;
+    color: #7a7a7a;
 }
-
-
 
 /* STRUCTURE */
 
@@ -43,50 +34,27 @@ h2 {
 }
 
 #formContent {
-    -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #B2BABB;
+    /*background: #B2BABB;*/
+    background: white;
     padding: 30px;
 	width: 90%;
     max-width: 450px;
     position: relative;
     padding: 0px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-    box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
     text-align: center;
-
+	box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 30px 3px rgba(0,0,0,0.75);
 }
-
-#formFooter {
-    background-color: #f6f6f6;
-    border-top: 1px solid #dce8f1;
-    padding: 25px;
-    text-align: center;
-    -webkit-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-}
-
-
-
-/* TABS */
-
-h2.inactive {
-    color: #cccccc;
-}
-
-h2.active {
-    color: #0d0d0d;
-    border-bottom: 2px solid #5fbae9;
-}
-
-
 
 /* FORM TYPOGRAPHY*/
 
 input[type=button],
 input[type=submit],
 input[type=reset] {
-    background-color: #56baed;
+    /*background-color: #56baed;*/
+    background-color: #8E2736;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -95,8 +63,8 @@ input[type=reset] {
     display: inline-block;
     text-transform: uppercase;
     font-size: 13px;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-box-shadow: 0 10px 30px 0 #7a7a7a;;
+    box-shadow: 0 10px 30px 0 #7a7a7a;;
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
     margin: 5px 20px 40px 20px;
@@ -110,7 +78,8 @@ input[type=reset] {
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover {
-    background-color: #39ace7;
+    /*background-color: #39ace7;*/
+   background-color: #8E2736;
 }
 
 input[type=button]:active,
@@ -124,7 +93,7 @@ input[type=reset]:active {
 }
 
 input{
-    background-color: #f6f6f6;
+    background-color: #d2d2d2;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
@@ -147,7 +116,7 @@ input{
 input[type=text]:focus
 input[type=password]:focus {
     background-color: #fff;
-    border-bottom: 2px solid #5fbae9;
+    border-bottom: 2px solid #7a7a7a;;
 }
 
 
@@ -156,16 +125,14 @@ input[type=password]:placeholder  {
     color: #cccccc;
 }
 
-
-
 /* ANIMATIONS */
 
 /* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
@@ -275,7 +242,7 @@ input[type=password]:placeholder  {
     bottom: -10px;
     width: 0;
     height: 2px;
-    background-color: #56baed;
+    background-color: #7a7a7a;;
     content: "";
     transition: width 0.2s;
 }
@@ -288,10 +255,7 @@ input[type=password]:placeholder  {
     width: 100%;
 }
 
-
-
 /* OTHERS */
-
 *:focus {
     outline: none;
 }

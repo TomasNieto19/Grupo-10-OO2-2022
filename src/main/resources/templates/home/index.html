@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html 
-xmlns:th="http://www.thymeleaf.org"
-xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <!-- HEAD -->
-<header th:replace="template/plantilla :: head"></header>
+<head th:replace="template/plantilla :: head"></head>
+<link rel="stylesheet" th:href="@{/css/plantilla.css}">
+<title>UNLa - Inicio</title>
 <!-- HEAD -->
 
 
-<body style="background-color: rgb(86, 101, 115);">
+<body>
 
 
     <!-- NAVBAR -->
@@ -18,14 +18,14 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
     <!-- CONTENIDO -->
-    <div class="container" style="height: 100%; width: 100%;">
+    <div class="container">
         <!-- VISTA DEL ADMINISTRADOR -->
         <div class="row justify-content-center align-items-center" sec:authorize="isAuthenticated()"
             th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
             <!-- ASIGNAR ESPACIOS -->
             <div class="col-4">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
-                    <img class="card-img-top" th:src="@{/images/molinos.jpg}" style="width: 100%; height: 100%;" />
+                    <img class="card-img-top" th:src="@{/images/Edificio.png}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
                         <h4 class="card-title" style="margin: 15px 0px 15px 0px;">
                         Espacios
@@ -39,7 +39,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <!-- VER NOTAS PEDIDO -->
             <div class="col-4">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
-                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 100%; height: 100%;" />
+                    <img class="card-img-top" th:src="@{/images/Cine.png}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
                         <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Notas
                             Pedidos</h4>
@@ -62,7 +62,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <!-- CREAR NOTA PEDIDO -->
             <div class="col-4">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
-                    <img class="card-img-top" th:src="@{/images/fondo_triangulos.jpg}"
+                    <img class="card-img-top" th:src="@{/images/Edificio.png}"
                         style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
                         <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Nota Pedido</h4>
@@ -80,7 +80,7 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
             <!-- VER NOTAS PEDIDO -->
             <div class="col-4">
                 <div class="card border-primary" style="margin-top: 50px; border-radius: 15px;">
-                    <img class="card-img-top" th:src="@{/images/Edificio.jpg}" style="width: 100%; height: 100%;" />
+                    <img class="card-img-top" th:src="@{/images/Cine.png}" style="width: 100%; height: 100%;" />
                     <div class="card-body text-center">
                         <h4 class="card-title" style="margin: 15px 0px 15px 0px;">Notas
                             Pedidos</h4>

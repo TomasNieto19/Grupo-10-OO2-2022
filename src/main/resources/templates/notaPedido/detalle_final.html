@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head >
+
+<!-- HEAD -->
+
+<head th:replace="template/plantilla :: head"></head>
+<link rel="stylesheet" th:href="@{/css/detalle.css}">
+<link rel="stylesheet" th:href="@{/css/plantilla.css}">
+<title>UNLa - Detalle Final</title>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Unla</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-	crossorigin="anonymous">
-	<link rel="stylesheet" th:href="@{/css/detalle.css}">
-</head>
-	
-<body style="background-color: rgb(86, 101, 115);">
+<!-- HEAD -->
+
+
+<body>
 
 
     <!-- NAVBAR -->
@@ -25,7 +21,6 @@
 
 
     <!-- CONTENIDO -->
-    
 		<a th:href="@{~/notaPedido/finales}"><button class="boton">Volver</button></a>
 
         <h2 class="titulo">Asignar un espacio al final</h2>
@@ -93,21 +88,14 @@
 					</tr>
 				</tbody>
 			</table>
-		
        </section>
-    
     <!-- CONTENIDO -->
 
 
-    
+    <!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+    <!-- FOOTER -->
 
-
-    <script type="text/javascript">
-        function clearSearch() {
-            window.location = "[[@{/notaPedido/cursadas}]]";
-        }
-    </script>
-	
 
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>
@@ -115,4 +103,5 @@
 
 
 </body>
+
 </html>

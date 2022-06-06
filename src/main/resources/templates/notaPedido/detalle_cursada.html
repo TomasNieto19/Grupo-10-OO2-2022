@@ -1,22 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head >
+
+<!-- HEAD -->
+
+<head th:replace="template/plantilla :: head"></head>
+<link rel="stylesheet" th:href="@{/css/detalle.css}">
+<link rel="stylesheet" th:href="@{/css/plantilla.css}">
+<title>UNLa - Detalle Cursada</title>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Unla</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-	crossorigin="anonymous">
-	<link rel="stylesheet" th:href="@{/css/detalle.css}">
-</head>
-	
-<body style="background-color: rgb(86, 101, 115);">
+<!-- HEAD -->
+
+
+<body>
 
 
     <!-- NAVBAR -->
@@ -25,94 +21,103 @@
 
 
     <!-- CONTENIDO -->
-    
-		<a th:href="@{~/notaPedido/cursadas}"><button class="boton">Volver</button></a>
+    <a th:href="@{~/notaPedido/cursadas}"><button class="boton">Volver</button></a>
 
-        <h2 class="titulo">Asignar espacios a la cursada</h2>
-        
-        <section class="main">
-	        
-	        <div class="descripcion">
-	        
-		        <ul class="lista">
-		        	<li><p><b>Materia:</b> <span th:text="${curso.materia.materia}"></span></p></li>
-		        	<li><p><b>Comisión:</b> <span th:text="${curso.materia.codMateria + '-' + curso.comision}"></span></p></li>
-		  			<li><p><b>Turno:</b> <span th:text="${curso.turno}"></span></p></li>
-		 			<li><p><b>Cantidad De alumnos:</b> <span th:text="${curso.cantEstudiantes}"></span></p></li>
-		 			<li><p><b>Profesores:</b></p>
-		 				<ul class="profesores">
-		 					<li th:each="profesor : ${curso.profesores}" th:text="${profesor.apellido + ' ' + profesor.nombre}">
-		 				</ul>
-		 			</li>
-		 			<li><p><b>Aula requerida:</b> <span th:text="${ curso.aula.numero + ' de ' + curso.aula.edificio.edificio}"></span></p></li>
-		 			<li><p><b>Observaciones:</b><br><span th:text="${curso.observaciones}"></span></p></li>
-				</ul>
-				<table class="tablaFecha">
-					<thead>
-		                <tr>
-		                    <th class="tHead">Fecha Pedida</th>
-		                    <th class="tHead">Espacio Asignado</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		            	<tr th:each="fecha : ${curso.fechas}">
-		   					 <td class="tRow" th:text="${fecha.fecha}"><a></a></td>
-		   					 <span th:if="${fecha.espacioAsignado != null}">
-		   					 	<td  class="botonFecha tRow">
-		   					 		<a 
-		   					 			th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}"
-		   					 			th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}"
-		   					 		></a>
-		   					 	</td>
-		   					 </span>
-		   					 <span th:unless="${fecha.espacioAsignado != null}">
-		   					 	<td class="botonFecha tRow"><a th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}">SIN ASIGNAR</a></td>
-		   					 </span>
-						</tr>
-					</tbody>
-				</table>
-			
-			</div>
-			
-			 <table class="tabla" >
-				<thead>
-					<tr >
-						<th class="tHead">Fecha</th>
-						<th class="tHead">Libre</th>
-						<th class="tHead">Turno</th>
-						<th class="tHead">Edificio</th>
-						<th class="tHead">Numero de aula</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="e : ${espacios}">
-						<td class="tRow"><span class="" th:text="${e.fecha}"/></td>
-						<td class="tRow">
-							<span th:if="${e.libre == true}">Si</span>
-	    					<span th:unless="${e.libre == true}">No</span>
-	    				</td>
-						<td class="tRow"><span class="" th:text="${e.turno}"/></td>
-						<td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}"/></td>
-						<td class="tRow"><span class="" th:text="${e.aula.numero}"/></td>
-						<td class=""><a th:href="@{~/notaPedido/asignarEspacioCurso/{id}/{id_fecha}/{id_espacio}(id=${curso.id}, id_fecha=${fechaActual_id}, id_espacio=${e.id})}"><button class="boton">Asignar</button></a></td>
-					</tr>
-				</tbody>
-			</table>
-		
-       
-    	</section>
+    <h2 class="titulo">Asignar espacios a la cursada</h2>
+
+    <section class="main">
+
+        <div class="descripcion">
+
+            <ul class="lista">
+                <li>
+                    <p><b>Materia:</b> <span th:text="${curso.materia.materia}"></span></p>
+                </li>
+                <li>
+                    <p><b>Comisión:</b> <span th:text="${curso.materia.codMateria + '-' + curso.comision}"></span></p>
+                </li>
+                <li>
+                    <p><b>Turno:</b> <span th:text="${curso.turno}"></span></p>
+                </li>
+                <li>
+                    <p><b>Cantidad De alumnos:</b> <span th:text="${curso.cantEstudiantes}"></span></p>
+                </li>
+                <li>
+                    <p><b>Profesores:</b></p>
+                    <ul class="profesores">
+                        <li th:each="profesor : ${curso.profesores}"
+                            th:text="${profesor.apellido + ' ' + profesor.nombre}">
+                    </ul>
+                </li>
+                <li>
+                    <p><b>Aula requerida:</b> <span
+                            th:text="${ curso.aula.numero + ' de ' + curso.aula.edificio.edificio}"></span></p>
+                </li>
+                <li>
+                    <p><b>Observaciones:</b><br><span th:text="${curso.observaciones}"></span></p>
+                </li>
+            </ul>
+            <table class="tablaFecha">
+                <thead>
+                    <tr>
+                        <th class="tHead">Fecha Pedida</th>
+                        <th class="tHead">Espacio Asignado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="fecha : ${curso.fechas}">
+                        <td class="tRow" th:text="${fecha.fecha}"><a></a></td>
+                        <span th:if="${fecha.espacioAsignado != null}">
+                            <td class="botonFecha tRow">
+                                <a th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}"
+                                    th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}"></a>
+                            </td>
+                        </span>
+                        <span th:unless="${fecha.espacioAsignado != null}">
+                            <td class="botonFecha tRow"><a
+                                    th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}">SIN
+                                    ASIGNAR</a></td>
+                        </span>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th class="tHead">Fecha</th>
+                    <th class="tHead">Libre</th>
+                    <th class="tHead">Turno</th>
+                    <th class="tHead">Edificio</th>
+                    <th class="tHead">Numero de aula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="e : ${espacios}">
+                    <td class="tRow"><span class="" th:text="${e.fecha}" /></td>
+                    <td class="tRow">
+                        <span th:if="${e.libre == true}">Si</span>
+                        <span th:unless="${e.libre == true}">No</span>
+                    </td>
+                    <td class="tRow"><span class="" th:text="${e.turno}" /></td>
+                    <td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}" /></td>
+                    <td class="tRow"><span class="" th:text="${e.aula.numero}" /></td>
+                    <td class=""><a
+                            th:href="@{~/notaPedido/asignarEspacioCurso/{id}/{id_fecha}/{id_espacio}(id=${curso.id}, id_fecha=${fechaActual_id}, id_espacio=${e.id})}"><button
+                                class="boton">Asignar</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
     <!-- CONTENIDO -->
 
 
-    
+    <!-- FOOTER -->
+    <footer th:replace="template/plantilla :: footer"></footer>
+    <!-- FOOTER -->
 
-
-    <script type="text/javascript">
-        function clearSearch() {
-            window.location = "[[@{/notaPedido/cursadas}]]";
-        }
-    </script>
-	
 
     <!-- BOOSTRAP CORE JS -->
     <div th:replace="template/plantilla :: scripts"></div>
@@ -120,4 +125,5 @@
 
 
 </body>
+
 </html>

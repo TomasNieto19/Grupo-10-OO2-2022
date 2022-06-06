@@ -139,7 +139,7 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, 
 UNLOCK TABLES;
 -- NOTA PEDIDO DEL TIPO CURSO
 LOCK TABLES `curso` WRITE;
-INSERT INTO `grupo-10-bdd-oo2-2022`.`curso` (`comision`, `id`) values ('8600', 1);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`curso` (`comision`, `id`) values ('01', 1);
 UNLOCK TABLES;
 -- FECHAS PARA EL CURSO
 LOCK TABLES `fecha` WRITE;
@@ -171,7 +171,7 @@ VALUES (2, 85, 'Aula para final escrito', true, 'T', 2, 2, true);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 3);
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (2, 4);
 -- NOTA PEDIDO DEL TIPO FINAL
-INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (12, '90', 2);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (12, '01', 2);
 
 
 -- NOTA PEDIDO FINAL
@@ -180,7 +180,7 @@ VALUES (3, 50, 'Final pocos alumnos', true, 'M', 3, 3, true);
 -- PROFESORES DE LA NOTA PEDIDO
 INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, `profesores_id`) values (3, 5);
 -- NOTA PEDIDO DEL TIPO FINAL
-INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (11, '99', 3);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`final` (`id_fecha`, `mesa`, `id`) values (11, '02', 3);
 
 
 -- NOTA PEDIDO CURSADA -- 
@@ -194,7 +194,7 @@ INSERT INTO `grupo-10-bdd-oo2-2022`.`nota_pedido_profesores` (`nota_pedido_id`, 
 UNLOCK TABLES;
 -- NOTA PEDIDO DEL TIPO CURSO
 LOCK TABLES `curso` WRITE;
-INSERT INTO `grupo-10-bdd-oo2-2022`.`curso` (`comision`, `id`) values ('8603', 4);
+INSERT INTO `grupo-10-bdd-oo2-2022`.`curso` (`comision`, `id`) values ('02', 4);
 UNLOCK TABLES;
 -- FECHAS PARA EL CURSO
 LOCK TABLES `fecha` WRITE;

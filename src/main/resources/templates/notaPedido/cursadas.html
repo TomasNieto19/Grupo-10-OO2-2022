@@ -70,7 +70,7 @@
                                 <br>
                             </th:block>
                         </td>
-                        <td th:text="${curso.comision}"></td>
+                        <td th:text="${curso.materia.codMateria + '-' + curso.comision}"></td>
                         <td>
                             <span th:if="${curso.pendiente == true}">Pendiente</span>
                             <span th:unless="${curso.pendiente == true}">Asignado</span>

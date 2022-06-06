@@ -13,4 +13,6 @@ public interface IEspacioRepository extends JpaRepository<Espacio, Integer>{
 
 	public List<Espacio> findByFechaBetween(LocalDate fechaIncial, LocalDate fechaFinal);
 	
+	
+	
 }

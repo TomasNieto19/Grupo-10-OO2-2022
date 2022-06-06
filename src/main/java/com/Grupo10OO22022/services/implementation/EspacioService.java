@@ -27,6 +27,8 @@ public class EspacioService implements IEspacioService {
 	private IAulaService aulaService;
 	
 
+	
+
 	@Override
 	public boolean agregarEspaciosParaUnDia(LocalDate fecha, Aula aula) {
 		espacioRepository.save(new Espacio(fecha, 'M', aula, true));
@@ -64,7 +66,7 @@ public class EspacioService implements IEspacioService {
 	public List<Espacio> getAll() {
 		return espacioRepository.findAll();
 	}
-
+	
 
 
 	@Override
@@ -98,6 +100,11 @@ public class EspacioService implements IEspacioService {
 				listaRemover.add(e);
 			if (!filtros.isNoche()&&e.getTurno()=='N')
 				listaRemover.add(e);
+			//filtro por aulas
+			if (!filtros.getAulas().isEmpty()) {
+				if (!filtros.getAulas().contains(e.getAula()))
+					listaRemover.add(e);
+			}
 		}
 		lista.removeAll(listaRemover);
 		return lista;
@@ -116,5 +123,9 @@ public class EspacioService implements IEspacioService {
 	public void modificarEspacio(Espacio e) {
 		espacioRepository.save(e);
 	}
+
+
+
+	
 	
 }

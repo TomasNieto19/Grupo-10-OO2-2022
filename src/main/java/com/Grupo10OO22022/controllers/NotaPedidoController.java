@@ -194,6 +194,7 @@ public class NotaPedidoController {
 		espacio.setLibre(false);
 		espacioService.modificarEspacio(espacio);
 		notaFinal.setPendiente(false);
+		finalService.guardarFinal(notaFinal);
 		return new RedirectView("/notaPedido/detalleFinal/" + id);
 	}
 

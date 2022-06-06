@@ -70,7 +70,7 @@ body {
 .filtros {
 	
 	margin: 20px;
-	height: 400px;
+	height: 550px;
 	padding: 3px 0;
 	border-radius: 15px;
 	background-color: white;
@@ -78,8 +78,8 @@ body {
 }
 
 .filtros h2{
-	
 	text-align: center;
+	margin: 10px 0;
 }
 
 
@@ -88,22 +88,51 @@ body {
 	padding: 0;
 }
 
+.categoria{
+	margin: 20px 0 5px 0;
+	font-size: larger;
+}
+
 .linea {
-	margin: 15px 25px;
+	margin: 0 25px;
+}
+
+.aulas{
+	margin: 0 0 15px 10px;
+	padding: 5px;
+	border-radius: 10px;
+	border: solid 2px grey;
+	background-color: rgb(245,245,245);
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.aula{
+	border-radius: 5px;
+	border: solid 1px grey;
+	margin: 2px 0;
+	box-shadow: 1px 1px 3px black;
+	background-color: white;
+	
+}
+
+.aula:checked{
+	background-color: rgb(10, 138, 255);
+	color: white;
 }
 
 
 .inputFecha {
 	border-radius: 10px;
-	border: 1;
 	padding: 1px 2px;
 	box-shadow: 1px 1px 3px black;
-	border-bottom-style: solid;
+	border-width: 1px;
 	text-align: center;
+	margin-bottom: 4px;
 }
 
 .botonEnviar{
-	background-color: rgb(51,51,255);
+	background-color: rgb(10, 138, 255);
 	border-radius: 5px;
 	color: white;
 	border: 0;

@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.Grupo10OO22022.entities.Espacio;
 import com.Grupo10OO22022.helpers.EspacioFiltros;
 import com.Grupo10OO22022.helpers.ViewRouteHelper;
+import com.Grupo10OO22022.services.IAulaService;
 import com.Grupo10OO22022.services.IEspacioService;
 
 @Controller
@@ -28,6 +29,10 @@ public class EspacioController {
 	@Autowired
 	@Qualifier("espacioService")
 	private IEspacioService espacioService;
+	
+	@Autowired
+	@Qualifier("aulaService")
+	private IAulaService aulaService;
 	
 	
 	
@@ -51,6 +56,7 @@ public class EspacioController {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.ESPACIO_VER_ESPACIO);
 		mv.addObject("espacios", espacioService.getAll());
 		mv.addObject("filtros", new EspacioFiltros(null, null, true, true, true, true, true));
+		mv.addObject("listaAulas", aulaService.getAll());
 		return mv;
 	}
 	
@@ -60,6 +66,7 @@ public class EspacioController {
 		List<Espacio> lista = espacioService.traerPorFiltros(filtros);
 		mv.addObject("espacios", lista);
 		mv.addObject("filtros", filtros);
+		mv.addObject("listaAulas", aulaService.getAll());
 		return mv;
 	}
 	

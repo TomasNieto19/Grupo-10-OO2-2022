@@ -9,5 +9,4 @@ public interface IAulaService {
 	
 	public List<Aula> getAll();
 	
-	
 }

@@ -19,7 +19,7 @@ public interface IEspacioService {
 	public Espacio getById(int id);
 	
 	public List<Espacio> getAll();
-	
+		
 	public List<Espacio> getEntreFechas(LocalDate fechaInicial, LocalDate fechaFinal);
 	
 	public List<Espacio> traerPorFiltros(EspacioFiltros filtros);

@@ -17,9 +17,13 @@ public class AulaService implements IAulaService{
 	@Qualifier("aulaRepository")
 	private IAulaRepository aulaRepository;
 	
+
+	
 	@Override
 	public List<Aula> getAll() {
 		return aulaRepository.findAll();
 	}
+
+
 
 }

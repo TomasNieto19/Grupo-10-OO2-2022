@@ -9,10 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-
 import com.Grupo10OO22022.services.implementation.UserService;
-
 
 @Configuration
 @EnableWebSecurity
@@ -23,7 +20,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Qualifier("usuarioService")
 
 	private UserService usuarioService;
-
 
 	@Autowired
 	private void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -38,10 +34,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/css/*", "/images/*", "/js/*", "/vendor/bootstrap/css/*", "/vendor/jquery/*",
 						"/vendor/bootstrap/js/*")
-				.permitAll()
-				.anyRequest().authenticated().and().formLogin().loginPage("/login").loginProcessingUrl("/loginprocess")
-				.usernameParameter("username").passwordParameter("password").defaultSuccessUrl("/loginsuccess")
-				.permitAll().and().logout().logoutUrl("/logout").logoutSuccessUrl("/logout").permitAll();
+				.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login")
+				.loginProcessingUrl("/loginprocess").usernameParameter("username").passwordParameter("password")
+				.defaultSuccessUrl("/loginsuccess").permitAll().and().logout().logoutUrl("/logout")
+				.logoutSuccessUrl("/logout").permitAll();
 
 	}
 }

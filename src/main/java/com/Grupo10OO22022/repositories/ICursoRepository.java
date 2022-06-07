@@ -19,7 +19,8 @@ public interface ICursoRepository extends JpaRepository<Curso, Integer> {
 	@Query("SELECT c FROM Curso c JOIN c.fechas f WHERE c.activo = (:activo)")
 	public List<Curso> findAll(boolean activo);
 
-	// Filtra las notas de pedido activas en el sistema y si están pendientes a asignarle espacios o no
+	// Filtra las notas de pedido activas en el sistema y si están pendientes a
+	// asignarle espacios o no
 	@Query("SELECT c FROM Curso c JOIN c.fechas f WHERE c.activo = (:activo) AND c.pendiente = (:pendiente)")
 	public List<Curso> findAll(boolean activo, boolean pendiente);
 }

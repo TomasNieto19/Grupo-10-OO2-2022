@@ -11,62 +11,51 @@ import com.Grupo10OO22022.repositories.ICursoRepository;
 import com.Grupo10OO22022.services.ICursoService;
 
 @Service("cursoService")
-public class CursoService implements ICursoService{
+public class CursoService implements ICursoService {
 
-	
 	@Autowired
 	@Qualifier("cursoRepository")
 	private ICursoRepository cursoRepository;
-	
-	
-	//TRAER
-	
+
+	// TRAER
+
 	@Override
 	public List<Curso> listAll(String keyword) {
 
 		if (keyword != null) {
 
-			if( keyword.equalsIgnoreCase("Pendiente") )
+			if (keyword.equalsIgnoreCase("Pendiente"))
 				return this.cursoRepository.findAll(true, true);
-			
-			if( keyword.equalsIgnoreCase("Asignado") )
+
+			if (keyword.equalsIgnoreCase("Asignado"))
 				return this.cursoRepository.findAll(true, false);
-			
+
 			return cursoRepository.search(keyword);
 		}
 
 		return cursoRepository.findAll(true);
 	}
 
-
 	@Override
 	public Curso getById(int id) {
 		return cursoRepository.getById(id);
 	}
 
-
-	
 	// GUARDAR/MODIFICAR
-	
+
 	public Curso guardarCurso(Curso curso) {
 		return cursoRepository.save(curso);
 	}
-	
-	
-	
-	
-	
-	
 
-	//VARIOS
-	
+	// VARIOS
+
 	@Override
 	public void verificarPendiente(Curso curso) {
 		List<Fecha> fechas = new ArrayList<Fecha>(curso.getFechas());
-		int i=0;
+		int i = 0;
 		boolean completado = true;
-		while ((completado)&&(i<fechas.size())) {
-			if (fechas.get(i).getEspacioAsignado()==null)
+		while ((completado) && (i < fechas.size())) {
+			if (fechas.get(i).getEspacioAsignado() == null)
 				completado = false;
 			i++;
 		}

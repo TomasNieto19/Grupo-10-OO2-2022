@@ -123,7 +123,6 @@ public class NotaPedidoController {
 
 	// **********************ASIGNAR ESPACIOS *******************************
 
-	
 	@GetMapping("/detalleCursada/{id}")
 	public ModelAndView detallarCursada(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView(ViewRouteHelper.NOTA_PEDIDO_DETALLE_CURSADA);
@@ -210,8 +209,8 @@ public class NotaPedidoController {
 		// Oculto de la vista, pero sigue estando en la base de datos
 		Curso curso = cursoService.getById(id);
 		curso.setActivo(false);
-		for(Fecha fecha: curso.getFechas()) {
-			if(fecha.getEspacioAsignado()!=null) {
+		for (Fecha fecha : curso.getFechas()) {
+			if (fecha.getEspacioAsignado() != null) {
 				fecha.getEspacioAsignado().setLibre(true);
 				fecha.setEspacioAsignado(null);
 				fechaService.guardar(fecha);
@@ -226,8 +225,8 @@ public class NotaPedidoController {
 	public String eliminarFinalSeleccionado(@PathVariable("id") int id) {
 		Final finalAux = finalService.getById(id);
 		finalAux.setActivo(false);
-		
-		if(finalAux.getFecha().getEspacioAsignado()!=null) {
+
+		if (finalAux.getFecha().getEspacioAsignado() != null) {
 			finalAux.getFecha().getEspacioAsignado().setLibre(true);
 			finalAux.getFecha().setEspacioAsignado(null);
 			fechaService.guardar(finalAux.getFecha());
@@ -286,9 +285,9 @@ public class NotaPedidoController {
 	@PreAuthorize("hasAuthority('auditoria')")
 	@PostMapping("/guardarFinal")
 	public String guardarFinales(@ModelAttribute("final") FinalModel f) {
-		
+
 		finalService.guardarFinal(modelMapper.map(f, Final.class));
-		
+
 		return "redirect:/notaPedido/finales";
 	}
 }

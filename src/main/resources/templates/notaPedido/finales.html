@@ -3,6 +3,7 @@
 
 
 <!-- HEAD -->
+
 <head th:replace="template/plantilla :: head"></head>
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
 <link rel="stylesheet" th:href="@{/css/tablas.css}">
@@ -78,13 +79,13 @@
                             </a>
                         </td>
                         <td sec:authorize="hasAuthority('auditoria')">
-                          <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleFinal/{id}(id=${final.id})}" th:text="'Ver'"
-                              title="Ver detalle">
-                          </a>
-                          <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarFinal/{id}(id=${final.id})}" th:text="'Eliminar'"
-                              title="Eliminar Nota Pedido"
-                              onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
-                          </a>
+                            <a class="btn btn-success btn-sm" th:href="@{/notaPedido/detalleFinal/{id}(id=${final.id})}"
+                                th:text="'Ver'" title="Ver detalle">
+                            </a>
+                            <a class="btn btn-danger btn-sm" th:href="@{/notaPedido/eliminarFinal/{id}(id=${final.id})}"
+                                th:text="'Eliminar'" title="Eliminar Nota Pedido"
+                                onclick="return confirm('Esta seguro de eliminar la Nota Pedido?');">
+                            </a>
                         </td>
                     </tr>
                 </tbody>

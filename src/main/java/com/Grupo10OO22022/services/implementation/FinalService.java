@@ -13,23 +13,23 @@ public class FinalService implements IFinalService {
 	private IFinalRepository repositorio;
 
 	// TRAER
-	
+
 	@Override
 	public List<Final> listaDeFinales() {
 		return repositorio.findAll();
 	}
-	
+
 	@Override
 	public List<Final> listAll(String keyword) {
 
 		if (keyword != null) {
 
-			if( keyword.equalsIgnoreCase("Pendiente") )
+			if (keyword.equalsIgnoreCase("Pendiente"))
 				return this.repositorio.findAll(true, true);
-			
-			if( keyword.equalsIgnoreCase("Asignado") )
+
+			if (keyword.equalsIgnoreCase("Asignado"))
 				return this.repositorio.findAll(true, false);
-			
+
 			return repositorio.search(keyword);
 		}
 
@@ -38,9 +38,9 @@ public class FinalService implements IFinalService {
 
 	@Override
 	public Final getById(int id) {
-		return repositorio.getById(id) ;
+		return repositorio.getById(id);
 	}
-	
+
 	// GUARDAR/MODIFICAR/ELIMINAR
 
 	@Override
@@ -48,13 +48,10 @@ public class FinalService implements IFinalService {
 
 		return repositorio.save(f);
 	}
-	
 
 	@Override
 	public void eliminarFinal(int id) {
 		repositorio.deleteById(id);
 	}
-
-	
 
 }

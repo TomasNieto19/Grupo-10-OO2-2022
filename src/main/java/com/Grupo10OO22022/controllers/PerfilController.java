@@ -18,17 +18,15 @@ public class PerfilController {
 	@Autowired
 	@Qualifier("perfilService")
 	private IPerfilService perfilService;
-	
-	
+
 	@GetMapping("/")
 	public ModelAndView index() {
-		
+
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.PERFIL_INDEX);
-		
-		mAV.addObject("perfiles", perfilService.getAll() );
-		
+
+		mAV.addObject("perfiles", perfilService.getAll());
+
 		return mAV;
 	}
-
 
 }

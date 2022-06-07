@@ -3,6 +3,7 @@
 
 
 <!-- HEAD -->
+
 <head th:replace="template/plantilla :: head"></head>
 <link rel="stylesheet" th:href="@{/css/crearEspacios.css}">
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
@@ -21,19 +22,19 @@
 
     <!-- CONTENIDO -->
     <div class="formulario">
-	    <form action="#" th:action="@{add}" method="get">
-	        <ul class="listaForm">
-	            <li class="linea fecha">
-	                <label for="fecha_inicial"><b>Fecha inicial del cuatrimestre:</b></label>
-	                <input class="inputFecha" type="date" name="fecha_inicial" id="fecha_inicial">
-	            </li>
-	            <li class="linea fecha">
-	                <label for="fecha_final"><b>Fecha final del cuatrimestre:</b></label>
-	                <input class="inputFecha" type="date" name="fecha_final" id="fecha_final">
-	            </li>
-	            <li class="linea"><input type="submit" class="botonEnviar"></li>
-	        </ul>
-	    </form>
+        <form action="#" th:action="@{add}" method="get">
+            <ul class="listaForm">
+                <li class="linea fecha">
+                    <label for="fecha_inicial"><b>Fecha inicial del cuatrimestre:</b></label>
+                    <input class="inputFecha" type="date" name="fecha_inicial" id="fecha_inicial">
+                </li>
+                <li class="linea fecha">
+                    <label for="fecha_final"><b>Fecha final del cuatrimestre:</b></label>
+                    <input class="inputFecha" type="date" name="fecha_final" id="fecha_final">
+                </li>
+                <li class="linea"><input type="submit" class="botonEnviar"></li>
+            </ul>
+        </form>
     </div>
 
     <div th:if="${espaciosAgregados}">

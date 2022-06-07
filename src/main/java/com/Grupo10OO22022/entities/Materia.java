@@ -9,36 +9,34 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "materia")
-public class Materia { 
-	
+public class Materia {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "materia")
 	private String materia;
-	
+
 	@Column(name = "codigo")
 	private String codMateria;
-	
+
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="id_carrera", nullable=true)
+	@JoinColumn(name = "id_carrera", nullable = true)
 	private Carrera carrera;
 
-	
 	public Materia(String materia, Carrera carrera) {
 		this.materia = materia;
 		this.carrera = carrera;
 	}
-	
-	
-	
+
 }

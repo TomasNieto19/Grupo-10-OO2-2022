@@ -3,7 +3,6 @@
 
 
 <!-- HEAD -->
-
 <head th:replace="template/plantilla :: head"></head>
 <link rel="stylesheet" th:href="@{/css/detalle.css}">
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
@@ -22,7 +21,7 @@
 
     <!-- CONTENIDO -->
     <a th:href="@{~/notaPedido/cursadas}"><button class="boton">Volver</button></a>
-	
+
     <h2 class="titulo" sec:authorize="hasAuthority('administrador')">Asignar espacios a la cursada</h2>
 
     <section class="main">
@@ -69,24 +68,25 @@
                         <td class="tRow" th:text="${fecha.fecha}"><a></a></td>
                         <span th:if="${fecha.espacioAsignado != null}">
                             <td class="botonFecha tRow">
-                                <a sec:authorize="hasAuthority('administrador')" th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}"
+                                <a sec:authorize="hasAuthority('administrador')"
+                                    th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}"
                                     th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}">
-                               	</a>
-                               	<span sec:authorize="hasAuthority('auditoria')"
+                                </a>
+                                <span sec:authorize="hasAuthority('auditoria')"
                                     th:text="${fecha.espacioAsignado.aula.numero + ' de ' + fecha.espacioAsignado.aula.edificio.edificio}">
-                               	</span>
+                                </span>
                             </td>
                         </span>
                         <span th:unless="${fecha.espacioAsignado != null}">
                             <td class="botonFecha tRow">
-                            	<a sec:authorize="hasAuthority('administrador')"
+                                <a sec:authorize="hasAuthority('administrador')"
                                     th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}">SIN
                                     ASIGNAR
-                               </a>
-                               <span sec:authorize="hasAuthority('auditoria')"
+                                </a>
+                                <span sec:authorize="hasAuthority('auditoria')"
                                     th:href="@{~/notaPedido/traerEspacios/{id}/{id_fecha}(id=${curso.id}, id_fecha=${fecha.id})}">SIN
                                     ASIGNAR
-                               </span>
+                                </span>
                             </td>
                         </span>
                     </tr>

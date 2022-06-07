@@ -3,18 +3,17 @@ package com.Grupo10OO22022.helpers;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.format.annotation.DateTimeFormat;
-
 import com.Grupo10OO22022.entities.Aula;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class EspacioFiltros {
-	
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaInicial;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -24,9 +23,8 @@ public class EspacioFiltros {
 	private boolean maniana;
 	private boolean tarde;
 	private boolean noche;
-	private List<Aula> aulas = new ArrayList<Aula>(); 
-	
-	
+	private List<Aula> aulas = new ArrayList<Aula>();
+
 	public EspacioFiltros(LocalDate fechaInicial, LocalDate fechaFinal, boolean libre, boolean ocupado, boolean maniana,
 			boolean tarde, boolean noche) {
 		super();
@@ -38,7 +36,5 @@ public class EspacioFiltros {
 		this.tarde = tarde;
 		this.noche = noche;
 	}
-	
-	
 
 }

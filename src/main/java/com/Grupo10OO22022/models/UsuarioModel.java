@@ -6,22 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UsuarioModel {
 
-
 	private int idUsuario;
-	
+
 	private String nombre;
-	
+
 	private String apellido;
-	
+
 	private long dni;
-	
+
 	private String email;
-	
+
 	private String nombreUsuario;
-	
+
 	private Perfil perfil;
-	
+
 }

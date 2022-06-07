@@ -3,6 +3,7 @@
 
 
 <!-- HEAD -->
+
 <head th:replace="template/plantilla :: head"></head>
 <meta charset="utf-8" />
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
@@ -20,94 +21,103 @@
 
     <!-- CONTENIDO -->
     <div class="container">
-        <div class="row" style="margin-top: 15px;" >
-			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-				<h3 class="text-center">Registrar cursada</h3>
-				<div class="card-body">
-					<form action="#" th:action="@{guardar}" th:object="${curso}" method="post">
-						<div class="form-group">
-							<label>Turno: </label>
-							<select th:field="*{turno}" class="form-control">
-								<option value="M" label="M" />
-								<option value="T" label="T" />
-								<option value="N" label="N" />
-							</select>
-						</div>
-						<br>
-						<div class="form-group">
-							<label>Aula: </label>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h3 class="text-center">Registrar cursada</h3>
+                <div class="card-body">
+                    <form action="#" th:action="@{guardar}" th:object="${curso}" method="post">
+                        <div class="form-group">
+                            <label>Turno: </label>
+                            <select th:field="*{turno}" class="form-control">
+                                <option value="M" label="M" />
+                                <option value="T" label="T" />
+                                <option value="N" label="N" />
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Aula: </label>
 
-							<select th:field="*{aula}" class="form-control">
-								<th:block th:each="aula: ${listaAulas}">
-									<option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}"></option>
-								</th:block>
-							</select>
+                            <select th:field="*{aula}" class="form-control">
+                                <th:block th:each="aula: ${listaAulas}">
+                                    <option th:text="${aula.edificio.edificio +' '+ aula.numero}" th:value="${aula.id}">
+                                    </option>
+                                </th:block>
+                            </select>
 
-						</div>
-						<br>
-						<div class="form-group">
-							<label>Cantidad de estudiantes: </label>
-							<input type="text" th:field="*{cantEstudiantes}" class="form-control" placeholder="Agregar cantidad de estudiantes">
-						</div>
-						<br>
-						<div class="form-group">
-							<label class="form-label">Materia: </label>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Cantidad de estudiantes: </label>
+                            <input type="text" th:field="*{cantEstudiantes}" class="form-control"
+                                placeholder="Agregar cantidad de estudiantes">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Materia: </label>
 
-							<select th:field="*{materia}" class="form-control">
-								<th:block th:each="materia: ${listaMaterias}">
-									<option th:text="${materia.materia}" th:value="${materia.id}"></option>
-								</th:block>
-							</select>
+                            <select th:field="*{materia}" class="form-control">
+                                <th:block th:each="materia: ${listaMaterias}">
+                                    <option th:text="${materia.materia}" th:value="${materia.id}"></option>
+                                </th:block>
+                            </select>
 
-						</div>
-						<br>
-						<div class="form-group">
-							<label class="form-label">Observaciones: </label>
-							<input type="text" th:field="*{observaciones}" class="form-control" placeholder="Agregar observaciones">
-						</div>
-						<br>
-						<div class="form-group">
-							<label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Observaciones: </label>
+                            <input type="text" th:field="*{observaciones}" class="form-control"
+                                placeholder="Agregar observaciones">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label>
 
-							<select th:field="*{profesores}" class="form-control" multiple="multiple" required="required">
-								<th:block th:each="profesor: ${listaProfesores}">
-									<option th:text="${profesor.nombre + ' ' + profesor.apellido}" th:value="${profesor.id}"></option>
-								</th:block>
-							</select>
+                            <select th:field="*{profesores}" class="form-control" multiple="multiple"
+                                required="required">
+                                <th:block th:each="profesor: ${listaProfesores}">
+                                    <option th:text="${profesor.nombre + ' ' + profesor.apellido}"
+                                        th:value="${profesor.id}"></option>
+                                </th:block>
+                            </select>
 
-						</div>
-						<br>
-						<div class="card-body">
+                        </div>
+                        <br>
+                        <div class="card-body">
 
-							<div class="form-group">
-								<label class="form-label">Seleccione las fechas: </label>
+                            <div class="form-group">
+                                <label class="form-label">Seleccione las fechas: </label>
 
-								<table>
-								<tbody>
-               						<tr th:each="fecha, itemStat : *{fechas}">
-                   						<td><input type="date" th:field="*{fechas[__${itemStat.index}__].fecha}" /></td>
-              						</tr>
-            					</tbody>
-								</table>
-								<button type="submit" name="accion" value="agregar" class="btn btn-primary">Agregar nueva fecha</button>
+                                <table>
+                                    <tbody>
+                                        <tr th:each="fecha, itemStat : *{fechas}">
+                                            <td><input type="date" th:field="*{fechas[__${itemStat.index}__].fecha}" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button type="submit" name="accion" value="agregar" class="btn btn-primary">Agregar
+                                    nueva fecha</button>
 
-							</div>
-						<br>
-						</div>
-						<br>
-						<div class="form-group">
-							<label class="form-label">Comision: </label>
-							<input type="text" th:field="*{comision}" class="form-control" placeholder="Agregar comision">
-						</div>
-						<br>
-						<button type="submit" name="accion" value="guardar" class="btn btn-primary">Guardar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label class="form-label">Comision: </label>
+                            <input type="text" th:field="*{comision}" class="form-control"
+                                placeholder="Agregar comision">
+                        </div>
+                        <br>
+                        <button type="submit" name="accion" value="guardar" class="btn btn-primary">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- CONTENIDO -->
-    
-    
+
+
 </body>
+
 </html>

@@ -3,6 +3,7 @@
 
 
 <!-- HEAD -->
+
 <head th:replace="template/plantilla :: head"></head>
 <meta charset="utf-8" />
 <link rel="stylesheet" th:href="@{/css/plantilla.css}">
@@ -20,7 +21,7 @@
 
     <!-- CONTENIDO -->
     <div class="container">
-        <div class="row" style="margin-top: 15px;" >
+        <div class="row" style="margin-top: 15px;">
             <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
                 <h3 class="text-center">Registrar final</h3>
                 <div class="card-body">
@@ -65,8 +66,9 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label> <select
-                                th:field="*{profesores}" class="form-control" multiple="multiple" required="required">
+                            <label class="form-label">Selecciones los docentes: (selección multiple con Ctrl)</label>
+                            <select th:field="*{profesores}" class="form-control" multiple="multiple"
+                                required="required">
                                 <th:block th:each="profesor: ${listaProfesores}">
                                     <option th:text="${profesor.nombre + ' ' + profesor.apellido}"
                                         th:value="${profesor.id}"></option>

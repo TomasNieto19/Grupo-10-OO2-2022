@@ -21,75 +21,94 @@
 
 
     <!-- CONTENIDO -->
-		<a th:href="@{~/notaPedido/finales}"><button class="boton">Volver</button></a>
+    <a th:href="@{~/notaPedido/finales}"><button class="boton">Volver</button></a>
 
-        <h2 class="titulo" sec:authorize="hasAuthority('administrador')">Asignar un espacio al final</h2>
-        
-        <section class="main">
-		        
-		    <div class="descripcion">
-	        
-		        <ul class="lista">
-		        	<li><p><b>Materia:</b> <span th:text="${final.materia.materia}"></span></p></li>
-		        	<li><p><b>Mesa:</b> <span th:text="${final.materia.codMateria + '-' + final.mesa}"></span></p></li>
-		  			<li><p><b>Turno:</b> <span th:text="${final.turno}"></span></p></li>
-		 			<li><p><b>Cantidad De alumnos:</b> <span th:text="${final.cantEstudiantes}"></span></p></li>
-		 			<li><p><b>Profesores:</b></p>
-		 				<ul class="profesores">
-		 					<li th:each="profesor : ${final.profesores}" th:text="${profesor.apellido + ' ' + profesor.nombre}">
-		 				</ul>
-		 			</li>
-		 			<li><p><b>Aula requerida:</b> <span th:text="${ final.aula.numero + ' de ' + final.aula.edificio.edificio}"></span></p></li>
-		 			<li><p><b>Observaciones:</b><br><span th:text="${final.observaciones}"></span></p></li>
-				</ul>
-				<table class="tablaFecha">
-					<thead>
-		                <tr >
-		                    <th class="tHead">Fecha Pedida</th>
-		                    <th class="tHead">Espacio Asignado</th>
-		                </tr>
-		            </thead>
-		            <tbody>
-		            	<tr >
-		   					<td class="tRow" th:text="${final.fecha.fecha}"><a></a></td>
-		   					<span th:if="${final.fecha.espacioAsignado != null}">
-		   					 	<td  class="tRow"th:text="${final.fecha.espacioAsignado.aula.numero + ' de ' + final.fecha.espacioAsignado.aula.edificio.edificio}"></td>
-		   					</span>
-		   					 <span th:unless="${final.fecha.espacioAsignado != null}">
-		   					 	<td class="tRow">SIN ASIGNAR</td>
-		   					</span>
-						</tr>
-					</tbody>
-				</table>
-			
-			</div>
-			
-			 <table class="tabla" sec:authorize="isAuthenticated()"
-            	th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
-				<thead>
-					<tr >
-						<th class="tHead">Fecha</th>
-						<th class="tHead">Libre</th>
-						<th class="tHead">Turno</th>
-						<th class="tHead">Edificio</th>
-						<th class="tHead">Numero de aula</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="e : ${espacios}">
-						<td class="tRow"><span class="" th:text="${e.fecha}"/></td>
-						<td class="tRow">
-							<span th:if="${e.libre == true}">Si</span>
-	    					<span th:unless="${e.libre == true}">No</span>
-	    				</td>
-						<td class="tRow"><span class="" th:text="${e.turno}"/></td>
-						<td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}"/></td>
-						<td class="tRow"><span class="" th:text="${e.aula.numero}"/></td>
-						<td class=""><a th:href="@{~/notaPedido/asignarEspacioFinal/{id}/{id_espacio}(id=${final.id}, id_espacio=${e.id})}"><button class="boton">Asignar</button></a></td>
-					</tr>
-				</tbody>
-			</table>
-       </section>
+    <h2 class="titulo" sec:authorize="hasAuthority('administrador')">Asignar un espacio al final</h2>
+
+    <section class="main">
+
+        <div class="descripcion">
+
+            <ul class="lista">
+                <li>
+                    <p><b>Materia:</b> <span th:text="${final.materia.materia}"></span></p>
+                </li>
+                <li>
+                    <p><b>Mesa:</b> <span th:text="${final.materia.codMateria + '-' + final.mesa}"></span></p>
+                </li>
+                <li>
+                    <p><b>Turno:</b> <span th:text="${final.turno}"></span></p>
+                </li>
+                <li>
+                    <p><b>Cantidad De alumnos:</b> <span th:text="${final.cantEstudiantes}"></span></p>
+                </li>
+                <li>
+                    <p><b>Profesores:</b></p>
+                    <ul class="profesores">
+                        <li th:each="profesor : ${final.profesores}"
+                            th:text="${profesor.apellido + ' ' + profesor.nombre}">
+                    </ul>
+                </li>
+                <li>
+                    <p><b>Aula requerida:</b> <span
+                            th:text="${ final.aula.numero + ' de ' + final.aula.edificio.edificio}"></span></p>
+                </li>
+                <li>
+                    <p><b>Observaciones:</b><br><span th:text="${final.observaciones}"></span></p>
+                </li>
+            </ul>
+            <table class="tablaFecha">
+                <thead>
+                    <tr>
+                        <th class="tHead">Fecha Pedida</th>
+                        <th class="tHead">Espacio Asignado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tRow" th:text="${final.fecha.fecha}"><a></a></td>
+                        <span th:if="${final.fecha.espacioAsignado != null}">
+                            <td class="tRow"
+                                th:text="${final.fecha.espacioAsignado.aula.numero + ' de ' + final.fecha.espacioAsignado.aula.edificio.edificio}">
+                            </td>
+                        </span>
+                        <span th:unless="${final.fecha.espacioAsignado != null}">
+                            <td class="tRow">SIN ASIGNAR</td>
+                        </span>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <table class="tabla" sec:authorize="isAuthenticated()"
+            th:if="${#authorization.expression('hasAuthority(''administrador'')')}">
+            <thead>
+                <tr>
+                    <th class="tHead">Fecha</th>
+                    <th class="tHead">Libre</th>
+                    <th class="tHead">Turno</th>
+                    <th class="tHead">Edificio</th>
+                    <th class="tHead">Numero de aula</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="e : ${espacios}">
+                    <td class="tRow"><span class="" th:text="${e.fecha}" /></td>
+                    <td class="tRow">
+                        <span th:if="${e.libre == true}">Si</span>
+                        <span th:unless="${e.libre == true}">No</span>
+                    </td>
+                    <td class="tRow"><span class="" th:text="${e.turno}" /></td>
+                    <td class="tRow"><span class="" th:text="${e.aula.edificio.edificio}" /></td>
+                    <td class="tRow"><span class="" th:text="${e.aula.numero}" /></td>
+                    <td class=""><a
+                            th:href="@{~/notaPedido/asignarEspacioFinal/{id}/{id_espacio}(id=${final.id}, id_espacio=${e.id})}"><button
+                                class="boton">Asignar</button></a></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
     <!-- CONTENIDO -->
 
 

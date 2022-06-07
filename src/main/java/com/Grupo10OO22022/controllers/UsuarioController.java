@@ -18,17 +18,15 @@ public class UsuarioController {
 	@Autowired
 	@Qualifier("usuarioService")
 	private IUsuarioService usuarioService;
-	
-	
+
 	@GetMapping("/")
 	public ModelAndView index() {
-		
+
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.USUARIO_INDEX);
-		
-		mAV.addObject("usuarios", usuarioService.getAll() );
-		
+
+		mAV.addObject("usuarios", usuarioService.getAll());
+
 		return mAV;
 	}
-
 
 }

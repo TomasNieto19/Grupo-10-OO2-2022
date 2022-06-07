@@ -9,18 +9,16 @@ import com.Grupo10OO22022.repositories.IPerfilRepository;
 import com.Grupo10OO22022.services.IPerfilService;
 
 @Service("perfilService")
-public class PerfilService implements IPerfilService{
+public class PerfilService implements IPerfilService {
 
 	@Autowired
 	@Qualifier("perfilRepository")
 	private IPerfilRepository perfilRepository;
-	
-	
+
 	@Override
 	public List<Perfil> getAll() {
 
 		return this.perfilRepository.findAll();
 	}
-
 
 }

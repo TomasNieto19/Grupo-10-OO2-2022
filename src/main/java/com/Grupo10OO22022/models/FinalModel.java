@@ -6,17 +6,17 @@ import com.Grupo10OO22022.entities.Aula;
 import com.Grupo10OO22022.entities.Fecha;
 import com.Grupo10OO22022.entities.Materia;
 import com.Grupo10OO22022.entities.Profesor;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@Getter @Setter @NoArgsConstructor
-public class FinalModel extends NotaPedidoModel{
+@Getter
+@Setter
+@NoArgsConstructor
+public class FinalModel extends NotaPedidoModel {
 
 	private Fecha fecha;
-	
+
 	private String mesa;
 
 	public FinalModel(char turno, Aula aula, int cantEstudiantes, Materia materia, String observaciones,
@@ -25,7 +25,5 @@ public class FinalModel extends NotaPedidoModel{
 		this.fecha = fecha;
 		this.mesa = mesa;
 	}
-	
-	
-	
+
 }

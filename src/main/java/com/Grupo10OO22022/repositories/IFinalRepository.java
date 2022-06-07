@@ -19,7 +19,8 @@ public interface IFinalRepository extends JpaRepository<Final, Integer> {
 	@Query("SELECT f FROM Final f JOIN f.materia m WHERE f.activo = (:activo)")
 	public List<Final> findAll(boolean activo);
 
-	// Filtra las notas de pedido activas en el sistema y si están pendientes a asignarle espacios o no
+	// Filtra las notas de pedido activas en el sistema y si están pendientes a
+	// asignarle espacios o no
 	@Query("SELECT f FROM Final f WHERE f.activo = (:activo) AND f.pendiente = (:pendiente)")
 	public List<Final> findAll(boolean activo, boolean pendiente);
 

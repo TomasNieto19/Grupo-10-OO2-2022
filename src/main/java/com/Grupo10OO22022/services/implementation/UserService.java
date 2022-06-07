@@ -19,14 +19,12 @@ import com.Grupo10OO22022.repositories.IUserRepository;
 import com.Grupo10OO22022.services.IUsuarioService;
 
 @Service("usuarioService")
-public class UserService implements UserDetailsService, IUsuarioService{
+public class UserService implements UserDetailsService, IUsuarioService {
 
 	@Autowired
 	@Qualifier("userRepository")
 	private IUserRepository userRepository;
-	
-	
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = userRepository.findByUsernameWithPerfil(username);
@@ -49,5 +47,4 @@ public class UserService implements UserDetailsService, IUsuarioService{
 		return this.userRepository.findAll();
 	}
 
-	
 }
